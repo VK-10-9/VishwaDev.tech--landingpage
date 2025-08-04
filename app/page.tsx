@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Gallery6 } from "@/components/ui/gallery6"
-import { Header1 } from "@/components/ui/header"
+import Header1 from "@/components/ui/header"
 import { HeroSection } from "@/components/ui/galaxy-interactive-hero-section"
 import Footer4Col from "@/components/ui/footer-column"
 
