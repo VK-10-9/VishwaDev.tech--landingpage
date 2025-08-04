@@ -71,6 +71,16 @@ const config: Config = {
   			mtext: 'var(--mtext)',
   			ringOffset: 'var(--ring-offset)',
   			secondaryBlack: '#212121',
+  			// New button-1 design system colors
+  			'gray-1000': 'var(--ds-gray-1000)',
+  			'gray-1000-h': 'var(--ds-gray-1000-h)',
+  			'gray-alpha-200': 'var(--ds-gray-alpha-200)',
+  			'gray-alpha-400': 'var(--ds-gray-alpha-400)',
+  			'background-100': 'var(--ds-background-100)',
+  			'red-800': 'var(--ds-red-800)',
+  			'red-900': 'var(--ds-red-900)',
+  			'amber-800': 'var(--ds-amber-800)',
+  			'amber-850': 'var(--ds-amber-850)',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -79,7 +89,9 @@ const config: Config = {
   			base: '5px'
   		},
   		boxShadow: {
-  			shadow: 'var(--shadow)'
+  			shadow: 'var(--shadow)',
+  			'focus-ring': 'var(--ds-focus-ring)',
+  			'border-small': 'var(--ds-shadow-border-small)'
   		},
   		translate: {
   			boxShadowX: '4px',
@@ -111,7 +123,8 @@ const config: Config = {
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'fade-spin': 'fade-spin 1.2s linear infinite'
   		}
   	}
   },
