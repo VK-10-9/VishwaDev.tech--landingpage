@@ -144,15 +144,17 @@ export default function HomePage() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
+                variant="default"
                 size="lg"
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold backdrop-blur-md border border-blue-500/30"
+                className="px-8 py-4 text-lg font-semibold"
               >
                 Apply to Nex10 Labs
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button
+                variant="neutral"
                 size="lg"
-                className="bg-white/10 border-white/20 text-white hover:bg-white/20 px-8 py-4 text-lg backdrop-blur-md"
+                className="px-8 py-4 text-lg"
               >
                 Learn More
               </Button>
@@ -184,15 +186,17 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
+              variant="default"
               size="lg"
-              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3"
+              className="px-8 py-3"
             >
               Get Started Today
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button
+              variant="neutral"
               size="lg"
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20 px-8 py-3 backdrop-blur-md"
+              className="px-8 py-3"
             >
               Request Subdomain
             </Button>

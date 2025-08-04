@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef } from "react"
 import { Suspense, lazy } from "react"
+import { Button } from "@/components/ui/button"
 
 const Spline = lazy(() => import("@splinetool/react-spline"))
 
@@ -56,15 +57,17 @@ function HeroContent() {
         connections, and launch their tech careers with personalized branding.
       </p>
       <div className="flex pointer-events-auto flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-3">
-        <button
-          className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300 w-full sm:w-auto border border-blue-500/30"
-          style={{ backdropFilter: "blur(8px)" }}
+        <Button
+          variant="default"
+          size="lg"
+          className="w-full sm:w-auto py-3 px-8"
         >
           Showcase Your Project
-        </button>
-        <button
-          className="pointer-events-auto bg-slate-800/50 border border-slate-600 hover:border-slate-400 text-slate-200 hover:text-white font-medium py-3 px-8 rounded-full transition duration-300 flex items-center justify-center w-full sm:w-auto"
-          style={{ backdropFilter: "blur(8px)" }}
+        </Button>
+        <Button
+          variant="neutral"
+          size="lg"
+          className="w-full sm:w-auto py-3 px-8"
         >
           <svg
             className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
@@ -79,7 +82,7 @@ function HeroContent() {
             />
           </svg>
           Watch Demo
-        </button>
+        </Button>
       </div>
     </div>
   )

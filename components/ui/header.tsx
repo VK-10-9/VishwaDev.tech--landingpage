@@ -36,7 +36,7 @@ function Header1() {
                       <>
                         <NavigationMenuLink asChild>
                           <Link href={item.href}>
-                            <Button variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
+                            <Button variant="neutral" className="text-white/80 hover:text-white hover:bg-white/10">
                               {item.title}
                             </Button>
                           </Link>
@@ -55,8 +55,9 @@ function Header1() {
                                 <p className="text-white/60 text-sm">{item.description}</p>
                               </div>
                               <Button
+                                variant="default"
                                 size="sm"
-                                className="mt-10 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white"
+                                onClick={() => console.log("Get Started clicked")}
                               >
                                 Get Started
                               </Button>
@@ -84,22 +85,35 @@ function Header1() {
           </div>
         </div>
         <div className="flex justify-end w-full gap-4">
-          <Button variant="ghost" className="hidden md:inline text-white/80 hover:text-white hover:bg-white/10">
+          <Button
+            variant="neutral"
+            className="hidden md:inline text-white/80 hover:text-white hover:bg-white/10"
+            onClick={() => console.log("Submit Project clicked")}
+          >
             Submit Project
           </Button>
           <div className="border-r border-white/20 hidden md:inline"></div>
           <Button
-            variant="outline"
-            className="bg-transparent border-white/20 text-white/80 hover:text-white hover:bg-white/10"
+            variant="neutral"
+            className="text-white/80 hover:text-white hover:bg-white/10"
+            onClick={() => console.log("Sign in clicked")}
           >
             Sign in
           </Button>
-          <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white">
+          <Button
+            variant="default"
+            onClick={() => console.log("Join Community clicked")}
+          >
             Join Community
           </Button>
         </div>
         <div className="flex w-12 shrink lg:hidden items-end justify-end">
-          <Button variant="ghost" onClick={() => setOpen(!isOpen)} className="text-white hover:bg-white/10">
+          <Button
+            variant="neutral"
+            size="icon"
+            onClick={() => setOpen(!isOpen)}
+            className="text-white hover:bg-white/10"
+          >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </Button>
           {isOpen && (
