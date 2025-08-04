@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false, // Enable ESLint during builds
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false, // Enable TypeScript error checking during builds
   },
   images: {
     unoptimized: true,
+    domains: ['placeholder.svg'], // Add allowed image domains
   },
 }
 
