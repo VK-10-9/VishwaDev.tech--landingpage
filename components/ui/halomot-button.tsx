@@ -125,7 +125,7 @@ export const HalomotButton: React.FC<HalomotButtonProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {icon && React.cloneElement(icon, { style: iconStyle })}
+      {icon && React.cloneElement(icon as React.ReactElement<any>, { style: iconStyle })}
       {inscription}
     </span>
   );
