@@ -18,34 +18,35 @@ export default function HomePage() {
       <Header1 />
 
       {/* Hero Section - Clean, Modern Design */}
-      <section className="py-20 lg:py-32 px-4">
+      <section className="pt-24 sm:pt-28 lg:pt-32 pb-16 lg:pb-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-muted border rounded-full px-6 py-3 mb-8">
-              <Star className="w-5 h-5 text-primary" />
-              <span className="text-primary font-semibold text-sm">Empowering Student Innovation</span>
+            <div className="inline-flex items-center space-x-2 bg-muted border rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+              <span className="text-primary font-semibold text-xs sm:text-sm">Empowering Student Innovation</span>
             </div>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
               Where Student
               <br />
               <span className="text-primary">Innovation Meets</span>
               <br />
               Industry Recognition
             </h1>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-2">
               Transform your academic projects into career-launching opportunities. Join a thriving community of student developers and get the visibility you deserve.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button size="lg" className="px-8 py-4 text-lg font-semibold">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4">
+              <Button size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto">
                 Get Started Today
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
-              <Button variant="neutral" size="lg" className="px-8 py-4 text-lg">
+              <Button variant="neutral" size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
                 Request Subdomain
               </Button>
             </div>
-            <div className="text-2xl font-mono bg-muted px-6 py-3 rounded-lg inline-block">
-              <span className="text-primary">yourname</span>.vishwadev.tech
+            <div className="text-lg sm:text-xl lg:text-2xl font-mono bg-muted px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-block max-w-full overflow-hidden">
+              <span className="text-primary">yourname</span><span className="hidden sm:inline">.vishwadev.tech</span>
+              <span className="sm:hidden block text-sm mt-1">.vishwadev.tech</span>
             </div>
           </div>
         </div>
@@ -55,59 +56,59 @@ export default function HomePage() {
       <StatsSection stats={stats} />
 
       {/* Introduction Section */}
-      <section className="py-20 px-4 bg-muted/30">
+      <section className="py-16 sm:py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
               Empowering the Next Generation of Developers
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed px-2">
               VishwaDev bridges the gap between student innovation and industry recognition. Our platform provides the
               tools, community, and visibility needed to transform academic projects into career-launching
               opportunities.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Globe className="w-6 h-6 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <Card className="hover:shadow-lg transition-all duration-300 p-1">
+              <CardHeader className="pb-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                  <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
-                <CardTitle>Project Showcase</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">Project Showcase</CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription>
+              <CardContent className="pt-0">
+                <CardDescription className="text-sm sm:text-base">
                   Display your projects with beautiful layouts, detailed documentation, and direct links to live demos
                   and repositories.
                 </CardDescription>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-primary" />
+            <Card className="hover:shadow-lg transition-all duration-300 p-1">
+              <CardHeader className="pb-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                  <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
-                <CardTitle>Developer Community</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">Developer Community</CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription>
+              <CardContent className="pt-0">
+                <CardDescription className="text-sm sm:text-base">
                   Connect with like-minded developers, collaborate on projects, and learn from peers across universities
                   and disciplines.
                 </CardDescription>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-primary" />
+            <Card className="hover:shadow-lg transition-all duration-300 p-1">
+              <CardHeader className="pb-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
-                <CardTitle>Personal Branding</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">Personal Branding</CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription>
+              <CardContent className="pt-0">
+                <CardDescription className="text-sm sm:text-base">
                   Get your own subdomain (name.vishwadev.tech) to create a professional online presence that stands out
                   to recruiters.
                 </CardDescription>
@@ -124,90 +125,90 @@ export default function HomePage() {
       <FeaturedProjectsSection projects={featuredProjects} />
 
       {/* Nex10 Labs Section */}
-      <section id="nex10" className="py-20 px-4">
+      <section id="nex10" className="py-16 sm:py-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-3 mb-8">
-              <Star className="w-5 h-5 text-primary" />
-              <span className="text-primary font-semibold text-sm">Nex10 Labs Initiative</span>
+            <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+              <span className="text-primary font-semibold text-xs sm:text-sm">Nex10 Labs Initiative</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 leading-tight">
               From Student Project to
               <span className="text-primary">
                 {" "}
                 Startup Success
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-2">
               Nex10 Labs is our exclusive incubation program that identifies promising student projects and provides
               mentorship, resources, and funding opportunities to transform them into viable startups. Join the next
               generation of tech entrepreneurs.
             </p>
 
             {/* Feature Cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <Card className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                    <Users className="w-6 h-6 text-primary" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+              <Card className="hover:shadow-lg transition-all duration-300 p-1">
+                <CardHeader className="pb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                    <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
-                  <CardTitle>Expert Mentorship</CardTitle>
+                  <CardTitle className="text-lg sm:text-xl">Expert Mentorship</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription>Connect with industry veterans and successful entrepreneurs</CardDescription>
+                <CardContent className="pt-0">
+                  <CardDescription className="text-sm sm:text-base">Connect with industry veterans and successful entrepreneurs</CardDescription>
                 </CardContent>
               </Card>
-              <Card className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                    <Zap className="w-6 h-6 text-primary" />
+              <Card className="hover:shadow-lg transition-all duration-300 p-1">
+                <CardHeader className="pb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                    <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
-                  <CardTitle>Funding Support</CardTitle>
+                  <CardTitle className="text-lg sm:text-xl">Funding Support</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription>Access to seed funding and investor networks</CardDescription>
+                <CardContent className="pt-0">
+                  <CardDescription className="text-sm sm:text-base">Access to seed funding and investor networks</CardDescription>
                 </CardContent>
               </Card>
-              <Card className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                    <Globe className="w-6 h-6 text-primary" />
+              <Card className="hover:shadow-lg transition-all duration-300 p-1 sm:col-span-2 md:col-span-1">
+                <CardHeader className="pb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                    <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
-                  <CardTitle>Global Network</CardTitle>
+                  <CardTitle className="text-lg sm:text-xl">Global Network</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription>Join a worldwide community of student entrepreneurs</CardDescription>
+                <CardContent className="pt-0">
+                  <CardDescription className="text-sm sm:text-base">Join a worldwide community of student entrepreneurs</CardDescription>
                 </CardContent>
               </Card>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4">
               <Button
                 variant="default"
                 size="lg"
-                className="px-8 py-4 text-lg font-semibold"
+                className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
               >
                 Apply to Nex10 Labs
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
               <Button
                 variant="neutral"
                 size="lg"
-                className="px-8 py-4 text-lg"
+                className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
               >
                 Learn More
               </Button>
             </div>
 
             {/* Success Stats */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
               {nex10Stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">
+                  <div className="text-2xl sm:text-3xl font-bold text-primary mb-1 sm:mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-muted-foreground text-sm">{stat.label}</div>
+                  <div className="text-muted-foreground text-xs sm:text-sm">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -216,26 +217,26 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-muted/30 border-y">
+      <section className="py-16 sm:py-20 px-4 bg-muted/30 border-y">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Showcase Your Innovation?</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Ready to Showcase Your Innovation?</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
             Join thousands of student developers who are building the future. Get your personalized subdomain and start
             sharing your projects with the world.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <Button
               variant="default"
               size="lg"
-              className="px-8 py-3"
+              className="px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
             >
               Get Started Today
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
             <Button
               variant="neutral"
               size="lg"
-              className="px-8 py-3"
+              className="px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
             >
               Request Subdomain
             </Button>

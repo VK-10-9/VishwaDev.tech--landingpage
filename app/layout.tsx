@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     generator: 'vishwadev.tech',
   authors: [{ name: "Disha Raikar", url: "https://disha.vishwadev.tech" },
             { name: "Vishwanath K.", url: "https://vk.vishwadev.tech" } ],
-}
+          }
 
 export default function RootLayout({
   children,

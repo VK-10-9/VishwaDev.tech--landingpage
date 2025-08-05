@@ -87,11 +87,11 @@ const Gallery6 = ({
   }, [carouselApi])
 
   return (
-    <section className="py-20">
-      <div className="container">
-        <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
+    <section className="py-12 sm:py-16 md:py-20">
+      <div className="container px-4 sm:px-6">
+        <div className="mb-6 sm:mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
           <div>
-            <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">{heading}</h2>
+            <h2 className="mb-3 text-2xl sm:text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">{heading}</h2>
             <a
               href={demoUrl}
               className="group flex items-center gap-1 text-sm font-medium text-primary hover:text-primary/80 transition-colors md:text-base lg:text-lg"
@@ -100,7 +100,7 @@ const Gallery6 = ({
               <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
-          <div className="mt-8 flex shrink-0 items-center justify-start gap-2">
+          <div className="mt-6 sm:mt-8 flex shrink-0 items-center justify-start gap-2">
             <Button
               size="icon"
               variant="neutral"
@@ -108,9 +108,9 @@ const Gallery6 = ({
                 carouselApi?.scrollPrev()
               }}
               disabled={!canScrollPrev}
-              className="disabled:pointer-events-auto"
+              className="disabled:pointer-events-auto h-10 w-10 sm:h-12 sm:w-12"
             >
-              <ArrowLeft className="size-5" />
+              <ArrowLeft className="size-4 sm:size-5" />
             </Button>
             <Button
               size="icon"
@@ -119,9 +119,9 @@ const Gallery6 = ({
                 carouselApi?.scrollNext()
               }}
               disabled={!canScrollNext}
-              className="disabled:pointer-events-auto"
+              className="disabled:pointer-events-auto h-10 w-10 sm:h-12 sm:w-12"
             >
-              <ArrowRight className="size-5" />
+              <ArrowRight className="size-4 sm:size-5" />
             </Button>
           </div>
         </div>
@@ -136,34 +136,34 @@ const Gallery6 = ({
               },
             },
           }}
-          className="relative left-[-1rem]"
+          className="relative left-[-0.5rem] sm:left-[-1rem]"
         >
-          <CarouselContent className="-mr-4 ml-8 2xl:ml-[max(8rem,calc(50vw-700px+1rem))] 2xl:mr-[max(0rem,calc(50vw-700px-1rem))]">
+          <CarouselContent className="-mr-2 ml-4 sm:-mr-4 sm:ml-8 2xl:ml-[max(8rem,calc(50vw-700px+1rem))] 2xl:mr-[max(0rem,calc(50vw-700px-1rem))]">
             {items.map((item) => (
-              <CarouselItem key={item.id} className="pl-4 md:max-w-[452px]">
+              <CarouselItem key={item.id} className="pl-2 sm:pl-4 basis-[85%] sm:basis-auto md:max-w-[452px]">
                 <a href={item.url} className="group flex flex-col justify-between">
                   <div>
-                    <div className="flex aspect-[3/2] overflow-clip rounded-xl bg-muted border hover:shadow-lg transition-all duration-300">
+                    <div className="flex aspect-[3/2] overflow-clip rounded-lg sm:rounded-xl bg-muted border hover:shadow-lg transition-all duration-300">
                       <div className="flex-1">
                         <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
                           <img
                             src={item.image || "/placeholder.svg"}
                             alt={item.title}
-                            className="h-full w-full object-cover object-center rounded-xl"
+                            className="h-full w-full object-cover object-center rounded-lg sm:rounded-xl"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg sm:rounded-xl"></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl">
+                  <div className="mb-2 line-clamp-2 sm:line-clamp-3 break-words pt-3 sm:pt-4 text-base sm:text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl">
                     {item.title}
                   </div>
-                  <div className="mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
+                  <div className="mb-6 sm:mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
                     {item.summary}
                   </div>
                   <div className="flex items-center text-sm text-primary group-hover:text-primary/80 transition-colors">
-                    Read more <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
+                    Read more <ArrowRight className="ml-2 size-4 sm:size-5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </a>
               </CarouselItem>
