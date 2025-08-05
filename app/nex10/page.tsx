@@ -172,7 +172,7 @@ export default function Nex10LabsPage() {
                   </div>
                 </div>
                 <Button 
-                  variant={program.applications === "Open" ? "default" : "outline"} 
+                  variant={program.applications === "Open" ? "default" : "neutral"} 
                   className="w-full"
                   disabled={program.applications !== "Open"}
                 >
