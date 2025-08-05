@@ -43,7 +43,7 @@ export default function AIMLProjectsPage() {
     }
   ]
 
-  const getDifficultyColor = (difficulty: string): "default" | "secondary" | "destructive" | "outline" => {
+  const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case "Beginner": return "default"
       case "Intermediate": return "secondary"
@@ -68,7 +68,7 @@ export default function AIMLProjectsPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 {project.title}
-                <Badge variant={getDifficultyColor(project.difficulty)}>
+                <Badge variant={getDifficultyColor(project.difficulty) as any}>
                   {project.difficulty}
                 </Badge>
               </CardTitle>

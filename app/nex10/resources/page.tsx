@@ -296,7 +296,7 @@ export default function ResourcesPage() {
                   </div>
                 </div>
                 <Button 
-                  variant={webinar.status === "upcoming" ? "default" : "outline"} 
+                  variant={webinar.status === "upcoming" ? "default" : "neutral"} 
                   className="w-full"
                 >
                   {webinar.status === "upcoming" ? "Register Now" : "Watch Recording"}

@@ -104,7 +104,7 @@ const Gallery6 = ({
           <div className="mt-8 flex shrink-0 items-center justify-start gap-2">
             <Button
               size="icon"
-              variant="outline"
+              variant="neutral"
               onClick={() => {
                 carouselApi?.scrollPrev()
               }}
@@ -115,7 +115,7 @@ const Gallery6 = ({
             </Button>
             <Button
               size="icon"
-              variant="outline"
+              variant="neutral"
               onClick={() => {
                 carouselApi?.scrollNext()
               }}
