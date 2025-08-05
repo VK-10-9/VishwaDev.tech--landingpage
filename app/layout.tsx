@@ -9,7 +9,9 @@ export const metadata: Metadata = {
   title: "VishwaDev - Where Student Innovation Meets the World",
   description:
     "The premier platform for student developers to showcase groundbreaking projects, build meaningful connections, and launch their tech careers with personalized branding.",
-    generator: 'v0.dev'
+    generator: 'vishwadev.tech',
+  authors: [{ name: "Disha Raikar", url: "https://disha.vishwadev.tech" },
+            { name: "Vishwanath K.", url: "https://vk.vishwadev.tech" } ],
 }
 
 export default function RootLayout({
