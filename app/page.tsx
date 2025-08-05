@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Gallery6 } from "@/components/ui/gallery6"
 import Header1 from "@/components/ui/header"
-import { HeroSection } from "@/components/ui/galaxy-interactive-hero-section"
 import Footer4Col from "@/components/ui/footer-column"
 
 // Import refactored components and data
@@ -14,25 +13,55 @@ import { stats, nex10Stats } from "@/src/constants/stats"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       {/* Header Navigation */}
       <Header1 />
 
-      {/* Galaxy Interactive Hero Section */}
-      <HeroSection />
+      {/* Hero Section - Clean, Modern Design */}
+      <section className="py-20 lg:py-32 px-4">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-2 bg-muted border rounded-full px-6 py-3 mb-8">
+              <Star className="w-5 h-5 text-primary" />
+              <span className="text-primary font-semibold text-sm">Empowering Student Innovation</span>
+            </div>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-8 leading-tight">
+              Where Student
+              <br />
+              <span className="text-primary">Innovation Meets</span>
+              <br />
+              Industry Recognition
+            </h1>
+            <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
+              Transform your academic projects into career-launching opportunities. Join a thriving community of student developers and get the visibility you deserve.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <Button size="lg" className="px-8 py-4 text-lg font-semibold">
+                Get Started Today
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button variant="neutral" size="lg" className="px-8 py-4 text-lg">
+                Request Subdomain
+              </Button>
+            </div>
+            <div className="text-2xl font-mono bg-muted px-6 py-3 rounded-lg inline-block">
+              <span className="text-primary">yourname</span>.vishwadev.tech
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Stats Section */}
       <StatsSection stats={stats} />
 
       {/* Introduction Section */}
-      <section className="py-20 px-4 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-purple-900/10"></div>
-        <div className="container mx-auto relative z-10">
+      <section className="py-20 px-4 bg-muted/30">
+        <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Empowering the Next Generation of Developers
             </h2>
-            <p className="text-lg text-white/70 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               VishwaDev bridges the gap between student innovation and industry recognition. Our platform provides the
               tools, community, and visibility needed to transform academic projects into career-launching
               opportunities.
@@ -40,45 +69,45 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300 backdrop-blur-md hover:scale-105">
+            <Card className="hover:shadow-lg transition-all duration-300">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center mb-4">
-                  <Globe className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Globe className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-white">Project Showcase</CardTitle>
+                <CardTitle>Project Showcase</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-white/70">
+                <CardDescription>
                   Display your projects with beautiful layouts, detailed documentation, and direct links to live demos
                   and repositories.
                 </CardDescription>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300 backdrop-blur-md hover:scale-105">
+            <Card className="hover:shadow-lg transition-all duration-300">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-white">Developer Community</CardTitle>
+                <CardTitle>Developer Community</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-white/70">
+                <CardDescription>
                   Connect with like-minded developers, collaborate on projects, and learn from peers across universities
                   and disciplines.
                 </CardDescription>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300 backdrop-blur-md hover:scale-105">
+            <Card className="hover:shadow-lg transition-all duration-300">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-400 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Zap className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="text-white">Personal Branding</CardTitle>
+                <CardTitle>Personal Branding</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-white/70">
+                <CardDescription>
                   Get your own subdomain (name.vishwadev.tech) to create a professional online presence that stands out
                   to recruiters.
                 </CardDescription>
@@ -95,22 +124,21 @@ export default function HomePage() {
       <FeaturedProjectsSection projects={featuredProjects} />
 
       {/* Nex10 Labs Section */}
-      <section id="nex10" className="py-20 px-4 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-black"></div>
-        <div className="container mx-auto relative z-10">
+      <section id="nex10" className="py-20 px-4">
+        <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 rounded-full px-6 py-3 mb-8 backdrop-blur-md">
-              <Star className="w-5 h-5 text-blue-400" />
-              <span className="text-blue-400 font-semibold text-sm">Nex10 Labs Initiative</span>
+            <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-3 mb-8">
+              <Star className="w-5 h-5 text-primary" />
+              <span className="text-primary font-semibold text-sm">Nex10 Labs Initiative</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
               From Student Project to
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <span className="text-primary">
                 {" "}
                 Startup Success
               </span>
             </h2>
-            <p className="text-xl text-white/70 mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
               Nex10 Labs is our exclusive incubation program that identifies promising student projects and provides
               mentorship, resources, and funding opportunities to transform them into viable startups. Join the next
               generation of tech entrepreneurs.
@@ -118,27 +146,39 @@ export default function HomePage() {
 
             {/* Feature Cards */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md hover:bg-white/10 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-white font-semibold mb-2">Expert Mentorship</h3>
-                <p className="text-white/60 text-sm">Connect with industry veterans and successful entrepreneurs</p>
-              </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md hover:bg-white/10 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Zap className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-white font-semibold mb-2">Funding Support</h3>
-                <p className="text-white/60 text-sm">Access to seed funding and investor networks</p>
-              </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md hover:bg-white/10 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Globe className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-white font-semibold mb-2">Global Network</h3>
-                <p className="text-white/60 text-sm">Join a worldwide community of student entrepreneurs</p>
-              </div>
+              <Card className="hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <CardTitle>Expert Mentorship</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>Connect with industry veterans and successful entrepreneurs</CardDescription>
+                </CardContent>
+              </Card>
+              <Card className="hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <Zap className="w-6 h-6 text-primary" />
+                  </div>
+                  <CardTitle>Funding Support</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>Access to seed funding and investor networks</CardDescription>
+                </CardContent>
+              </Card>
+              <Card className="hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <Globe className="w-6 h-6 text-primary" />
+                  </div>
+                  <CardTitle>Global Network</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>Join a worldwide community of student entrepreneurs</CardDescription>
+                </CardContent>
+              </Card>
             </div>
 
             {/* CTA Buttons */}
@@ -164,10 +204,10 @@ export default function HomePage() {
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
               {nex10Stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-2">
+                  <div className="text-3xl font-bold text-primary mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-white/60 text-sm">{stat.label}</div>
+                  <div className="text-muted-foreground text-sm">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -176,11 +216,10 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 relative border-y border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 backdrop-blur-md"></div>
-        <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Showcase Your Innovation?</h2>
-          <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
+      <section className="py-20 px-4 bg-muted/30 border-y">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Showcase Your Innovation?</h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of student developers who are building the future. Get your personalized subdomain and start
             sharing your projects with the world.
           </p>

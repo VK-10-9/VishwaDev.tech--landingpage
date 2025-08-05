@@ -87,15 +87,14 @@ const Gallery6 = ({
   }, [carouselApi])
 
   return (
-    <section className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/5 to-purple-900/5"></div>
-      <div className="container relative z-10">
+    <section className="py-20">
+      <div className="container">
         <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
           <div>
-            <h2 className="mb-3 text-3xl font-semibold text-white md:mb-4 md:text-4xl lg:mb-6">{heading}</h2>
+            <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">{heading}</h2>
             <a
               href={demoUrl}
-              className="group flex items-center gap-1 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors md:text-base lg:text-lg"
+              className="group flex items-center gap-1 text-sm font-medium text-primary hover:text-primary/80 transition-colors md:text-base lg:text-lg"
             >
               Explore All Projects
               <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -109,7 +108,7 @@ const Gallery6 = ({
                 carouselApi?.scrollPrev()
               }}
               disabled={!canScrollPrev}
-              className="disabled:pointer-events-auto bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-md"
+              className="disabled:pointer-events-auto"
             >
               <ArrowLeft className="size-5" />
             </Button>
@@ -120,7 +119,7 @@ const Gallery6 = ({
                 carouselApi?.scrollNext()
               }}
               disabled={!canScrollNext}
-              className="disabled:pointer-events-auto bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-md"
+              className="disabled:pointer-events-auto"
             >
               <ArrowRight className="size-5" />
             </Button>
@@ -144,7 +143,7 @@ const Gallery6 = ({
               <CarouselItem key={item.id} className="pl-4 md:max-w-[452px]">
                 <a href={item.url} className="group flex flex-col justify-between">
                   <div>
-                    <div className="flex aspect-[3/2] overflow-clip rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                    <div className="flex aspect-[3/2] overflow-clip rounded-xl bg-muted border hover:shadow-lg transition-all duration-300">
                       <div className="flex-1">
                         <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
                           <img
@@ -152,18 +151,18 @@ const Gallery6 = ({
                             alt={item.title}
                             className="h-full w-full object-cover object-center rounded-xl"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl"></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="mb-2 line-clamp-3 break-words pt-4 text-lg font-medium text-white md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl">
+                  <div className="mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl">
                     {item.title}
                   </div>
-                  <div className="mb-8 line-clamp-2 text-sm text-white/70 md:mb-12 md:text-base lg:mb-9">
+                  <div className="mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9">
                     {item.summary}
                   </div>
-                  <div className="flex items-center text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
+                  <div className="flex items-center text-sm text-primary group-hover:text-primary/80 transition-colors">
                     Read more <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </a>

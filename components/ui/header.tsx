@@ -18,14 +18,14 @@ function Header1() {
   const [isOpen, setOpen] = useState(false)
 
   return (
-    <header className="w-full z-40 fixed top-0 left-0 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <header className="w-full z-40 fixed top-0 left-0 bg-background/95 backdrop-blur-md border-b">
       <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:flex lg:justify-between items-center">
         <div className="flex items-center gap-6 lg:gap-8">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Code className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+              <Code className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-white">VishwaDev</span>
+            <span className="text-xl font-bold">VishwaDev</span>
           </Link>
           <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
             <NavigationMenu className="flex justify-start items-start">
@@ -36,7 +36,7 @@ function Header1() {
                       <>
                         <NavigationMenuLink asChild>
                           <Link href={item.href}>
-                            <Button variant="neutral" className="text-white/80 hover:text-white hover:bg-white/10">
+                            <Button variant="neutral" className="text-muted-foreground hover:text-foreground">
                               {item.title}
                             </Button>
                           </Link>
@@ -44,15 +44,15 @@ function Header1() {
                       </>
                     ) : (
                       <>
-                        <NavigationMenuTrigger className="font-medium text-sm text-white/80 hover:text-white bg-transparent hover:bg-white/10 data-[state=open]:bg-white/10">
+                        <NavigationMenuTrigger className="font-medium text-sm text-muted-foreground hover:text-foreground bg-transparent hover:bg-muted data-[state=open]:bg-muted">
                           {item.title}
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent className="!w-[450px] p-4 bg-black/90 backdrop-blur-md border border-white/10">
+                        <NavigationMenuContent className="!w-[450px] p-4 bg-background border">
                           <div className="flex flex-col lg:grid grid-cols-2 gap-4">
                             <div className="flex flex-col h-full justify-between">
                               <div className="flex flex-col">
-                                <p className="text-base text-white font-semibold">{item.title}</p>
-                                <p className="text-white/60 text-sm">{item.description}</p>
+                                <p className="text-base font-semibold">{item.title}</p>
+                                <p className="text-muted-foreground text-sm">{item.description}</p>
                               </div>
                               <Button
                                 variant="default"
@@ -67,10 +67,10 @@ function Header1() {
                                 <NavigationMenuLink asChild key={subItem.title}>
                                   <Link
                                     href={subItem.href}
-                                    className="flex flex-row justify-between items-center hover:bg-white/10 py-2 px-4 rounded text-white/80 hover:text-white transition-colors"
+                                    className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded text-muted-foreground hover:text-foreground transition-colors"
                                   >
                                     <span>{subItem.title}</span>
-                                    <MoveRight className="w-4 h-4 text-white/60" />
+                                    <MoveRight className="w-4 h-4 text-muted-foreground" />
                                   </Link>
                                 </NavigationMenuLink>
                               ))}
@@ -88,15 +88,15 @@ function Header1() {
         <div className="flex justify-end w-full gap-4">
           <Button
             variant="neutral"
-            className="hidden md:inline text-white/80 hover:text-white hover:bg-white/10"
+            className="hidden md:inline text-muted-foreground hover:text-foreground"
             onClick={() => console.log("Submit Project clicked")}
           >
             Submit Project
           </Button>
-          <div className="border-r border-white/20 hidden md:inline"></div>
+          <div className="border-r hidden md:inline"></div>
           <Button
             variant="neutral"
-            className="text-white/80 hover:text-white hover:bg-white/10"
+            className="text-muted-foreground hover:text-foreground"
             onClick={() => console.log("Sign in clicked")}
           >
             Sign in
@@ -113,22 +113,21 @@ function Header1() {
             variant="neutral"
             size="icon"
             onClick={() => setOpen(!isOpen)}
-            className="text-white hover:bg-white/10"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </Button>
           {isOpen && (
-            <div className="absolute top-20 border-t border-white/10 flex flex-col w-full right-0 bg-black/90 backdrop-blur-md shadow-lg py-4 container gap-8">
+            <div className="absolute top-20 border-t flex flex-col w-full right-0 bg-background shadow-lg py-4 container gap-8">
               {navigationItems.map((item) => (
                 <div key={item.title}>
                   <div className="flex flex-col gap-2">
                     {item.href ? (
                       <Link href={item.href} className="flex justify-between items-center" onClick={() => setOpen(false)}>
-                        <span className="text-lg text-white">{item.title}</span>
-                        <MoveRight className="w-4 h-4 stroke-1 text-white/60" />
+                        <span className="text-lg">{item.title}</span>
+                        <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
                       </Link>
                     ) : (
-                      <p className="text-lg text-white font-semibold">{item.title}</p>
+                      <p className="text-lg font-semibold">{item.title}</p>
                     )}
                     {item.items &&
                       item.items.map((subItem) => (
@@ -138,8 +137,8 @@ function Header1() {
                           className="flex justify-between items-center py-1"
                           onClick={() => setOpen(false)}
                         >
-                          <span className="text-white/70 hover:text-white transition-colors">{subItem.title}</span>
-                          <MoveRight className="w-4 h-4 stroke-1 text-white/60" />
+                          <span className="text-muted-foreground hover:text-foreground transition-colors">{subItem.title}</span>
+                          <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
                         </Link>
                       ))}
                   </div>
