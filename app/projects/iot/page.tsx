@@ -67,8 +67,8 @@ export default function IoTProjectsPage() {
     }
   ]
 
-  const getCategoryColor = (category: string) => {
-    const colors: { [key: string]: string } = {
+  const getCategoryColor = (category: string): "default" | "secondary" | "destructive" | "outline" => {
+    const colors: { [key: string]: "default" | "secondary" | "destructive" | "outline" } = {
       "Home Automation": "default",
       "Environment": "secondary",
       "Agriculture": "destructive",
@@ -95,7 +95,7 @@ export default function IoTProjectsPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span className="truncate">{project.title}</span>
-                <Badge variant={getCategoryColor(project.category) as any}>
+                <Badge variant={getCategoryColor(project.category)}>
                   {project.category}
                 </Badge>
               </CardTitle>
@@ -116,10 +116,10 @@ export default function IoTProjectsPage() {
                 <Button asChild size="sm">
                   <Link href={project.demo}>View Demo</Link>
                 </Button>
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="neutral" size="sm">
                   <Link href={project.github}>GitHub</Link>
                 </Button>
-                <Button asChild variant="ghost" size="sm">
+                <Button asChild variant="neutral" size="sm">
                   <Link href={project.documentation}>Docs</Link>
                 </Button>
               </div>
@@ -129,7 +129,7 @@ export default function IoTProjectsPage() {
       </div>
 
       <div className="text-center mt-12">
-        <Button asChild variant="outline">
+        <Button asChild variant="neutral">
           <Link href="/projects">← Back to All Projects</Link>
         </Button>
       </div>

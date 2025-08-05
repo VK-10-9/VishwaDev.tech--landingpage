@@ -302,12 +302,12 @@ export default function MentorsPage() {
                     <span>{mentor.rating}/5 rating</span>
                   </div>
                   <div className="flex gap-2">
-                    <Button asChild size="sm" variant="ghost">
+                    <Button asChild size="sm" variant="neutral">
                       <Link href={mentor.linkedin}>
                         <Linkedin className="h-4 w-4" />
                       </Link>
                     </Button>
-                    <Button asChild size="sm" variant="ghost">
+                    <Button asChild size="sm" variant="neutral">
                       <Link href={mentor.twitter}>
                         <Twitter className="h-4 w-4" />
                       </Link>
@@ -359,7 +359,7 @@ export default function MentorsPage() {
             <Button size="lg" asChild>
               <Link href="/nex10/apply">Apply to Nex10 Labs</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="neutral" asChild>
               <Link href="/mentorship">General Mentorship</Link>
             </Button>
           </CardContent>

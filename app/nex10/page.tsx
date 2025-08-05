@@ -89,7 +89,7 @@ export default function Nex10LabsPage() {
           <Button size="lg">
             <Link href="/nex10/apply">Apply Now</Link>
           </Button>
-          <Button size="lg" variant="outline">
+          <Button size="lg" variant="neutral">
             <Link href="/nex10/success-stories">Success Stories</Link>
           </Button>
         </div>
@@ -218,7 +218,7 @@ export default function Nex10LabsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="hover:shadow-md transition-shadow">
           <CardContent className="pt-6 text-center">
-            <Button asChild variant="ghost" className="h-auto flex-col gap-2">
+            <Button asChild variant="neutral" className="h-auto flex-col gap-2">
               <Link href="/nex10/apply">
                 <Rocket className="h-6 w-6" />
                 Apply Now
@@ -228,7 +228,7 @@ export default function Nex10LabsPage() {
         </Card>
         <Card className="hover:shadow-md transition-shadow">
           <CardContent className="pt-6 text-center">
-            <Button asChild variant="ghost" className="h-auto flex-col gap-2">
+            <Button asChild variant="neutral" className="h-auto flex-col gap-2">
               <Link href="/nex10/success-stories">
                 <TrendingUp className="h-6 w-6" />
                 Success Stories
@@ -238,7 +238,7 @@ export default function Nex10LabsPage() {
         </Card>
         <Card className="hover:shadow-md transition-shadow">
           <CardContent className="pt-6 text-center">
-            <Button asChild variant="ghost" className="h-auto flex-col gap-2">
+            <Button asChild variant="neutral" className="h-auto flex-col gap-2">
               <Link href="/nex10/resources">
                 <Target className="h-6 w-6" />
                 Resources
@@ -248,7 +248,7 @@ export default function Nex10LabsPage() {
         </Card>
         <Card className="hover:shadow-md transition-shadow">
           <CardContent className="pt-6 text-center">
-            <Button asChild variant="ghost" className="h-auto flex-col gap-2">
+            <Button asChild variant="neutral" className="h-auto flex-col gap-2">
               <Link href="/nex10/mentors">
                 <Users className="h-6 w-6" />
                 Meet Mentors

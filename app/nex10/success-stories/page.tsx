@@ -253,7 +253,7 @@ export default function SuccessStoriesPage() {
             <Button size="lg" asChild>
               <Link href="/nex10/apply">Apply Now</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="neutral" asChild>
               <Link href="/nex10">Learn More</Link>
             </Button>
           </CardContent>

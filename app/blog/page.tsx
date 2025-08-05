@@ -114,7 +114,7 @@ export default function BlogPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground mb-4">{post.excerpt}</p>
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="neutral" size="sm">
                   <Link href={`/blog/${post.slug}`}>Read More</Link>
                 </Button>
               </CardContent>
@@ -147,7 +147,7 @@ export default function BlogPage() {
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-muted-foreground">{post.publishDate}</span>
-                  <Button asChild variant="ghost" size="sm">
+                  <Button asChild variant="neutral" size="sm">
                     <Link href={`/blog/${post.slug}`}>Read →</Link>
                   </Button>
                 </div>

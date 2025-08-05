@@ -392,7 +392,7 @@ export default function Nex10ApplyPage() {
               <p className="text-sm text-muted-foreground mb-4">
                 Have questions about the application process?
               </p>
-              <Button variant="outline" size="sm" className="w-full">
+              <Button variant="neutral" size="sm" className="w-full">
                 Contact Support
               </Button>
             </CardContent>

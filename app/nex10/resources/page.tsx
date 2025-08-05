@@ -246,7 +246,7 @@ export default function ResourcesPage() {
                         </Badge>
                         <span className="text-sm font-medium">{resource.name}</span>
                       </div>
-                      <Button asChild size="sm" variant="ghost">
+                      <Button asChild size="sm" variant="neutral">
                         <Link href={resource.url}>
                           <Download className="h-4 w-4" />
                         </Link>
@@ -333,7 +333,7 @@ export default function ResourcesPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="neutral" className="w-full">
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Access Tool
                   </Button>
@@ -358,7 +358,7 @@ export default function ResourcesPage() {
             <Button size="lg" asChild>
               <Link href="/nex10/apply">Apply to Nex10 Labs</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="neutral" asChild>
               <Link href="/nex10">Learn More</Link>
             </Button>
           </CardContent>

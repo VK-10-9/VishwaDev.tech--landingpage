@@ -72,7 +72,7 @@ export default function FeaturedProjectsPage() {
                 <Button asChild size="sm">
                   <Link href={project.demo}>View Demo</Link>
                 </Button>
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="neutral" size="sm">
                   <Link href={project.github}>GitHub</Link>
                 </Button>
               </div>
@@ -82,7 +82,7 @@ export default function FeaturedProjectsPage() {
       </div>
 
       <div className="text-center mt-12">
-        <Button asChild variant="outline">
+        <Button asChild variant="neutral">
           <Link href="/projects">← Back to All Projects</Link>
         </Button>
       </div>

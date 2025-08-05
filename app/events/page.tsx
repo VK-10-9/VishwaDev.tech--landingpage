@@ -168,7 +168,7 @@ export default function EventsPage() {
                     <span>{event.attendees} attendees</span>
                   </div>
                 </div>
-                <Button asChild variant="outline" size="sm" className="w-full">
+                <Button asChild variant="neutral" size="sm" className="w-full">
                   <Link href={event.recording}>View Recording</Link>
                 </Button>
               </CardContent>

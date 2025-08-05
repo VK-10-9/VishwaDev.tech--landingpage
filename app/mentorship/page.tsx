@@ -182,7 +182,7 @@ export default function MentorshipPage() {
                     <span>{track.level}</span>
                   </div>
                 </div>
-                <Button variant="outline" className="w-full">
+                <Button variant="neutral" className="w-full">
                   Learn More
                 </Button>
               </CardContent>

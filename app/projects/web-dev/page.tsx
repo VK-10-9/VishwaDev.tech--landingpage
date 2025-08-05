@@ -67,7 +67,7 @@ export default function WebDevProjectsPage() {
     }
   ]
 
-  const getTypeColor = (type: string) => {
+  const getTypeColor = (type: string): "default" | "secondary" | "destructive" | "outline" => {
     switch (type) {
       case "Frontend": return "default"
       case "Backend": return "secondary"
@@ -92,7 +92,7 @@ export default function WebDevProjectsPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span className="truncate">{project.title}</span>
-                <Badge variant={getTypeColor(project.type) as any}>
+                <Badge variant={getTypeColor(project.type)}>
                   {project.type}
                 </Badge>
               </CardTitle>
@@ -113,7 +113,7 @@ export default function WebDevProjectsPage() {
                 <Button asChild size="sm">
                   <Link href={project.liveUrl}>Live Site</Link>
                 </Button>
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="neutral" size="sm">
                   <Link href={project.github}>GitHub</Link>
                 </Button>
               </div>
@@ -123,7 +123,7 @@ export default function WebDevProjectsPage() {
       </div>
 
       <div className="text-center mt-12">
-        <Button asChild variant="outline">
+        <Button asChild variant="neutral">
           <Link href="/projects">← Back to All Projects</Link>
         </Button>
       </div>
