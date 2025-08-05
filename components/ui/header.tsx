@@ -64,13 +64,14 @@ function Header1() {
                             </div>
                             <div className="flex flex-col text-sm h-full justify-end">
                               {item.items?.map((subItem) => (
-                                <NavigationMenuLink
-                                  href={subItem.href}
-                                  key={subItem.title}
-                                  className="flex flex-row justify-between items-center hover:bg-white/10 py-2 px-4 rounded text-white/80 hover:text-white transition-colors"
-                                >
-                                  <span>{subItem.title}</span>
-                                  <MoveRight className="w-4 h-4 text-white/60" />
+                                <NavigationMenuLink asChild key={subItem.title}>
+                                  <Link
+                                    href={subItem.href}
+                                    className="flex flex-row justify-between items-center hover:bg-white/10 py-2 px-4 rounded text-white/80 hover:text-white transition-colors"
+                                  >
+                                    <span>{subItem.title}</span>
+                                    <MoveRight className="w-4 h-4 text-white/60" />
+                                  </Link>
                                 </NavigationMenuLink>
                               ))}
                             </div>
@@ -122,7 +123,7 @@ function Header1() {
                 <div key={item.title}>
                   <div className="flex flex-col gap-2">
                     {item.href ? (
-                      <Link href={item.href} className="flex justify-between items-center">
+                      <Link href={item.href} className="flex justify-between items-center" onClick={() => setOpen(false)}>
                         <span className="text-lg text-white">{item.title}</span>
                         <MoveRight className="w-4 h-4 stroke-1 text-white/60" />
                       </Link>
@@ -135,6 +136,7 @@ function Header1() {
                           key={subItem.title}
                           href={subItem.href}
                           className="flex justify-between items-center py-1"
+                          onClick={() => setOpen(false)}
                         >
                           <span className="text-white/70 hover:text-white transition-colors">{subItem.title}</span>
                           <MoveRight className="w-4 h-4 stroke-1 text-white/60" />
