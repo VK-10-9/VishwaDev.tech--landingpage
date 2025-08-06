@@ -15,7 +15,7 @@ const data = {
   },
   about: {
     story: "/about",
-    team: "/team",
+    team: "/devs",
     blog: "/blog",
     careers: "/careers",
   },
@@ -47,7 +47,7 @@ const socialLinks = [
 
 const aboutLinks = [
   { text: "Our Story", href: data.about.story },
-  { text: "Meet the Team", href: data.about.team },
+  { text: "Meet the Devs", href: data.about.team },
   { text: "Blog", href: data.about.blog },
   { text: "Careers", href: data.about.careers },
 ]

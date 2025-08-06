@@ -37,6 +37,10 @@ export const navigationItems: NavigationItem[] = [
     description: "Connect with fellow developers and grow your network.",
     items: [
       {
+        title: "Meet the Devs",
+        href: "/devs",
+      },
+      {
         title: "Developer Blog",
         href: "/blog",
       },
