@@ -18,7 +18,7 @@ export const CallToAction: React.FC = () => {
                 View All Projects
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="neutral" asChild>
               <Link href="/discord">
                 Join Discord Community
               </Link>
