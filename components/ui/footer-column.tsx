@@ -25,9 +25,9 @@ const data = {
     docs: "/docs",
   },
   contact: {
-    email: "hello@vishwadev.tech",
+    email: "info@vishwadev.tech",
     phone: "+91 7011329518",
-    address: "Bangalore, Karnataka, India",
+    address: "Karnataka, India",
   },
   company: {
     name: "VishwaDev",
