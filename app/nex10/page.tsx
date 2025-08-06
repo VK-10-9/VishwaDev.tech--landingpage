@@ -1,4 +1,6 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle }  return (
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20")rom "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Rocket, Target, Users, TrendingUp } from "lucide-react"
@@ -67,8 +69,9 @@ export default function Nex10LabsPage() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-12">
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20">
+        <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Nex10 Labs</h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
           Our exclusive incubation program for promising tech projects and startups. 
@@ -256,6 +259,7 @@ export default function Nex10LabsPage() {
             </Button>
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   )

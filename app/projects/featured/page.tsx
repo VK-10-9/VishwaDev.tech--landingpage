@@ -35,14 +35,15 @@ export default function FeaturedProjectsPage() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Featured Projects</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Showcase of the most innovative and impactful student projects. These projects demonstrate
-          excellence in design, implementation, and real-world application.
-        </p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Featured Projects</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Showcase of the most innovative and impactful student projects. These projects demonstrate
+            excellence in design, implementation, and real-world application.
+          </p>
+        </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {featuredProjects.map((project, index) => (
@@ -85,6 +86,7 @@ export default function FeaturedProjectsPage() {
         <Button asChild variant="neutral">
           <Link href="/projects">← Back to All Projects</Link>
         </Button>
+      </div>
       </div>
     </div>
   )

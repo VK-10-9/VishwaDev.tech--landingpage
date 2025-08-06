@@ -2,7 +2,6 @@ import { ArrowRight, Globe, Star, Users, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Gallery6 } from "@/components/ui/gallery6"
-import Header1 from "@/components/ui/header"
 import Footer4Col from "@/components/ui/footer-column"
 
 // Import refactored components and data
@@ -14,9 +13,6 @@ import { stats, nex10Stats } from "@/src/constants/stats"
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header Navigation */}
-      <Header1 />
-
       {/* Hero Section - Clean, Modern Design */}
       <section className="pt-24 sm:pt-28 lg:pt-32 pb-16 lg:pb-20 px-4">
         <div className="container mx-auto">

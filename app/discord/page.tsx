@@ -87,8 +87,9 @@ export default function DiscordPage() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-12">
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20">
+        <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Discord Community</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
           Join our vibrant Discord community of developers, students, and tech enthusiasts.
@@ -222,6 +223,7 @@ export default function DiscordPage() {
             </Button>
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   )
