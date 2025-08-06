@@ -1,6 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle }  return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20")rom "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Rocket, Target, Users, TrendingUp } from "lucide-react"
