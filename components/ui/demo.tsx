@@ -3,6 +3,7 @@
 
 import React from "react";
 import { HalomotButton } from "@/components/ui/halomot-button";
+import NotFoundPage from "@/components/ui/page-not-found";
 import { FaRegSmile } from "react-icons/fa"; // Example icon
 
 const HalomotButtonDemo = () => (
@@ -70,4 +71,13 @@ const HalomotButtonDemo = () => (
   </section>
 );
 
-export { HalomotButtonDemo };
+// NotFound Demo Component
+const DemoOne = () => {
+  return (
+    <div className="flex w-full h-screen justify-center items-center">
+      <NotFoundPage />
+    </div>
+  );
+};
+
+export { HalomotButtonDemo, DemoOne };
