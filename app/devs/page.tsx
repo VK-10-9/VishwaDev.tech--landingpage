@@ -1,44 +1,26 @@
-import React from 'react';
-import { HeroSection } from "@/components/devs/HeroSection";
-import { DeveloperGrid } from "@/components/devs/DeveloperGrid";
-import { StatsGrid } from "@/components/devs/StatsGrid";
-import { CallToAction } from "@/components/devs/CallToAction";
-import { developers } from "./developers-data";
-import { developerStats } from "./stats-data";
+import { HeroSection, StatsGrid, DeveloperCard, CallToAction } from "@/components/devs"
+import { developers } from "./developers-data"
+import { developerStats } from "./stats-data"
 
+// Main Page Component
 export default function DevsPage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="pt-24 sm:pt-28 lg:pt-32 pb-16 px-4">
-        <div className="container mx-auto">
-          <HeroSection />
+      <div className="container mx-auto px-4 pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20">
+        <HeroSection />
+        <StatsGrid stats={developerStats} />
+        
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">Our Developer Community</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {developers.map((developer) => (
+              <DeveloperCard key={developer.id} developer={developer} />
+            ))}
+          </div>
         </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="container mx-auto">
-          <StatsGrid stats={developerStats} />
-        </div>
-      </section>
-
-      {/* Developers Grid */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto">
-          <DeveloperGrid 
-            developers={developers} 
-            title="Meet Our Talented Developers" 
-          />
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="container mx-auto">
-          <CallToAction />
-        </div>
-      </section>
+        <CallToAction />
+      </div>
     </div>
   );
 }
