@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Gallery6 } from "@/components/ui/gallery6"
 import Footer4Col from "@/components/ui/footer-column"
+import Link from "next/link"
 
 // Import refactored components and data
 import { StatsSection } from "@/src/components/sections/StatsSection"
@@ -32,12 +33,16 @@ export default function HomePage() {
               Transform your academic projects into career-launching opportunities. Join a thriving community of student developers and get the visibility you deserve.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4">
-              <Button size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto">
-                Get Started Today
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              <Button size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto" asChild>
+                <Link href="/projects">
+                  Get Started Today
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                </Link>
               </Button>
-              <Button variant="neutral" size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
-                Request Subdomain
+              <Button variant="neutral" size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto" asChild>
+                <Link href="/subdomain">
+                  Request Subdomain
+                </Link>
               </Button>
             </div>
             <div className="text-lg sm:text-xl lg:text-2xl font-mono bg-muted px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-block max-w-full overflow-hidden">
@@ -184,16 +189,22 @@ export default function HomePage() {
                 variant="default"
                 size="lg"
                 className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
+                asChild
               >
-                Apply to Nex10 Labs
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                <Link href="/nex10/apply">
+                  Apply to Nex10 Labs
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                </Link>
               </Button>
               <Button
                 variant="neutral"
                 size="lg"
                 className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
+                asChild
               >
-                Learn More
+                <Link href="/nex10">
+                  Learn More
+                </Link>
               </Button>
             </div>
 
@@ -225,16 +236,22 @@ export default function HomePage() {
               variant="default"
               size="lg"
               className="px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
+              asChild
             >
-              Get Started Today
-              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              <Link href="/projects">
+                Get Started Today
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              </Link>
             </Button>
             <Button
               variant="neutral"
               size="lg"
               className="px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
+              asChild
             >
-              Request Subdomain
+              <Link href="/subdomain">
+                Request Subdomain
+              </Link>
             </Button>
           </div>
         </div>
