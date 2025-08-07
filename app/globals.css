@@ -95,9 +95,6 @@
 }
 
 :root {
-  --halomot-button-background: #fff;
-  --halomot-button-foreground: #0a0a0a;
-  
   /* New button design system variables */
   --main: #88aaee;
   --overlay: rgba(0, 0, 0, 0.8);
@@ -120,9 +117,6 @@
 }
 
 .dark {
-  --halomot-button-background: #0a0a0a;
-  --halomot-button-foreground: #fff;
-  
   /* Dark mode button design system variables */
   --bg: #272933;
   --bw: #212121;
