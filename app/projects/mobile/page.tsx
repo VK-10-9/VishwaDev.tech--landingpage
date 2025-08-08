@@ -10,7 +10,7 @@ export default function MobileProjectsPage() {
       description: "Cross-platform fitness tracking app with workout plans, progress analytics, and social features.",
       technologies: ["React Native", "Expo", "Firebase", "Redux"],
       author: "Maya Patel",
-      platform: "Cross-platform",
+      platform: "Cross-platform & Native",
       github: "#",
       playStore: "#",
       appStore: "#"
@@ -20,7 +20,7 @@ export default function MobileProjectsPage() {
       description: "Complete food delivery solution with real-time tracking, payment integration, and reviews.",
       technologies: ["Flutter", "Dart", "Node.js", "MongoDB"],
       author: "Kevin Lee",
-      platform: "Cross-platform",
+      platform: "Cross-platform & Native",
       github: "#",
       playStore: "#",
       appStore: "#"
@@ -71,7 +71,7 @@ export default function MobileProjectsPage() {
     switch (platform) {
       case "iOS": return "default"
       case "Android": return "secondary"
-      case "Cross-platform": return "destructive"
+      case "Cross-platform": return "black"
       default: return "default"
     }
   }
@@ -80,8 +80,8 @@ export default function MobileProjectsPage() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Mobile App Projects</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4 text-black dark:text-white tracking-tight font-sans">Mobile App Projects</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-sans antialiased">
             Native and cross-platform mobile applications built by students. Explore iOS, Android,
             and hybrid mobile solutions across various domains.
           </p>
@@ -92,17 +92,17 @@ export default function MobileProjectsPage() {
           <Card key={index} className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
-                <span className="truncate">{project.title}</span>
-                <Badge variant={getPlatformColor(project.platform) as any}>
+                <span className="truncate font-sans text-black dark:text-white font-medium">{project.title}</span>
+                <Badge variant={getPlatformColor(project.platform) as any} className="font-sans">
                   {project.platform}
                 </Badge>
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="font-sans text-gray-600 dark:text-gray-300">
                 By {project.author}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm mb-4">{project.description}</p>
+              <p className="text-sm mb-4 font-sans text-gray-700 dark:text-gray-200 antialiased">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, techIndex) => (
                   <Badge key={techIndex} variant="outline">

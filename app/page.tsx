@@ -2,6 +2,7 @@ import { ArrowRight, Globe, Star, Users, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Gallery6 } from "@/components/ui/gallery6"
+import { Separator } from "@/components/ui/separator"
 import Footer4Col from "@/components/ui/footer-column"
 import Link from "next/link"
 
@@ -119,11 +120,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      <Separator className="my-8" />
+
       {/* Gallery Section - Featured Student Projects */}
       <Gallery6 heading="Innovative Student Projects" demoUrl="/projects" items={galleryProjects} />
 
+      <Separator className="my-8" />
+
       {/* Featured Projects Section */}
       <FeaturedProjectsSection projects={featuredProjects} />
+
+      <Separator className="my-8" />
 
       {/* Nex10 Labs Section */}
       <section id="nex10" className="py-16 sm:py-20 px-4">

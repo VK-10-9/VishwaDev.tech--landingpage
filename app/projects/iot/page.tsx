@@ -71,7 +71,7 @@ export default function IoTProjectsPage() {
     const colors: { [key: string]: string } = {
       "Home Automation": "default",
       "Environment": "secondary",
-      "Agriculture": "destructive",
+      "Agriculture": "black",
       "Healthcare": "outline",
       "Smart City": "default",
       "Industrial": "secondary"
@@ -83,8 +83,8 @@ export default function IoTProjectsPage() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">IoT & Hardware Projects</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4 text-black dark:text-white tracking-tight font-sans">IoT & Hardware Projects</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-sans antialiased">
             Internet of Things and hardware projects that bridge the physical and digital worlds.
             Explore sensors, microcontrollers, and embedded systems built by students.
           </p>
@@ -95,17 +95,17 @@ export default function IoTProjectsPage() {
           <Card key={index} className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
-                <span className="truncate">{project.title}</span>
-                <Badge variant={getCategoryColor(project.category) as any}>
+                <span className="truncate font-sans text-black dark:text-white font-medium">{project.title}</span>
+                <Badge variant={getCategoryColor(project.category) as any} className="font-sans">
                   {project.category}
                 </Badge>
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="font-sans text-gray-600 dark:text-gray-300">
                 By {project.author}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm mb-4">{project.description}</p>
+              <p className="text-sm mb-4 font-sans text-gray-700 dark:text-gray-200 antialiased">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, techIndex) => (
                   <Badge key={techIndex} variant="outline">

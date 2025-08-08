@@ -24,7 +24,7 @@ export default function ProjectsPage() {
     },
     {
       title: "Mobile Apps",
-      description: "Cross-platform mobile applications",
+      description: "Cross-platform & Native mobile applications",
       href: "/projects/mobile",
       icon: "📱"
     },
@@ -33,6 +33,12 @@ export default function ProjectsPage() {
       description: "Internet of Things and hardware projects",
       href: "/projects/iot",
       icon: "🔧"
+    },
+    {
+      title: "Cross Domain",
+      description: "Projects combining multiple technology domains",
+      href: "/projects/cross-domain",
+      icon: "🔄"
     }
   ]
 

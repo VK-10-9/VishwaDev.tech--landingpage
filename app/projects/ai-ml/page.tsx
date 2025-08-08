@@ -47,7 +47,7 @@ export default function AIMLProjectsPage() {
     switch (difficulty) {
       case "Beginner": return "default"
       case "Intermediate": return "secondary"
-      case "Advanced": return "destructive"
+      case "Advanced": return "red"
       default: return "default"
     }
   }
@@ -56,7 +56,7 @@ export default function AIMLProjectsPage() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">AI & Machine Learning Projects</h1>
+          <h1 className="text-4xl font-bold mb-4 text-black dark:text-black">AI & Machine Learning Projects</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Explore cutting-edge AI and ML projects built by students. From natural language processing
             to computer vision, discover the latest in artificial intelligence.

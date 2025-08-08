@@ -30,6 +30,10 @@ export const navigationItems: NavigationItem[] = [
         title: "IoT & Hardware",
         href: "/projects/iot",
       },
+      {
+        title: "Cross Domain Projects",
+        href: "/projects/cross-domain",
+      },
     ],
   },
   {
