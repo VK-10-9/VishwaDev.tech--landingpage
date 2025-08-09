@@ -143,7 +143,7 @@ export default function FAQsPage() {
             Still have questions?
           </h2>
           <p className="text-muted-foreground mb-6">
-            Can't find the answer you're looking for? Our support team is here to help.
+            Can&apos;t find the answer you&apos;re looking for? Our support team is here to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

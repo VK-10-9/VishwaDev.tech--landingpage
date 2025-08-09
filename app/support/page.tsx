@@ -170,7 +170,7 @@ export default function SupportPage() {
               <CardHeader>
                 <CardTitle>Submit a Support Ticket</CardTitle>
                 <CardDescription>
-                  Describe your issue and we'll get back to you as soon as possible
+                  Describe your issue and we&apos;ll get back to you as soon as possible
                 </CardDescription>
               </CardHeader>
               <CardContent>

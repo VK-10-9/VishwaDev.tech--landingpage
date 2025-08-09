@@ -5,7 +5,14 @@ import { Users, Target, BookOpen, Award, Calendar, MessageCircle } from "lucide-
 import Link from "next/link"
 
 export default function MentorshipPage() {
-  const mentorshipTracks = [
+  const mentorshipTracks: Array<{
+    title: string;
+    description: string;
+    duration: string;
+    level: string;
+    mentors: number;
+    color: "default" | "secondary" | "destructive" | "outline";
+  }> = [
     {
       title: "Web Development",
       description: "Frontend, backend, and full-stack development mentorship",
@@ -168,7 +175,7 @@ export default function MentorshipPage() {
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   {track.title}
-                  <Badge variant={track.color as any}>{track.mentors} mentors</Badge>
+                  <Badge variant={track.color}>{track.mentors} mentors</Badge>
                 </CardTitle>
                 <CardDescription>{track.description}</CardDescription>
               </CardHeader>

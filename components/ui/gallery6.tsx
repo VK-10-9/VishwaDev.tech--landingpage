@@ -2,6 +2,7 @@
 
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 
@@ -146,10 +147,11 @@ const Gallery6 = ({
                     <div className="flex aspect-[3/2] overflow-clip rounded-lg sm:rounded-xl bg-muted border hover:shadow-lg transition-all duration-300">
                       <div className="flex-1">
                         <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
-                          <img
+                          <Image
                             src={item.image || "/placeholder.svg"}
                             alt={item.title}
-                            className="h-full w-full object-cover object-center rounded-lg sm:rounded-xl"
+                            fill
+                            className="object-cover object-center rounded-lg sm:rounded-xl"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg sm:rounded-xl"></div>
                         </div>

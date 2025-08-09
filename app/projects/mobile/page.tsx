@@ -67,7 +67,7 @@ export default function MobileProjectsPage() {
     }
   ]
 
-  const getPlatformColor = (platform: string) => {
+  const getPlatformColor = (platform: string): "default" | "secondary" | "destructive" | "outline" => {
     switch (platform) {
       case "iOS": return "default"
       case "Android": return "secondary"
@@ -93,7 +93,7 @@ export default function MobileProjectsPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span className="truncate">{project.title}</span>
-                <Badge variant={getPlatformColor(project.platform) as any}>
+                <Badge variant={getPlatformColor(project.platform)}>
                   {project.platform}
                 </Badge>
               </CardTitle>

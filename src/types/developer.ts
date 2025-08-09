@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export interface Project {
   name: string;
   description: string;
@@ -34,5 +36,5 @@ export interface Developer {
 export interface Stat {
   label: string;
   value: string;
-  icon: any; // Lucide icon component
+  icon: LucideIcon; // Lucide icon component
 }

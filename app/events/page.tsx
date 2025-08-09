@@ -74,7 +74,7 @@ export default function EventsPage() {
     }
   ]
 
-  const getEventTypeColor = (type: string) => {
+  const getEventTypeColor = (type: string): "default" | "secondary" | "destructive" | "outline" => {
     switch (type) {
       case "Workshop": return "default"
       case "Bootcamp": return "destructive"
@@ -103,7 +103,7 @@ export default function EventsPage() {
             <Card key={index} className={`hover:shadow-lg transition-shadow ${event.featured ? 'ring-2 ring-primary/20' : ''}`}>
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <Badge variant={getEventTypeColor(event.type) as any}>
+                  <Badge variant={getEventTypeColor(event.type)}>
                     {event.type}
                   </Badge>
                   {event.featured && <Badge>Featured</Badge>}
@@ -149,7 +149,7 @@ export default function EventsPage() {
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <Badge variant={getEventTypeColor(event.type) as any}>
+                  <Badge variant={getEventTypeColor(event.type)}>
                     {event.type}
                   </Badge>
                   <Badge variant="outline">Past</Badge>
@@ -183,7 +183,7 @@ export default function EventsPage() {
           <CardHeader>
             <CardTitle>Want to Host an Event?</CardTitle>
             <CardDescription>
-              Have an idea for a workshop or tech talk? We'd love to hear from you!
+              Have an idea for a workshop or tech talk? We&apos;d love to hear from you!
             </CardDescription>
           </CardHeader>
           <CardContent>

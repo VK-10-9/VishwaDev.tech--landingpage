@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Check, Globe, Shield, Zap, Users } from "lucide-react"
-import Link from "next/link"
 
 export default function SubdomainPage() {
   const features = [
@@ -165,7 +164,7 @@ export default function SubdomainPage() {
                 <Label htmlFor="description">Project Description *</Label>
                 <Textarea 
                   id="description" 
-                  placeholder="Briefly describe what you'll use this subdomain for..."
+                  placeholder="Briefly describe what you&apos;ll use this subdomain for..."
                   className="min-h-[100px]"
                 />
               </div>
@@ -208,7 +207,7 @@ export default function SubdomainPage() {
             </Button>
 
             <p className="text-xs text-muted-foreground text-center">
-              Requests are typically reviewed within 24-48 hours. You'll receive an email confirmation once approved.
+              Requests are typically reviewed within 24-48 hours. You&apos;ll receive an email confirmation once approved.
             </p>
           </CardContent>
         </Card>
@@ -321,7 +320,7 @@ export default function SubdomainPage() {
             <CardContent>
               <p className="text-sm text-muted-foreground">
                 Most requests are reviewed and approved within 24-48 hours. 
-                You'll receive an email confirmation once your subdomain is active.
+                You&apos;ll receive an email confirmation once your subdomain is active.
               </p>
             </CardContent>
           </Card>
@@ -341,7 +340,7 @@ export default function SubdomainPage() {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                We'll suggest alternative names or you can modify your request with a different subdomain name.
+                We&apos;ll suggest alternative names or you can modify your request with a different subdomain name.
               </p>
             </CardContent>
           </Card>

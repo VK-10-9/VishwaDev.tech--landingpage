@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { BookOpen, Video, FileText, Code, Users, Download, ExternalLink } from "lucide-react"
+import { BookOpen, Video, FileText, Code, Download, ExternalLink } from "lucide-react"
 import Link from "next/link"
 
 export default function ResourcesPage() {
@@ -142,8 +142,8 @@ export default function ResourcesPage() {
     }
   ]
 
-  const getResourceTypeColor = (type: string) => {
-    const colors: { [key: string]: string } = {
+  const getResourceTypeColor = (type: string): "default" | "secondary" | "destructive" | "outline" => {
+    const colors: { [key: string]: "default" | "secondary" | "destructive" | "outline" } = {
       "PDF": "default",
       "Video": "destructive",
       "Template": "secondary",
@@ -182,7 +182,7 @@ export default function ResourcesPage() {
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <Badge variant={getResourceTypeColor(resource.type) as any}>
+                  <Badge variant={getResourceTypeColor(resource.type)}>
                     {resource.type}
                   </Badge>
                   <Badge>Featured</Badge>
@@ -241,7 +241,7 @@ export default function ResourcesPage() {
                   {category.resources.map((resource, resourceIndex) => (
                     <div key={resourceIndex} className="flex items-center justify-between p-3 bg-muted rounded-lg hover:bg-muted/80 transition-colors">
                       <div className="flex items-center gap-3">
-                        <Badge variant={getResourceTypeColor(resource.type) as any} className="text-xs">
+                        <Badge variant={getResourceTypeColor(resource.type)} className="text-xs">
                           {resource.type}
                         </Badge>
                         <span className="text-sm font-medium">{resource.name}</span>

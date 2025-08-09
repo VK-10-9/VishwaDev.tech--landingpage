@@ -67,8 +67,8 @@ export default function IoTProjectsPage() {
     }
   ]
 
-  const getCategoryColor = (category: string) => {
-    const colors: { [key: string]: string } = {
+  const getCategoryColor = (category: string): "default" | "secondary" | "destructive" | "outline" => {
+    const colors: { [key: string]: "default" | "secondary" | "destructive" | "outline" } = {
       "Home Automation": "default",
       "Environment": "secondary",
       "Agriculture": "destructive",
@@ -96,7 +96,7 @@ export default function IoTProjectsPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span className="truncate">{project.title}</span>
-                <Badge variant={getCategoryColor(project.category) as any}>
+                <Badge variant={getCategoryColor(project.category)}>
                   {project.category}
                 </Badge>
               </CardTitle>

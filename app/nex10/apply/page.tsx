@@ -277,7 +277,7 @@ export default function Nex10ApplyPage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="additionalInfo">Anything else you'd like us to know?</Label>
+                  <Label htmlFor="additionalInfo">Anything else you&apos;d like us to know?</Label>
                   <Textarea 
                     id="additionalInfo" 
                     placeholder="Any additional information that might help your application..."

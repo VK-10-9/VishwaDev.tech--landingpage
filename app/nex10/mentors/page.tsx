@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Users, Award, Calendar, MessageCircle, Linkedin, Twitter } from "lucide-react"
+import { Users, Award, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
 
 export default function MentorsPage() {

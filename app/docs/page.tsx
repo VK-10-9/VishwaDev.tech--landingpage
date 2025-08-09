@@ -318,7 +318,7 @@ export default function DocumentationPage() {
               <CardHeader>
                 <CardTitle>Need More Help?</CardTitle>
                 <CardDescription>
-                  Can't find what you're looking for? We're here to help!
+                  Can&apos;t find what you&apos;re looking for? We&apos;re here to help!
                 </CardDescription>
               </CardHeader>
               <CardContent>

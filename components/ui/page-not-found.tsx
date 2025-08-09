@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Home } from "lucide-react";
 
@@ -181,8 +181,9 @@ function CharactersAnimation() {
 
     // Cleanup function
     return () => {
-      if (charactersRef.current) {
-        charactersRef.current.innerHTML = '';
+      const currentCharacters = charactersRef.current;
+      if (currentCharacters) {
+        currentCharacters.innerHTML = '';
       }
     };
   }, []);
@@ -246,7 +247,7 @@ function CircleAnimation() {
   };
 
   // Drawing function
-  const draw = () => {
+  const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -288,7 +289,7 @@ function CircleAnimation() {
     }
     
     requestIdRef.current = requestAnimationFrame(draw);
-  };
+  }, []);
 
   // Initialize canvas and start animation
   useEffect(() => {
@@ -334,7 +335,7 @@ function CircleAnimation() {
         cancelAnimationFrame(requestIdRef.current);
       }
     };
-  }, []);
+  }, [draw]);
 
   return <canvas ref={canvasRef} className="w-full h-full opacity-20" />;
 }

@@ -172,7 +172,7 @@ export default function SuccessStoriesPage() {
 
                   {/* Quote */}
                   <blockquote className="border-l-4 border-primary pl-4 italic">
-                    "{story.founderQuote}"
+                    &ldquo;{story.founderQuote}&rdquo;
                     <cite className="block text-sm text-muted-foreground mt-2">
                       — {story.founderName}, Founder of {story.companyName}
                     </cite>
