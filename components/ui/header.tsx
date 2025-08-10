@@ -1,6 +1,10 @@
-"use client"
+'use client'
 
-import { Button } from "@/components/ui/button"
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
+import { Menu, X, Code, MoveRight, ChevronRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,64 +12,62 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { Menu, MoveRight, X, Code } from "lucide-react"
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { navigationItems } from "@/src/constants/navigation"
+} from '@/components/ui/navigation-menu'
+import { navigationItems } from '@/src/constants/navigation'
 
 function Header1() {
   const [isOpen, setOpen] = useState(false)
-  const [isMounted, setIsMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
+  useEffect(() => setMounted(true), [])
+
+  // Lock body scroll when drawer is open
   useEffect(() => {
-    setIsMounted(true)
+    if (!mounted) return
+    const prev = document.body.style.overflow
+    document.body.style.overflow = isOpen ? 'hidden' : prev || ''
+    return () => {
+      document.body.style.overflow = prev || ''
+    }
+  }, [isOpen, mounted])
+
+  // Close on ESC
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = () => {
-      if (isOpen) setOpen(false)
-    }
-
-    if (isOpen) {
-      document.addEventListener('click', handleClickOutside)
-      document.body.style.overflow = 'hidden' // Prevent background scroll
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside)
-      document.body.style.overflow = 'unset'
-    }
-  }, [isOpen])
-
-  if (!isMounted) {
-    return null // Prevent hydration mismatch
-  }
+  if (!mounted) return null
 
   return (
-    <header className="w-full z-50 fixed top-0 left-0 bg-background/95 backdrop-blur-md border-b">
-      <div className="container relative mx-auto min-h-16 sm:min-h-20 flex gap-4 flex-row items-center justify-between px-4 sm:px-6">
-        {/* Logo - Always visible */}
-        <Link href="/" className="flex items-center space-x-2 z-50" onClick={() => setOpen(false)}>
-          <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-lg flex items-center justify-center">
-            <Code className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
-          </div>
+    <header className="fixed inset-x-0 top-0 z-[1000] bg-background/95 backdrop-blur-md border-b">
+      <div className="container mx-auto min-h-16 sm:min-h-20 px-4 sm:px-6 flex items-center justify-between gap-4">
+        {/* Brand */}
+        <Link
+          href="/"
+          className="flex items-center gap-2"
+          onClick={() => setOpen(false)}
+        >
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border">
+            <Code className="h-4 w-4" />
+          </span>
           <span className="text-lg sm:text-xl font-bold">VishwaDev</span>
         </Link>
 
-        {/* Desktop Navigation - Hidden on mobile */}
+        {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-6">
-          <NavigationMenu className="flex justify-start items-start">
-            <NavigationMenuList className="flex justify-start gap-4 flex-row">
+          <NavigationMenu className="flex">
+            <NavigationMenuList className="flex gap-4">
               {navigationItems.map((item) => (
                 <NavigationMenuItem key={item.title}>
                   {item.href ? (
                     <NavigationMenuLink asChild>
                       <Link href={item.href}>
-                        <Button variant="neutral" className="text-muted-foreground hover:text-foreground">
+                        <Button
+                          variant="neutral"
+                          className="text-muted-foreground hover:text-foreground"
+                        >
                           {item.title}
                         </Button>
                       </Link>
@@ -77,27 +79,27 @@ function Header1() {
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="!w-[450px] p-4 bg-background border">
                         <div className="flex flex-col lg:grid grid-cols-2 gap-4">
-                          <div className="flex flex-col h-full justify-between">
+                          <div className="flex flex-col justify-between">
                             <div className="flex flex-col">
-                              <p className="text-base font-semibold">{item.title}</p>
-                              <p className="text-muted-foreground text-sm">{item.description}</p>
+                              <p className="text-base font-semibold">
+                                {item.title}
+                              </p>
+                              <p className="text-muted-foreground text-sm">
+                                {item.description}
+                              </p>
                             </div>
-                            <Button
-                              variant="default"
-                              size="sm"
-                              onClick={() => console.log("Get Started clicked")}
-                            >
+                            <Button variant="default" size="sm">
                               Get Started
                             </Button>
                           </div>
-                          <div className="flex flex-col text-sm h-full justify-end">
-                            {item.items?.map((subItem) => (
-                              <NavigationMenuLink asChild key={subItem.title}>
+                          <div className="flex flex-col text-sm">
+                            {item.items?.map((sub) => (
+                              <NavigationMenuLink asChild key={sub.title}>
                                 <Link
-                                  href={subItem.href}
-                                  className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded text-muted-foreground hover:text-foreground transition-colors"
+                                  href={sub.href}
+                                  className="flex items-center justify-between hover:bg-muted py-2 px-4 rounded text-muted-foreground hover:text-foreground transition-colors"
                                 >
-                                  <span>{subItem.title}</span>
+                                  <span>{sub.title}</span>
                                   <MoveRight className="w-4 h-4 text-muted-foreground" />
                                 </Link>
                               </NavigationMenuLink>
@@ -113,156 +115,178 @@ function Header1() {
           </NavigationMenu>
         </div>
 
-        {/* Desktop Action Buttons - Hidden on mobile */}
+        {/* Desktop actions */}
         <div className="hidden lg:flex items-center gap-4">
           <Button
             variant="neutral"
             className="text-muted-foreground hover:text-foreground"
-            onClick={() => console.log("Submit Project clicked")}
           >
             Submit Project
           </Button>
-          <div className="border-r h-6"></div>
+          <div className="border-r h-6" />
           <Button
             variant="neutral"
             className="text-muted-foreground hover:text-foreground"
-            onClick={() => console.log("Sign in clicked")}
           >
             Sign in
           </Button>
-          <Button
-            variant="default"
-            onClick={() => console.log("Join Community clicked")}
-          >
-            Join Community
-          </Button>
+          <Button variant="default">Join Community</Button>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile hamburger */}
         <div className="flex lg:hidden items-center">
           <Button
             variant="neutral"
             size="icon"
-            onClick={(e) => {
-              e.stopPropagation()
-              setOpen(!isOpen)
-            }}
-            className="z-[60] h-10 w-10 border-border hover:bg-muted relative"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className="h-9 w-9"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </Button>
         </div>
+      </div>
 
-        {/* Mobile Menu Overlay */}
-        {isOpen && (
-          <div className="lg:hidden fixed inset-0 z-50">
+      {/* Mobile drawer rendered in a portal to avoid stacking/overflow issues */}
+      {isOpen &&
+        createPortal(
+          <div id="mobile-nav" className="fixed inset-0 z-[1100] lg:hidden">
             {/* Backdrop */}
-            <div 
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+            <button
+              aria-label="Close menu backdrop"
+              // Subtle darker, smoother blur
+              className="absolute inset-0 bg-black/55 backdrop-blur-sm transition-opacity"
               onClick={() => setOpen(false)}
             />
-            {/* Menu Panel */}
-            <div 
-              className="fixed top-0 right-0 h-full w-full max-w-sm bg-background border-l shadow-2xl transform transition-transform duration-300 ease-in-out"
+            {/* Panel: keeps full width on tiny screens, rounded and elevated */}
+            <aside
+              className="absolute right-0 top-0 h-full w-full sm:max-w-[420px] md:max-w-[480px]
+                   bg-background/98 border-l shadow-2xl flex flex-col overflow-y-auto overscroll-contain
+                   rounded-l-2xl"
+              role="dialog"
+              aria-modal="true"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex flex-col h-full">
-                {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-border">
-                  <span className="text-lg font-semibold text-foreground">Menu</span>
-                  <Button
-                    variant="neutral"
-                    size="icon"
-                    onClick={() => setOpen(false)}
-                    className="h-8 w-8"
-                  >
-                    <X className="w-4 h-4" />
-                  </Button>
-                </div>
-
-                {/* Navigation Content */}
-                <div className="flex-1 overflow-y-auto p-4">
-                  <div className="space-y-4">
-                    {navigationItems.map((item, index) => (
-                      <div key={`${item.title}-${index}`} className="space-y-2">
-                        {item.href ? (
-                          <Link 
-                            href={item.href} 
-                            className="block w-full text-left p-3 rounded-lg hover:bg-muted transition-colors text-foreground hover:text-primary font-medium"
-                            onClick={() => setOpen(false)}
-                          >
-                            {item.title}
-                          </Link>
-                        ) : (
-                          <div className="space-y-2">
-                            <div className="p-3 rounded-lg bg-muted/50">
-                              <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                              {item.description && (
-                                <p className="text-sm text-muted-foreground">{item.description}</p>
-                              )}
-                            </div>
-                            {item.items && (
-                              <div className="ml-2 space-y-1">
-                                {item.items.map((subItem, subIndex) => (
-                                  <Link
-                                    key={`${subItem.title}-${subIndex}`}
-                                    href={subItem.href}
-                                    className="block w-full text-left p-3 pl-4 rounded-md hover:bg-muted transition-colors text-muted-foreground hover:text-foreground border-l-2 border-primary/20"
-                                    onClick={() => setOpen(false)}
-                                  >
-                                    {subItem.title}
-                                  </Link>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="p-4 border-t border-border space-y-3">
-                  <Button
-                    variant="neutral"
-                    className="w-full justify-start"
-                    onClick={() => {
-                      console.log("Submit Project clicked")
-                      setOpen(false)
-                    }}
-                  >
-                    Submit Project
-                  </Button>
-                  <Button
-                    variant="neutral"
-                    className="w-full justify-start"
-                    onClick={() => {
-                      console.log("Sign in clicked")
-                      setOpen(false)
-                    }}
-                  >
-                    Sign in
-                  </Button>
-                  <Button
-                    variant="default"
-                    className="w-full"
-                    onClick={() => {
-                      console.log("Join Community clicked")
-                      setOpen(false)
-                    }}
-                  >
-                    Join Community
-                  </Button>
-                </div>
+              {/* Drawer header: tighter spacing, subtle shadow and safe-area support */}
+              <div
+                className="sticky top-0 flex items-center justify-between px-5 py-3.5
+                        border-b bg-background/95 backdrop-blur shadow-sm
+                        pt-[max(0px,env(safe-area-inset-top))]"
+              >
+                <Link
+                  href="/"
+                  className="flex items-center gap-2.5"
+                  onClick={() => setOpen(false)}
+                >
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border">
+                    <Code className="h-4 w-4" />
+                  </span>
+                  <span className="text-base font-semibold tracking-tight">
+                    VishwaDev
+                  </span>
+                </Link>
+                <Button
+                  variant="neutral"
+                  size="icon"
+                  className="h-8 w-8"
+                  onClick={() => setOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <X className="h-4 w-4" />
+                </Button>
               </div>
-            </div>
-          </div>
+
+              {/* Primary links — same order as desktop, clean vertical rhythm */}
+              <nav className="px-5 pt-5 pb-4 grid gap-3">
+                <Button
+                  asChild
+                  variant="neutral"
+                  className="w-full h-11 px-4 justify-between"
+                >
+                  <Link href="/" onClick={() => setOpen(false)}>
+                    <span className="text-[15px] font-medium">Home</span>
+                    <ChevronRight className="h-4 w-4 opacity-60" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="neutral"
+                  className="w-full h-11 px-4 justify-between"
+                >
+                  <Link href="/projects" onClick={() => setOpen(false)}>
+                    <span className="text-[15px] font-medium">Projects</span>
+                    <ChevronRight className="h-4 w-4 opacity-60" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="neutral"
+                  className="w-full h-11 px-4 justify-between"
+                >
+                  <Link href="/community" onClick={() => setOpen(false)}>
+                    <span className="text-[15px] font-medium">Community</span>
+                    <ChevronRight className="h-4 w-4 opacity-60" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="neutral"
+                  className="w-full h-11 px-4 justify-between"
+                >
+                  <Link href="/nex10" onClick={() => setOpen(false)}>
+                    <span className="text-[15px] font-medium">Nex10 Labs</span>
+                    <ChevronRight className="h-4 w-4 opacity-60" />
+                  </Link>
+                </Button>
+              </nav>
+
+              {/* Actions — match desktop button styles, full width, balanced spacing */}
+              <div className="mt-auto px-5 pb-[calc(env(safe-area-inset-bottom)+16px)] pt-3 border-t space-y-3">
+                <Button
+                  asChild
+                  variant="neutral"
+                  className="w-full h-11 justify-center"
+                >
+                  <Link href="/subdomain" onClick={() => setOpen(false)}>
+                    Get Subdomain
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="neutral"
+                  className="w-full h-11 justify-center"
+                >
+                  <Link href="/projects#submit" onClick={() => setOpen(false)}>
+                    Submit Project
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="neutral"
+                  className="w-full h-11 justify-center"
+                >
+                  <Link href="/signin" onClick={() => setOpen(false)}>
+                    Sign in
+                  </Link>
+                </Button>
+                <Button asChild className="w-full h-11 justify-center">
+                  <Link href="/discord" onClick={() => setOpen(false)}>
+                    Join Community
+                  </Link>
+                </Button>
+              </div>
+            </aside>
+          </div>,
+          document.body
         )}
-      </div>
     </header>
   )
 }
+
 export default Header1
 export { Header1 }
