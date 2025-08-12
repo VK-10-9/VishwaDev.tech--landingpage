@@ -9,18 +9,45 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { Menu, MoveRight, X, Code } from "lucide-react"
+import { Menu, MoveRight, X, Code, LogOut } from "lucide-react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useRouter, usePathname } from "next/navigation"
 import { navigationItems } from "@/src/constants/navigation"
 
 function Header1() {
   const [isOpen, setOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
+  const [isSignedIn, setIsSignedIn] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     setIsMounted(true)
-  }, [])
+    // Check if user is signed in by checking localStorage or pathname
+    const checkAuthStatus = () => {
+      // Check if we're on a protected route (dashboard, profile, etc.)
+      const protectedRoutes = ['/dashboard', '/profile', '/dashboard/new-project']
+      const isOnProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route))
+      
+      // Check localStorage for auth token (in a real app)
+      const authToken = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null
+      
+      setIsSignedIn(isOnProtectedRoute || !!authToken)
+    }
+    
+    checkAuthStatus()
+  }, [pathname])
+
+  const handleSignOut = () => {
+    // Clear auth token and redirect to home
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('authToken')
+    }
+    setIsSignedIn(false)
+    router.push('/')
+    setOpen(false)
+  }
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -123,19 +150,54 @@ function Header1() {
             Submit Project
           </Button>
           <div className="border-r h-6"></div>
-          <Button
-            variant="neutral"
-            className="text-muted-foreground hover:text-foreground"
-            onClick={() => console.log("Sign in clicked")}
-          >
-            Sign in
-          </Button>
-          <Button
-            variant="default"
-            onClick={() => console.log("Join Community clicked")}
-          >
-            Join Community
-          </Button>
+          
+          {isSignedIn ? (
+            // Signed in state
+            <>
+              <Link href="/dashboard">
+                <Button
+                  variant="neutral"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Dashboard
+                </Button>
+              </Link>
+              <Link href="/profile">
+                <Button
+                  variant="neutral"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Profile
+                </Button>
+              </Link>
+              <Button
+                variant="outline"
+                onClick={handleSignOut}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <LogOut className="w-4 h-4 mr-2" />
+                Sign Out
+              </Button>
+            </>
+          ) : (
+            // Not signed in state
+            <>
+              <Link href="/signin">
+                <Button
+                  variant="neutral"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Sign in
+                </Button>
+              </Link>
+              <Button
+                variant="default"
+                onClick={() => console.log("Join Community clicked")}
+              >
+                Join Community
+              </Button>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -235,26 +297,64 @@ function Header1() {
                   >
                     Submit Project
                   </Button>
-                  <Button
-                    variant="neutral"
-                    className="w-full justify-start"
-                    onClick={() => {
-                      console.log("Sign in clicked")
-                      setOpen(false)
-                    }}
-                  >
-                    Sign in
-                  </Button>
-                  <Button
-                    variant="default"
-                    className="w-full"
-                    onClick={() => {
-                      console.log("Join Community clicked")
-                      setOpen(false)
-                    }}
-                  >
-                    Join Community
-                  </Button>
+                  
+                  {isSignedIn ? (
+                    // Signed in state
+                    <>
+                      <Link href="/dashboard">
+                        <Button
+                          variant="neutral"
+                          className="w-full justify-start"
+                          onClick={() => setOpen(false)}
+                        >
+                          Dashboard
+                        </Button>
+                      </Link>
+                      <Link href="/profile">
+                        <Button
+                          variant="neutral"
+                          className="w-full justify-start"
+                          onClick={() => setOpen(false)}
+                        >
+                          Profile
+                        </Button>
+                      </Link>
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          handleSignOut()
+                          setOpen(false)
+                        }}
+                        className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50"
+                      >
+                        <LogOut className="w-4 h-4 mr-2" />
+                        Sign Out
+                      </Button>
+                    </>
+                  ) : (
+                    // Not signed in state
+                    <>
+                      <Link href="/signin">
+                        <Button
+                          variant="neutral"
+                          className="w-full justify-start"
+                          onClick={() => setOpen(false)}
+                        >
+                          Sign in
+                        </Button>
+                      </Link>
+                      <Button
+                        variant="default"
+                        className="w-full"
+                        onClick={() => {
+                          console.log("Join Community clicked")
+                          setOpen(false)
+                        }}
+                      >
+                        Join Community
+                      </Button>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

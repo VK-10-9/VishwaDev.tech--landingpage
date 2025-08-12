@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Space_Grotesk } from "next/font/google"
 import Header1 from "@/components/ui/header"
+import DevelopmentBanner from "@/components/ui/development-banner"
 import "./globals.css"
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
@@ -27,6 +28,13 @@ export default function RootLayout({
         <main>
           {children}
         </main>
+        <DevelopmentBanner 
+          message="VishwaDev.tech is currently under development. Some features may not work as expected. Thank you for your patience!"
+          variant="construction"
+          isDismissible={true}
+          autoShow={true}
+          showDelay={2000}
+        />
       </body>
     </html>
   )
