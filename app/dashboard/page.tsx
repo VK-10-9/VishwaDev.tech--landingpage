@@ -8,23 +8,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { 
-  User, 
-  Settings, 
   FolderOpen, 
-  BarChart3, 
   Bell, 
   Globe, 
-  Github, 
   ExternalLink,
   Plus,
   Eye,
   Heart,
   Star,
-  Calendar,
   TrendingUp,
-  Award,
-  Users,
-  MessageSquare
+  Users
 } from "lucide-react"
 import Link from "next/link"
 
@@ -132,11 +125,11 @@ export default function DashboardPage() {
             <div>
               <h1 className="text-3xl font-bold">Dashboard</h1>
               <p className="text-muted-foreground">
-                Welcome back, {mockUser.name}! Here's what's happening with your projects.
+                Welcome back, {mockUser.name}! Here&apos;s what&apos;s happening with your projects.
               </p>
             </div>
             <div className="flex gap-3">
-              <Button variant="outline" size="sm">
+              <Button variant="neutral" size="sm">
                 <Bell className="w-4 h-4 mr-2" />
                 Notifications
               </Button>
@@ -241,17 +234,17 @@ export default function DashboardPage() {
                   <p className="text-sm">{mockUser.bio}</p>
                   <div className="flex flex-wrap gap-1">
                     {mockUser.skills.slice(0, 3).map((skill, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
+                      <Badge key={index} variant="secondary" className="text-xs">
                         {skill}
                       </Badge>
                     ))}
                     {mockUser.skills.length > 3 && (
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="secondary" className="text-xs">
                         +{mockUser.skills.length - 3} more
                       </Badge>
                     )}
                   </div>
-                  <Button asChild variant="outline" className="w-full">
+                  <Button asChild variant="neutral" className="w-full">
                     <Link href="/profile">View Full Profile</Link>
                   </Button>
                 </CardContent>
@@ -277,7 +270,7 @@ export default function DashboardPage() {
                       </div>
                     ))}
                   </div>
-                  <Button variant="outline" className="w-full mt-4">
+                  <Button variant="neutral" className="w-full mt-4">
                     View All Activity
                   </Button>
                 </CardContent>
@@ -325,7 +318,7 @@ export default function DashboardPage() {
                             </Badge>
                           ))}
                         </div>
-                        <Button variant="outline" size="sm" className="w-full">
+                        <Button variant="neutral" size="sm" className="w-full">
                           <ExternalLink className="w-3 h-3 mr-2" />
                           View Project
                         </Button>
@@ -380,7 +373,7 @@ export default function DashboardPage() {
                     </div>
                     <div className="flex flex-wrap gap-1">
                       {project.technologies.map((tech, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
+                        <Badge key={index} variant="secondary" className="text-xs">
                           {tech}
                         </Badge>
                       ))}
@@ -389,10 +382,10 @@ export default function DashboardPage() {
                       Last updated {project.lastUpdated}
                     </div>
                     <div className="flex gap-2">
-                      <Button variant="outline" size="sm" className="flex-1">
+                      <Button variant="neutral" size="sm" className="flex-1">
                         Edit
                       </Button>
-                      <Button variant="outline" size="sm" className="flex-1">
+                      <Button variant="neutral" size="sm" className="flex-1">
                         <ExternalLink className="w-3 h-3 mr-2" />
                         View
                       </Button>
@@ -521,7 +514,7 @@ export default function DashboardPage() {
                       <AvatarFallback>{mockUser.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                     </Avatar>
                     <div className="space-y-2">
-                      <Button variant="outline" size="sm">Change Photo</Button>
+                      <Button variant="neutral" size="sm">Change Photo</Button>
                       <p className="text-xs text-muted-foreground">JPG, PNG or GIF. Max size 2MB.</p>
                     </div>
                   </div>
@@ -555,7 +548,7 @@ export default function DashboardPage() {
                       </Badge>
                     ))}
                   </div>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="neutral" className="w-full">
                     <Plus className="w-4 h-4 mr-2" />
                     Add Skill
                   </Button>
@@ -578,11 +571,11 @@ export default function DashboardPage() {
                   Your personalized subdomain is active and accessible to the public.
                 </p>
                 <div className="flex gap-2">
-                  <Button variant="outline">
+                  <Button variant="neutral">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Visit Site
                   </Button>
-                  <Button variant="outline">Edit Settings</Button>
+                  <Button variant="neutral">Edit Settings</Button>
                 </div>
               </CardContent>
             </Card>
@@ -611,7 +604,7 @@ export default function DashboardPage() {
                     <label className="text-sm font-medium">Member Since</label>
                     <p className="text-sm bg-muted p-2 rounded">{mockUser.joinDate}</p>
                   </div>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="neutral" className="w-full">
                     Update Account
                   </Button>
                 </CardContent>
@@ -628,21 +621,21 @@ export default function DashboardPage() {
                       <p className="font-medium">Public Profile</p>
                       <p className="text-sm text-muted-foreground">Make your profile visible to everyone</p>
                     </div>
-                    <Button variant="outline" size="sm">Enabled</Button>
+                    <Button variant="neutral" size="sm">Enabled</Button>
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium">Show Email</p>
                       <p className="text-sm text-muted-foreground">Display email on your profile</p>
                     </div>
-                    <Button variant="outline" size="sm">Disabled</Button>
+                    <Button variant="neutral" size="sm">Disabled</Button>
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium">Activity Feed</p>
                       <p className="text-sm text-muted-foreground">Show your activity to followers</p>
                     </div>
-                    <Button variant="outline" size="sm">Enabled</Button>
+                    <Button variant="neutral" size="sm">Enabled</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -667,7 +660,7 @@ export default function DashboardPage() {
                         <p className="font-medium">{item.label}</p>
                         <p className="text-sm text-muted-foreground">{item.desc}</p>
                       </div>
-                      <Button variant="outline" size="sm">
+                      <Button variant="neutral" size="sm">
                         {index % 2 === 0 ? "Enabled" : "Disabled"}
                       </Button>
                     </div>
@@ -689,7 +682,7 @@ export default function DashboardPage() {
                       Permanently delete your account and all associated data
                     </p>
                   </div>
-                  <Button variant="destructive" size="sm">
+                  <Button variant="reverse" size="sm">
                     Delete Account
                   </Button>
                 </div>
@@ -701,3 +694,5 @@ export default function DashboardPage() {
     </div>
   )
 }
+
+

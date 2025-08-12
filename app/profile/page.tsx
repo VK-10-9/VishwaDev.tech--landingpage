@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Separator } from "@/components/ui/separator"
 import { 
   MapPin, 
   Calendar, 
@@ -21,10 +20,10 @@ import {
   Settings,
   Mail,
   Link as LinkIcon,
-  Award,
   TrendingUp
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 // Mock user data
 const userData = {
@@ -173,12 +172,12 @@ export default function ProfilePage() {
               </div>
               
               <div className="flex gap-3">
-                <Button variant="outline" size="sm">
+                <Button variant="neutral" size="sm">
                   <Mail className="w-4 h-4 mr-2" />
                   Message
                 </Button>
                 <Button 
-                  variant={isFollowing ? "outline" : "default"} 
+                  variant={isFollowing ? "neutral" : "default"} 
                   size="sm"
                   onClick={() => setIsFollowing(!isFollowing)}
                 >
@@ -186,7 +185,7 @@ export default function ProfilePage() {
                   {isFollowing ? "Unfollow" : "Follow"}
                 </Button>
                 <Link href="/dashboard?tab=settings">
-                  <Button variant="outline" size="sm">
+                  <Button variant="neutral" size="sm">
                     <Settings className="w-4 h-4" />
                   </Button>
                 </Link>
@@ -298,9 +297,9 @@ export default function ProfilePage() {
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold">Projects ({userProjects.length})</h2>
               <div className="flex gap-2">
-                <Button variant="outline" size="sm">Featured</Button>
-                <Button variant="outline" size="sm">Recent</Button>
-                <Button variant="outline" size="sm">Popular</Button>
+                <Button variant="neutral" size="sm">Featured</Button>
+                <Button variant="neutral" size="sm">Recent</Button>
+                <Button variant="neutral" size="sm">Popular</Button>
               </div>
             </div>
 
@@ -308,9 +307,11 @@ export default function ProfilePage() {
               {userProjects.map((project) => (
                 <Card key={project.id} className="hover:shadow-lg transition-shadow group">
                   <div className="aspect-video bg-muted rounded-t-lg overflow-hidden">
-                    <img 
+                    <Image 
                       src={project.image} 
                       alt={project.title}
+                      width={400}
+                      height={225}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -355,7 +356,7 @@ export default function ProfilePage() {
                       )}
                     </div>
                     
-                    <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Button variant="neutral" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                       <ExternalLink className="w-3 h-3 mr-2" />
                       View Project
                     </Button>

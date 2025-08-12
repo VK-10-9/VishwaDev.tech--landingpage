@@ -5,12 +5,10 @@ import { useForm } from "react-hook-form"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Separator } from "@/components/ui/separator"
 import { 
   Upload, 
   Plus, 
@@ -110,7 +108,7 @@ export default function NewProjectPage() {
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <Link href="/dashboard?tab=projects">
-            <Button variant="outline" size="sm">
+            <Button variant="neutral" size="sm">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Projects
             </Button>
@@ -237,7 +235,7 @@ export default function NewProjectPage() {
                       <Button 
                         type="button" 
                         onClick={() => addTechnology(newTech)}
-                        variant="outline"
+                        variant="neutral"
                       >
                         <Plus className="w-4 h-4" />
                       </Button>
@@ -251,7 +249,7 @@ export default function NewProjectPage() {
                           <Button
                             key={tech}
                             type="button"
-                            variant="outline"
+                            variant="neutral"
                             size="sm"
                             onClick={() => handleQuickAdd(tech)}
                             disabled={technologies.includes(tech)}
@@ -434,7 +432,7 @@ export default function NewProjectPage() {
                   </Button>
                   <Button
                     type="button"
-                    variant="outline"
+                    variant="neutral"
                     disabled={isLoading}
                     className="flex-1"
                     onClick={() => {
@@ -465,7 +463,7 @@ export default function NewProjectPage() {
               </CardHeader>
               <CardContent>
                 <Button 
-                  variant="outline" 
+                  variant="neutral" 
                   className="w-full"
                   onClick={() => setPreviewMode(!previewMode)}
                 >
@@ -488,7 +486,7 @@ export default function NewProjectPage() {
                   <p className="text-sm text-muted-foreground mb-2">
                     Drag & drop images here, or click to select
                   </p>
-                  <Button variant="outline" size="sm">
+                  <Button variant="neutral" size="sm">
                     Choose Files
                   </Button>
                   <p className="text-xs text-muted-foreground mt-2">
@@ -534,3 +532,4 @@ export default function NewProjectPage() {
     </div>
   )
 }
+

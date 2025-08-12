@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Eye, EyeOff, Code, User } from "lucide-react"
+import { Eye, EyeOff, Code } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 
 interface SignUpFormData {
@@ -183,7 +183,7 @@ export default function SignUpPage() {
                           />
                           <Button
                             type="button"
-                            variant="ghost"
+                            variant="neutral"
                             size="sm"
                             className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                             onClick={() => setShowPassword(!showPassword)}
@@ -222,7 +222,7 @@ export default function SignUpPage() {
                           />
                           <Button
                             type="button"
-                            variant="ghost"
+                            variant="neutral"
                             size="sm"
                             className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
@@ -284,3 +284,5 @@ export default function SignUpPage() {
     </div>
   )
 }
+
+

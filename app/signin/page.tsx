@@ -121,7 +121,7 @@ export default function SignInPage() {
                           />
                           <Button
                             type="button"
-                            variant="ghost"
+                            variant="neutral"
                             size="sm"
                             className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                             onClick={() => setShowPassword(!showPassword)}
@@ -172,7 +172,7 @@ export default function SignInPage() {
           <CardFooter className="flex flex-col space-y-4">
             <Separator />
             <div className="text-center text-sm text-muted-foreground">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link href="/signup" className="text-primary hover:underline font-medium">
                 Sign up for free
               </Link>
@@ -201,3 +201,4 @@ export default function SignInPage() {
     </div>
   )
 }
+

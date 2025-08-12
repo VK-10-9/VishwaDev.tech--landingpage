@@ -171,7 +171,7 @@ function Header1() {
                 </Button>
               </Link>
               <Button
-                variant="outline"
+                variant="neutral"
                 onClick={handleSignOut}
                 className="text-muted-foreground hover:text-foreground"
               >
@@ -320,7 +320,7 @@ function Header1() {
                         </Button>
                       </Link>
                       <Button
-                        variant="outline"
+                        variant="neutral"
                         onClick={() => {
                           handleSignOut()
                           setOpen(false)
