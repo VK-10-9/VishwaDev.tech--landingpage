@@ -14,6 +14,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { navigationItems } from "@/src/constants/navigation"
+import CompactDotLogo from "@/components/ui/compact-dot-logo"
 
 function Header1() {
   const [isOpen, setOpen] = useState(false)
@@ -76,11 +77,19 @@ function Header1() {
     <header className="w-full z-50 fixed top-0 left-0 bg-background/95 backdrop-blur-md border-b">
       <div className="container relative mx-auto min-h-16 sm:min-h-20 flex gap-4 flex-row items-center justify-between px-4 sm:px-6">
         {/* Logo - Always visible */}
-        <Link href="/" className="flex items-center space-x-2 z-50" onClick={() => setOpen(false)}>
-          <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-lg flex items-center justify-center">
-            <Code className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+        <Link href="/" className="flex items-center space-x-3 z-50" onClick={() => setOpen(false)}>
+          {/* Option 1: Dot Logo */}
+          <div className="hidden sm:block">
+            <CompactDotLogo size="sm" className="w-24 h-6" />
           </div>
-          <span className="text-lg sm:text-xl font-bold">VishwaDev</span>
+          
+          {/* Option 2: Traditional Logo (fallback for mobile) */}
+          <div className="flex items-center space-x-2 sm:hidden">
+            <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
+              <Code className="w-4 h-4 text-primary-foreground" />
+            </div>
+            <span className="text-lg font-bold">VishwaDev</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation - Hidden on mobile */}
