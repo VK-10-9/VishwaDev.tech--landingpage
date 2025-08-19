@@ -5,25 +5,25 @@
 
 @layer base {
   :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --destructive-foreground: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+    --popover: #ffffff;
+    --popover-foreground: #0a0a0a;
+    --primary: #94abe8;
+    --primary-foreground: #0a0a0a;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #0a0a0a;
+    --muted: #f2f2f2;
+    --muted-foreground: #6b6b6b;
+    --accent: #f5f5f5;
+    --accent-foreground: #0a0a0a;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #0a0a0a;
     --chart-1: oklch(0.646 0.222 41.116);
     --chart-2: oklch(0.6 0.118 184.704);
     --chart-3: oklch(0.398 0.07 227.392);
@@ -41,25 +41,25 @@
   }
 
   .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.145 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.145 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.985 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.396 0.141 25.723);
-    --destructive-foreground: oklch(0.637 0.237 25.331);
-    --border: oklch(0.269 0 0);
-    --input: oklch(0.269 0 0);
-    --ring: oklch(0.439 0 0);
+    --background: #0a0a0a;
+    --foreground: #ffffff;
+    --card: #0a0a0a;
+    --card-foreground: #ffffff;
+    --popover: #0a0a0a;
+    --popover-foreground: #ffffff;
+    --primary: #94abe8;
+    --primary-foreground: #0a0a0a;
+    --secondary: #1a1a1a;
+    --secondary-foreground: #ffffff;
+    --muted: #1a1a1a;
+    --muted-foreground: #a3a3a3;
+    --accent: #1a1a1a;
+    --accent-foreground: #ffffff;
+    --destructive: #b91c1c;
+    --destructive-foreground: #ffffff;
+    --border: #2a2a2a;
+    --input: #2a2a2a;
+    --ring: #ffffff;
     --chart-1: oklch(0.488 0.243 264.376);
     --chart-2: oklch(0.696 0.17 162.48);
     --chart-3: oklch(0.769 0.188 70.08);
@@ -92,20 +92,27 @@
   .text-balance {
     text-wrap: balance;
   }
+  /* Force all text that uses primary color to #0a0a0a */
+  .text-primary { color: #0a0a0a !important; }
+  .hover\:text-primary:hover { color: #0a0a0a !important; }
+  .text-primary\/80 { color: rgba(10, 10, 10, 0.8) !important; }
+  .hover\:text-primary\/80:hover { color: rgba(10, 10, 10, 0.8) !important; }
+  .group:hover .group-hover\:text-primary { color: #0a0a0a !important; }
+  .group:hover .group-hover\:text-primary\/80 { color: rgba(10, 10, 10, 0.8) !important; }
 }
 
 :root {
   /* New button design system variables */
-  --main: #88aaee;
+  --main: #94abe8;
   --overlay: rgba(0, 0, 0, 0.8);
-  --bg: #dfe5f2;
-  --bw: #fff;
-  --blank: #000;
-  --border: #000;
-  --text: #000;
-  --mtext: #000;
-  --ring: #000;
-  --ring-offset: #fff;
+  --bg: #ffffff;
+  --bw: #ffffff;
+  --blank: #0a0a0a;
+  --border: #0a0a0a;
+  --text: #0a0a0a;
+  --mtext: #0a0a0a;
+  --ring: #0a0a0a;
+  --ring-offset: #ffffff;
   --border-radius: 5px;
   --box-shadow-x: 4px;
   --box-shadow-y: 4px;
@@ -118,13 +125,13 @@
 
 .dark {
   /* Dark mode button design system variables */
-  --bg: #272933;
-  --bw: #212121;
-  --blank: #fff;
-  --border: #000;
-  --text: #e6e6e6;
-  --mtext: #000;
-  --ring: #fff;
-  --ring-offset: #000;
+  --bg: #0a0a0a;
+  --bw: #0a0a0a;
+  --blank: #ffffff;
+  --border: #ffffff;
+  --text: #ffffff;
+  --mtext: #0a0a0a;
+  --ring: #ffffff;
+  --ring-offset: #0a0a0a;
   --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border);
 }

@@ -1,6 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Projects | VishwaDev",
+  description: "Explore innovative student projects across AI/ML, Web, Mobile, and IoT at VishwaDev.",
+}
 
 export default function ProjectsPage() {
   const projectCategories = [

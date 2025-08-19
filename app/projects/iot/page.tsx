@@ -2,6 +2,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "IoT & Hardware Projects | VishwaDev",
+  description: "Internet of Things and hardware projects bridging physical and digital worlds.",
+}
 
 export default function IoTProjectsPage() {
   const iotProjects = [

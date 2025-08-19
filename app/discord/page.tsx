@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { MessageCircle, Hash, Users, Calendar, Zap, BookOpen } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Discord Community | VishwaDev",
+  description: "Join our vibrant Discord community of developers, students, and tech enthusiasts.",
+}
 
 export default function DiscordPage() {
   const channels = [
@@ -105,8 +111,8 @@ export default function DiscordPage() {
             Active Daily
           </Badge>
         </div>
-        <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
-          <Link href="https://discord.gg/vishwadev" className="flex items-center gap-2">
+        <Button asChild size="lg" className="bg-indigo-600 hover:bg-indigo-700">
+          <Link href="https://discord.gg/vishwadev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
             Join Discord Server
             <span className="text-lg">💬</span>
           </Link>
@@ -216,8 +222,8 @@ export default function DiscordPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button size="lg" className="w-full bg-indigo-600 hover:bg-indigo-700">
-              <Link href="https://discord.gg/vishwadev">
+            <Button asChild size="lg" className="w-full bg-indigo-600 hover:bg-indigo-700">
+              <Link href="https://discord.gg/vishwadev" target="_blank" rel="noopener noreferrer">
                 Join Discord Now
               </Link>
             </Button>

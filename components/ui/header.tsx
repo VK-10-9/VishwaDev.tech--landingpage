@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,6 +12,7 @@ import {
 import { Menu, MoveRight, X, LogOut } from "lucide-react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
 import { useRouter, usePathname } from "next/navigation"
 import { navigationItems } from "@/src/constants/navigation"
 import Image from "next/image"
@@ -22,6 +23,17 @@ function Header1() {
   const [isSignedIn, setIsSignedIn] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
+
+  // Helpers for active-route styling
+  const isPathActive = (href: string | undefined) => {
+    if (!href) return false
+    if (href === '/') return pathname === '/'
+    return pathname === href || pathname.startsWith(href)
+  }
+
+  const isGroupActive = (items?: { href: string }[]) => {
+    return items?.some((i) => isPathActive(i.href)) ?? false
+  }
 
   useEffect(() => {
     setIsMounted(true)
@@ -39,6 +51,15 @@ function Header1() {
     
     checkAuthStatus()
   }, [pathname])
+
+  // Close mobile menu with Escape key
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   const handleSignOut = () => {
     // Clear auth token and redirect to home
@@ -100,15 +121,26 @@ function Header1() {
                 <NavigationMenuItem key={item.title}>
                   {item.href ? (
                     <NavigationMenuLink asChild>
-                      <Link href={item.href}>
-                        <Button variant="neutral" className="text-muted-foreground hover:text-foreground">
-                          {item.title}
-                        </Button>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          buttonVariants({ variant: isPathActive(item.href) ? 'default' : 'neutral' }),
+                          isPathActive(item.href) ? undefined : 'text-muted-foreground hover:text-foreground'
+                        )}
+                      >
+                        {item.title}
                       </Link>
                     </NavigationMenuLink>
                   ) : (
                     <>
-                      <NavigationMenuTrigger className="font-medium text-sm text-muted-foreground hover:text-foreground bg-transparent hover:bg-muted data-[state=open]:bg-muted">
+                      <NavigationMenuTrigger
+                        className={
+                          `font-medium text-sm bg-transparent hover:bg-muted data-[state=open]:bg-muted ` +
+                          (isGroupActive(item.items)
+                            ? 'text-foreground'
+                            : 'text-muted-foreground hover:text-foreground')
+                        }
+                      >
                         {item.title}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="!w-[450px] p-4 bg-background border">
@@ -121,9 +153,17 @@ function Header1() {
                             <Button
                               variant="default"
                               size="sm"
-                              onClick={() => console.log("Get Started clicked")}
+                              asChild
                             >
-                              Get Started
+                              <Link
+                                href={
+                                  item.title.toLowerCase() === 'projects'
+                                    ? '/projects'
+                                    : (item.items?.[0]?.href ?? '/')
+                                }
+                              >
+                                Get Started
+                              </Link>
                             </Button>
                           </div>
                           <div className="flex flex-col text-sm h-full justify-end">
@@ -131,7 +171,12 @@ function Header1() {
                               <NavigationMenuLink asChild key={subItem.title}>
                                 <Link
                                   href={subItem.href}
-                                  className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded text-muted-foreground hover:text-foreground transition-colors"
+                                  className={
+                                    `flex flex-row justify-between items-center py-2 px-4 rounded transition-colors ` +
+                                    (isPathActive(subItem.href)
+                                      ? 'bg-muted text-foreground'
+                                      : 'text-muted-foreground hover:text-foreground hover:bg-muted')
+                                  }
                                 >
                                   <span>{subItem.title}</span>
                                   <MoveRight className="w-4 h-4 text-muted-foreground" />
@@ -151,34 +196,20 @@ function Header1() {
 
         {/* Desktop Action Buttons - Hidden on mobile */}
         <div className="hidden lg:flex items-center gap-4">
-          <Button
-            variant="neutral"
-            className="text-muted-foreground hover:text-foreground"
-            onClick={() => console.log("Submit Project clicked")}
-          >
-            Submit Project
+          <Button asChild variant="neutral" className="text-muted-foreground hover:text-foreground">
+            <Link href="/dashboard/new-project">Submit Project</Link>
           </Button>
           <div className="border-r h-6"></div>
           
           {isSignedIn ? (
             // Signed in state
             <>
-              <Link href="/dashboard">
-                <Button
-                  variant="neutral"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Dashboard
-                </Button>
-              </Link>
-              <Link href="/profile">
-                <Button
-                  variant="neutral"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Profile
-                </Button>
-              </Link>
+              <Button asChild variant="neutral" className="text-muted-foreground hover:text-foreground">
+                <Link href="/dashboard">Dashboard</Link>
+              </Button>
+              <Button asChild variant="neutral" className="text-muted-foreground hover:text-foreground">
+                <Link href="/profile">Profile</Link>
+              </Button>
               <Button
                 variant="neutral"
                 onClick={handleSignOut}
@@ -191,19 +222,11 @@ function Header1() {
           ) : (
             // Not signed in state
             <>
-              <Link href="/signin">
-                <Button
-                  variant="neutral"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Sign in
-                </Button>
-              </Link>
-              <Button
-                variant="default"
-                onClick={() => console.log("Join Community clicked")}
-              >
-                Join Community
+              <Button asChild variant="neutral" className="text-muted-foreground hover:text-foreground">
+                <Link href="/signin">Sign in</Link>
+              </Button>
+              <Button asChild variant="default">
+                <Link href="/discord">Join Community</Link>
               </Button>
             </>
           )}
@@ -260,7 +283,12 @@ function Header1() {
                         {item.href ? (
                           <Link 
                             href={item.href} 
-                            className="block w-full text-left p-3 rounded-lg hover:bg-muted transition-colors text-foreground hover:text-primary font-medium"
+                            className={
+                              `block w-full text-left p-3 rounded-lg transition-colors font-medium ` +
+                              (isPathActive(item.href)
+                                ? 'bg-muted text-primary'
+                                : 'text-foreground hover:text-primary hover:bg-muted')
+                            }
                             onClick={() => setOpen(false)}
                           >
                             {item.title}
@@ -279,7 +307,12 @@ function Header1() {
                                   <Link
                                     key={`${subItem.title}-${subIndex}`}
                                     href={subItem.href}
-                                    className="block w-full text-left p-3 pl-4 rounded-md hover:bg-muted transition-colors text-muted-foreground hover:text-foreground border-l-2 border-primary/20"
+                                    className={
+                                      `block w-full text-left p-3 pl-4 rounded-md transition-colors border-l-2 border-primary/20 ` +
+                                      (isPathActive(subItem.href)
+                                        ? 'bg-muted text-foreground'
+                                        : 'text-muted-foreground hover:text-foreground hover:bg-muted')
+                                    }
                                     onClick={() => setOpen(false)}
                                   >
                                     {subItem.title}
@@ -296,38 +329,19 @@ function Header1() {
 
                 {/* Action Buttons */}
                 <div className="p-4 border-t border-border space-y-3">
-                  <Button
-                    variant="neutral"
-                    className="w-full justify-start"
-                    onClick={() => {
-                      console.log("Submit Project clicked")
-                      setOpen(false)
-                    }}
-                  >
-                    Submit Project
+                  <Button asChild variant="neutral" className="w-full justify-start" onClick={() => setOpen(false)}>
+                    <Link href="/dashboard/new-project">Submit Project</Link>
                   </Button>
                   
                   {isSignedIn ? (
                     // Signed in state
                     <>
-                      <Link href="/dashboard">
-                        <Button
-                          variant="neutral"
-                          className="w-full justify-start"
-                          onClick={() => setOpen(false)}
-                        >
-                          Dashboard
-                        </Button>
-                      </Link>
-                      <Link href="/profile">
-                        <Button
-                          variant="neutral"
-                          className="w-full justify-start"
-                          onClick={() => setOpen(false)}
-                        >
-                          Profile
-                        </Button>
-                      </Link>
+                      <Button asChild variant="neutral" className="w-full justify-start" onClick={() => setOpen(false)}>
+                        <Link href="/dashboard">Dashboard</Link>
+                      </Button>
+                      <Button asChild variant="neutral" className="w-full justify-start" onClick={() => setOpen(false)}>
+                        <Link href="/profile">Profile</Link>
+                      </Button>
                       <Button
                         variant="neutral"
                         onClick={() => {
@@ -343,24 +357,11 @@ function Header1() {
                   ) : (
                     // Not signed in state
                     <>
-                      <Link href="/signin">
-                        <Button
-                          variant="neutral"
-                          className="w-full justify-start"
-                          onClick={() => setOpen(false)}
-                        >
-                          Sign in
-                        </Button>
-                      </Link>
-                      <Button
-                        variant="default"
-                        className="w-full"
-                        onClick={() => {
-                          console.log("Join Community clicked")
-                          setOpen(false)
-                        }}
-                      >
-                        Join Community
+                      <Button asChild variant="neutral" className="w-full justify-start" onClick={() => setOpen(false)}>
+                        <Link href="/signin">Sign in</Link>
+                      </Button>
+                      <Button asChild variant="default" className="w-full" onClick={() => setOpen(false)}>
+                        <Link href="/discord">Join Community</Link>
                       </Button>
                     </>
                   )}

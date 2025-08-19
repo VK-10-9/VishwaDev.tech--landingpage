@@ -2,6 +2,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Featured Projects | VishwaDev",
+  description: "Showcase of the most innovative and impactful student projects on VishwaDev.",
+}
 
 export default function FeaturedProjectsPage() {
   const featuredProjects = [

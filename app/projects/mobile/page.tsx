@@ -2,6 +2,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Mobile App Projects | VishwaDev",
+  description: "Native and cross-platform mobile applications built by students.",
+}
 
 export default function MobileProjectsPage() {
   const mobileProjects = [

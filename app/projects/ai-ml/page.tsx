@@ -2,6 +2,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "AI & Machine Learning Projects | VishwaDev",
+  description: "Cutting-edge AI and ML projects by students: NLP, CV, recommendation systems, and more.",
+}
 
 export default function AIMLProjectsPage() {
   const aiMlProjects = [

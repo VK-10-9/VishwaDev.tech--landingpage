@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Space_Grotesk } from "next/font/google"
 import Header1 from "@/components/ui/header"
 import DevelopmentBanner from "@/components/ui/development-banner"
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
@@ -22,19 +23,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning className="light" style={{ colorScheme: 'light' }}>
       <body className={spaceGrotesk.className}>
-        <Header1 />
-        <main>
-          {children}
-        </main>
-        <DevelopmentBanner 
-          message="VishwaDev.tech is currently under development. Some features may not work as expected. Thank you for your patience!"
-          variant="construction"
-          isDismissible={true}
-          autoShow={true}
-          showDelay={2000}
-        />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <Header1 />
+          <main>
+            {children}
+          </main>
+          <DevelopmentBanner 
+            message="VishwaDev.tech is currently under development. Some features may not work as expected. Thank you for your patience!"
+            variant="construction"
+            isDismissible={true}
+            autoShow={true}
+            showDelay={2000}
+          />
+        </ThemeProvider>
       </body>
     </html>
   )

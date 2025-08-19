@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Users, Target, BookOpen, Award, Calendar, MessageCircle } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Mentorship Program | VishwaDev",
+  description: "Accelerate your tech career with personalized 1-on-1 mentorship from industry professionals.",
+}
 
 export default function MentorshipPage() {
   const mentorshipTracks: Array<{

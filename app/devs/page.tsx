@@ -1,5 +1,11 @@
 import { HeroSection, StatsGrid, DeveloperCard, CallToAction } from "@/components/devs"
 import { developers } from "./developers-data"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Meet the Devs | VishwaDev",
+  description: "Explore our developer community and discover talented student innovators.",
+}
 import { developerStats } from "./stats-data"
 
 // Main Page Component
