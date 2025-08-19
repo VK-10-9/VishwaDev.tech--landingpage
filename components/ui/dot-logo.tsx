@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useId } from "react";
 
 // Dot-matrix logo that mimics the "Array" dotted aesthetic using an SVG text mask.
 // Drop this component anywhere in your Next.js/React app.
@@ -77,9 +77,11 @@ export default function DotLogo({
     URL.revokeObjectURL(url);
   };
 
-  // For accessibility, expose text via <title>
-  const titleId = useMemo(() => `title-${Math.random().toString(36).slice(2)}` , []);
-  const maskId = useMemo(() => `mask-${Math.random().toString(36).slice(2)}` , []);
+
+  // For accessibility, expose text via <title> and use stable IDs for hydration
+  const reactId = useId();
+  const titleId = `title-${reactId}`;
+  const maskId = `mask-${reactId}`;
 
   return (
     <div className="w-full flex flex-col items-center gap-4">
