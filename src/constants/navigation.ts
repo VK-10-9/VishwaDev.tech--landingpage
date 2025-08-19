@@ -60,23 +60,19 @@ export const navigationItems: NavigationItem[] = [
   },
   {
     title: "Nex10 Labs",
-    description: "Our exclusive incubation program for promising projects.",
+    description: "A SaaS platform building custom tech solutions for clients.",
     items: [
       {
-        title: "Apply Now",
-        href: "/nex10/apply",
+        title: "Our Solutions",
+        href: "/nex10",
       },
       {
-        title: "Success Stories",
-        href: "/nex10/success-stories",
+        title: "Request a Quote",
+        href: "/contact",
       },
       {
-        title: "Resources",
-        href: "/nex10/resources",
-      },
-      {
-        title: "Mentors",
-        href: "/nex10/mentors",
+        title: "See Our Work",
+        href: "/projects",
       },
     ],
   },

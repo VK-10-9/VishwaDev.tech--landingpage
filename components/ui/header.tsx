@@ -9,12 +9,11 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { Menu, MoveRight, X, Code, LogOut } from "lucide-react"
+import { Menu, MoveRight, X, LogOut } from "lucide-react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter, usePathname } from "next/navigation"
 import { navigationItems } from "@/src/constants/navigation"
-import CompactDotLogo from "@/components/ui/compact-dot-logo"
 import Image from "next/image"
 
 function Header1() {

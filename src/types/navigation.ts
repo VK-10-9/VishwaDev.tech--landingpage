@@ -1,11 +1,13 @@
+export interface NavigationSubItem {
+  title: string;
+  href: string;
+}
+
 export interface NavigationItem {
   title: string;
   href?: string;
   description?: string;
-  items?: {
-    title: string;
-    href: string;
-  }[];
+  items?: NavigationSubItem[];
 }
 
 export interface FeatureCard {

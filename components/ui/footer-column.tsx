@@ -11,7 +11,7 @@ const data = {
     showcase: "/projects",
     community: "/community",
     subdomains: "/subdomains",
-    nex10: "/nex10-labs",
+  nex10: "/nex10",
   },
   about: {
     story: "/about",
@@ -37,7 +37,25 @@ const data = {
   },
 }
 
-const socialLinks = [
+interface SocialLink {
+  icon: typeof Facebook;
+  label: string;
+  href: string;
+}
+
+interface FooterLink {
+  text: string;
+  href: string;
+  hasIndicator?: boolean;
+}
+
+interface ContactInfo {
+  icon: typeof Mail;
+  text: string;
+  isAddress?: boolean;
+}
+
+const socialLinks: SocialLink[] = [
   { icon: Facebook, label: "Facebook", href: data.facebookLink },
   { icon: Instagram, label: "Instagram", href: data.instaLink },
   { icon: Twitter, label: "Twitter", href: data.twitterLink },
@@ -45,27 +63,27 @@ const socialLinks = [
   { icon: Dribbble, label: "Dribbble", href: data.dribbbleLink },
 ]
 
-const aboutLinks = [
+const aboutLinks: FooterLink[] = [
   { text: "Our Story", href: data.about.story },
   { text: "Meet the Devs", href: data.about.team },
   { text: "Blog", href: data.about.blog },
   { text: "Careers", href: data.about.careers },
 ]
 
-const serviceLinks = [
+const serviceLinks: FooterLink[] = [
   { text: "Project Showcase", href: data.services.showcase },
   { text: "Developer Community", href: data.services.community },
   { text: "Custom Subdomains", href: data.services.subdomains },
   { text: "Nex10 Labs", href: data.services.nex10 },
 ]
 
-const helpfulLinks = [
+const helpfulLinks: FooterLink[] = [
   { text: "FAQs", href: data.help.faqs },
   { text: "Support", href: data.help.support },
   { text: "Documentation", href: data.help.docs, hasIndicator: true },
 ]
 
-const contactInfo = [
+const contactInfo: ContactInfo[] = [
   { icon: Mail, text: data.contact.email },
   { icon: Phone, text: data.contact.phone },
   { icon: MapPin, text: data.contact.address, isAddress: true },

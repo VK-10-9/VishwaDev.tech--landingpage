@@ -9,7 +9,7 @@ import Link from "next/link"
 import { StatsSection } from "@/src/components/sections/StatsSection"
 import { FeaturedProjectsSection } from "@/src/components/sections/FeaturedProjectsSection"
 import { featuredProjects, galleryProjects } from "@/src/constants/projects"
-import { stats, nex10Stats } from "@/src/constants/stats"
+import { stats } from "@/src/constants/stats"
 
 export default function HomePage() {
   return (
@@ -131,59 +131,15 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
               <Star className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-              <span className="text-primary font-semibold text-xs sm:text-sm">Nex10 Labs Initiative</span>
+              <span className="text-primary font-semibold text-xs sm:text-sm">Nex10 Labs</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 leading-tight">
-              From Student Project to
-              <span className="text-primary">
-                {" "}
-                Startup Success
-              </span>
+              Custom Tech Solutions for
+              <span className="text-primary"> Your Business</span>
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-2">
-              Nex10 Labs is our exclusive incubation program that identifies promising student projects and provides
-              mentorship, resources, and funding opportunities to transform them into viable startups. Join the next
-              generation of tech entrepreneurs.
+              Nex10 Labs is a platform and SaaS company that builds custom tech solutions for clients. We deliver web apps, AI/ML, automation, mobile apps, and more—fast, reliably, and with full support. Partner with us to accelerate your digital transformation.
             </p>
-
-            {/* Feature Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-              <Card className="hover:shadow-lg transition-all duration-300 p-1">
-                <CardHeader className="pb-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                    <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg sm:text-xl">Expert Mentorship</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <CardDescription className="text-sm sm:text-base">Connect with industry veterans and successful entrepreneurs</CardDescription>
-                </CardContent>
-              </Card>
-              <Card className="hover:shadow-lg transition-all duration-300 p-1">
-                <CardHeader className="pb-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                    <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg sm:text-xl">Funding Support</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <CardDescription className="text-sm sm:text-base">Access to seed funding and investor networks</CardDescription>
-                </CardContent>
-              </Card>
-              <Card className="hover:shadow-lg transition-all duration-300 p-1 sm:col-span-2 md:col-span-1">
-                <CardHeader className="pb-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 mx-auto">
-                    <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg sm:text-xl">Global Network</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <CardDescription className="text-sm sm:text-base">Join a worldwide community of student entrepreneurs</CardDescription>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4">
               <Button
                 variant="default"
@@ -191,33 +147,21 @@ export default function HomePage() {
                 className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
                 asChild
               >
-                <Link href="/nex10/apply">
-                  Apply to Nex10 Labs
+                <Link href="/nex10">
+                  Explore Nex10 Labs
                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </Link>
               </Button>
               <Button
                 variant="neutral"
                 size="lg"
-                className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
+                className="px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
                 asChild
               >
-                <Link href="/nex10">
-                  Learn More
+                <Link href="/contact">
+                  Request a Quote
                 </Link>
               </Button>
-            </div>
-
-            {/* Success Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
-              {nex10Stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-primary mb-1 sm:mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-muted-foreground text-xs sm:text-sm">{stat.label}</div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
