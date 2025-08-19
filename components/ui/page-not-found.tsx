@@ -93,6 +93,8 @@ function CharactersAnimation() {
   const charactersRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentCharacters = charactersRef.current;
+    
     // Define stick figures with their properties
     const stickFigures: StickFigure[] = [
       {
@@ -133,8 +135,8 @@ function CharactersAnimation() {
     ];
 
     // Clear existing content
-    if (charactersRef.current) {
-      charactersRef.current.innerHTML = '';
+    if (currentCharacters) {
+      currentCharacters.innerHTML = '';
     }
 
     // Create and animate each stick figure
@@ -156,7 +158,7 @@ function CharactersAnimation() {
       if (figure.transform) stick.style.transform = figure.transform;
 
       // Append to the container
-      charactersRef.current?.appendChild(stick);
+      currentCharacters?.appendChild(stick);
 
       // Skip animation for the last figure (index 5)
       if (index === 5) return;
@@ -181,7 +183,6 @@ function CharactersAnimation() {
 
     // Cleanup function
     return () => {
-      const currentCharacters = charactersRef.current;
       if (currentCharacters) {
         currentCharacters.innerHTML = '';
       }

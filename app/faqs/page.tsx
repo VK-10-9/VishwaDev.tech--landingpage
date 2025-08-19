@@ -2,6 +2,7 @@
 
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 const faqData = [
   {
@@ -146,18 +147,17 @@ export default function FAQsPage() {
             Can&apos;t find the answer you&apos;re looking for? Our support team is here to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/support"
               className="bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition-colors"
             >
               Contact Support
-            </a>
-            <a
+            </Link>
+            <Link
               href="/discord"
               className="border border-border px-6 py-3 rounded-md font-medium hover:bg-muted transition-colors"
             >
-              Join Discord
-            </a>
+              Join Discord</Link>
           </div>
         </div>
       </section>

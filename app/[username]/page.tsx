@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation"
 import { developers } from "@/app/devs/developers-data"
-import { DeveloperCard } from "@/components/devs/DeveloperCard"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Mail, Phone, MapPin, Calendar, Github, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import type { Metadata } from "next"
 
 interface UserProfilePageProps {
@@ -58,9 +58,11 @@ export default async function UserProfilePage({ params }: UserProfilePageProps) 
         {/* Profile Header */}
         <div className="text-center mb-12">
           <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-muted flex items-center justify-center">
-            <img 
+            <Image 
               src={developer.avatar} 
               alt={developer.name}
+              width={128}
+              height={128}
               className="w-full h-full rounded-full object-cover"
             />
           </div>
@@ -194,7 +196,7 @@ export default async function UserProfilePage({ params }: UserProfilePageProps) 
           <div className="bg-card p-8 rounded-lg border max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Connect with {developer.name}</h3>
             <p className="text-muted-foreground mb-6">
-              Interested in collaborating or learning more? Reach out and let's build something amazing together!
+              Interested in collaborating or learning more? Reach out and let&apos;s build something amazing together!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild>
