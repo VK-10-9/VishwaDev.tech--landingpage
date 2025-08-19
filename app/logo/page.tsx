@@ -37,6 +37,33 @@ export default function LogoShowcase() {
           </div>
         </div>
       </section>
+
+      {/* Logo Variations */}
+      <section className="pb-16 px-4">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-8">Logo Variations</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+              <div>
+                <Image src="/1.jpg" alt="Logo Variation 1" width={300} height={300} className="rounded-xl bg-white mx-auto" />
+                <p className="mt-2 text-sm text-muted-foreground">Variation 1</p>
+              </div>
+              <div>
+                <Image src="/2.jpg" alt="Logo Variation 2" width={300} height={300} className="rounded-xl bg-white mx-auto" />
+                <p className="mt-2 text-sm text-muted-foreground">Variation 2</p>
+              </div>
+              <div>
+                <Image src="/3.jpg" alt="Logo Variation 3" width={300} height={300} className="rounded-xl bg-white mx-auto" />
+                <p className="mt-2 text-sm text-muted-foreground">Variation 3</p>
+              </div>
+              <div>
+                <Image src="/4.jpg" alt="Logo Variation 4" width={300} height={300} className="rounded-xl bg-white mx-auto" />
+                <p className="mt-2 text-sm text-muted-foreground">Variation 4</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
