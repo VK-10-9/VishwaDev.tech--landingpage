@@ -1,24 +1,23 @@
-import { Star, Users, Code, Award } from "lucide-react";
 import { Stat } from "@/src/types/developer";
 
-export const developerStats: Stat[] = [
+export const developerStats: Omit<Stat, 'icon'>[] = [
   {
-    icon: Users,
+    iconName: "Users",
     value: "6",
     label: "Active Developers"
   },
   {
-    icon: Code,
+    iconName: "Code",
     value: "12+",
     label: "Projects Completed"
   },
   {
-    icon: Star,
+    iconName: "Star",
     value: "200+",
     label: "Code Contributions"
   },
   {
-    icon: Award,
+    iconName: "Award",
     value: "100%",
     label: "Success Rate"
   }

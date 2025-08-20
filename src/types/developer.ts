@@ -36,5 +36,6 @@ export interface Developer {
 export interface Stat {
   label: string;
   value: string;
-  icon: LucideIcon; // Lucide icon component
+  icon?: LucideIcon; // Lucide icon component
+  iconName?: string; // Icon name as string for server components
 }
