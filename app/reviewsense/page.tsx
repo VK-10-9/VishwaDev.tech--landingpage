@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-import { Github, ExternalLink, Users, Lightbulb, Target, TrendingUp, Clock } from 'lucide-react'
+import { Github, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "ReviewSense - AI-Powered Review Summarizer",
