@@ -83,6 +83,11 @@ export default function ReviewSensePage() {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               AI-Powered Product Review Summarizer for Smarter Decision-Making
             </p>
+            <div className="mt-4">
+              <p className="text-sm text-muted-foreground">
+                Developed by <span className="font-semibold text-foreground">Yashas Patil</span>
+              </p>
+            </div>
           </div>
 
           {/* Project Overview */}
@@ -259,7 +264,7 @@ export default function ReviewSensePage() {
           <div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-8">
             <h2 className="text-2xl font-bold mb-4">Ready to Explore ReviewSense?</h2>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-              Check out the live demo or explore the source code to learn more about this AI-powered review summarizer.
+              Check out the live demo or explore the source code to learn more about this AI-powered review summarizer developed by Yashas Patil.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild>
