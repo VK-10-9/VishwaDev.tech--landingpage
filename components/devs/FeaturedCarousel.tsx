@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Developer } from '@/src/types/developer';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
@@ -119,7 +118,7 @@ export const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ developers }
                 <h4 className="text-sm font-medium mb-2">Recent Achievement:</h4>
                 {currentDev.achievements.length > 0 && (
                   <div className="bg-muted/30 p-4 rounded-lg mb-6">
-                    <p className="italic text-muted-foreground">"{currentDev.achievements[0]}"</p>
+                    <p className="italic text-muted-foreground">&quot;{currentDev.achievements[0]}&quot;</p>
                   </div>
                 )}
                 
@@ -128,7 +127,7 @@ export const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ developers }
                     <h4 className="text-sm font-medium mb-2">Featured Project:</h4>
                     <div className="bg-muted/30 p-4 rounded-lg">
                       <h5 className="font-medium">{currentDev.projects[0].name}</h5>
-                      <p className="text-sm text-muted-foreground mb-2">{currentDev.projects[0].description}</p>
+                      <p className="text-sm text-muted-foreground mb-4">{currentDev.projects[0].description}</p>
                       <div className="flex flex-wrap gap-1 mb-3">
                         {currentDev.projects[0].tech.slice(0, 3).map((tech, index) => (
                           <Badge key={index} variant="secondary" className="text-xs">

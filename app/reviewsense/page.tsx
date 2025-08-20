@@ -2,9 +2,8 @@ import type { Metadata } from "next"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
-import Image from "next/image"
+import { Github, ExternalLink, Users, Lightbulb, Target, TrendingUp, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: "ReviewSense - AI-Powered Review Summarizer",
@@ -100,7 +99,7 @@ export default function ReviewSensePage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">
-                In today's digital-first marketplace, consumers rely heavily on product reviews before making a purchase. 
+                In today&apos;s digital-first marketplace, consumers rely heavily on product reviews before making a purchase. 
                 However, the sheer volume of reviews often overwhelms buyers, making it difficult to extract meaningful insights. 
                 ReviewSense addresses this challenge by automatically scraping, analyzing, and summarizing product reviews to empower smarter decision-making.
               </p>

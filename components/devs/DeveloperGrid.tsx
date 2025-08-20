@@ -20,15 +20,6 @@ export const DeveloperGrid: React.FC<DeveloperGridProps> = ({
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [sortOption, setSortOption] = useState<SortOption>('name_asc');
 
-  // Extract all unique skills from developers
-  const allSkills = useMemo(() => {
-    const skillSet = new Set<string>();
-    developers.forEach(dev => {
-      dev.skills.forEach(skill => skillSet.add(skill));
-    });
-    return Array.from(skillSet);
-  }, [developers]);
-
   // Get popular skills (top 8)
   const popularSkills = useMemo(() => {
     const skillCount = new Map<string, number>();

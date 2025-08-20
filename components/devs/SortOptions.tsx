@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ArrowDownAZ, ArrowUpAZ, Clock, Star } from 'lucide-react';
 

@@ -1,5 +1,4 @@
-import { projects } from '../projects-data';
-import { ProjectCard } from '../ProjectCard';
+import { projects } from "../projects-data";
 import { notFound } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
