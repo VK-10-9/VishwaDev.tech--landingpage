@@ -10,6 +10,7 @@ export interface Project {
   liveUrl: string;
   image: string;
   url?: string;
+  category?: string;
 }
 
 export interface GalleryProject {

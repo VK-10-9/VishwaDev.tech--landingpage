@@ -57,7 +57,7 @@ export const CallToAction: React.FC = () => {
                   View All Projects
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-6 border-primary/20 hover:bg-primary/5" asChild>
+              <Button size="lg" variant="neutral" className="rounded-full px-6 border-primary/20 hover:bg-primary/5" asChild>
                 <Link href="/discord">
                   Join Discord Community
                 </Link>

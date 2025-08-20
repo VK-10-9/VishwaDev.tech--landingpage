@@ -82,7 +82,7 @@ export const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
             </Badge>
           ))}
           <Button 
-            variant="ghost" 
+            variant="neutral" 
             size="sm" 
             onClick={onClearAllFilters}
             className="text-xs h-7"

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Project } from './projects-data'; // Adjust the import path as needed
+import { Project } from '@/src/constants/projects';
 import Image from 'next/image';
 
 interface ProjectCardProps {
@@ -34,12 +34,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Badge key={tech} variant="outline">{tech}</Badge>
           ))}
           {project.stack.length > 4 && (
-            <Badge variant="ghost">+{project.stack.length - 4} more</Badge>
+            <Badge variant="outline">+{project.stack.length - 4} more</Badge>
           )}
         </div>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button asChild variant="secondary">
+        <Button asChild variant="neutral">
           <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
             GitHub
           </Link>

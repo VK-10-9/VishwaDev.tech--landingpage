@@ -270,7 +270,7 @@ export default function ReviewSensePage() {
                   Live Demo
                 </Link>
               </Button>
-              <Button asChild variant="outline">
+              <Button asChild variant="neutral">
                 <Link href="https://github.com/yashas-patil/ReviewSense" target="_blank" rel="noopener noreferrer">
                   View on GitHub
                 </Link>

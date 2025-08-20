@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                         View on GitHub
                       </Link>
                     </Button>
-                    <Button asChild variant="secondary">
+                    <Button asChild variant="neutral">
                       <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         Live Demo
                       </Link>

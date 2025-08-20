@@ -154,7 +154,7 @@ export const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ developers }
         {featuredDevs.length > 1 && (
           <>
             <Button 
-              variant="ghost" 
+              variant="neutral" 
               size="icon" 
               className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm hover:bg-background/90 z-10"
               onClick={handlePrevious}
@@ -162,7 +162,7 @@ export const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ developers }
               <ChevronLeft className="h-5 w-5" />
             </Button>
             <Button 
-              variant="ghost" 
+              variant="neutral" 
               size="icon" 
               className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm hover:bg-background/90 z-10"
               onClick={handleNext}

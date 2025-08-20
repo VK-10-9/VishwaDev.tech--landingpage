@@ -66,7 +66,7 @@ export const DeveloperGrid: React.FC<DeveloperGridProps> = ({
           return b.yearsExperience - a.yearsExperience;
         case 'recent':
           // Assuming higher IDs are more recent
-          return parseInt(b.id) - parseInt(a.id);
+          return b.id - a.id;
         default:
           return 0;
       }
