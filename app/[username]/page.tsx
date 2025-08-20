@@ -372,13 +372,13 @@ export default async function UserProfilePage({ params }: UserProfilePageProps) 
                     Send Email
                   </a>
                 </Button>
-                <Button variant="outline" asChild className="border-primary/20 hover:bg-primary/10 hover:text-primary transition-colors duration-200 shadow-sm hover:shadow-md">
+                <Button variant="neutral" asChild className="border-primary/20 hover:bg-primary/10 hover:text-primary transition-colors duration-200 shadow-sm hover:shadow-md">
                   <a href={developer.social.github} target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <Github className="w-4 h-4 mr-2" />
                     View GitHub
                   </a>
                 </Button>
-                <Button variant="outline" asChild className="border-primary/20 hover:bg-primary/10 hover:text-primary transition-colors duration-200 shadow-sm hover:shadow-md">
+                <Button variant="neutral" asChild className="border-primary/20 hover:bg-primary/10 hover:text-primary transition-colors duration-200 shadow-sm hover:shadow-md">
                   <a href={developer.social.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <Linkedin className="w-4 h-4 mr-2" />
                     LinkedIn
