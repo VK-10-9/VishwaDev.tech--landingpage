@@ -1,16 +1,22 @@
 "use client"
 
+// React and Next.js imports
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+
+// UI Components
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Eye, EyeOff, Code } from "lucide-react"
+import { PasswordInput } from "@/components/ui/password-input"
 import { Separator } from "@/components/ui/separator"
+
+// Icons
+import { Code } from "lucide-react"
 
 interface SignUpFormData {
   firstName: string
@@ -21,8 +27,6 @@ interface SignUpFormData {
 }
 
 export default function SignUpPage() {
-  const [showPassword, setShowPassword] = useState(false)
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   
@@ -38,17 +42,25 @@ export default function SignUpPage() {
 
   const onSubmit = async (data: SignUpFormData) => {
     setIsLoading(true)
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    console.log("Sign up data:", data)
-    
-    // Simulate successful registration
-    if (data.email && data.password && data.firstName && data.lastName) {
-      // Redirect to dashboard on successful signup
-      router.push("/dashboard")
+    try {
+      // TODO: Replace with actual API call
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Simulate successful registration
+      if (data.email && data.password && data.firstName && data.lastName) {
+        // Set auth token in localStorage
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('authToken', 'mock-token')
+        }
+        // Redirect to dashboard on successful signup
+        router.push("/dashboard")
+      }
+    } catch (error) {
+      // TODO: Handle signup error
+      console.error("Signup failed:", error)
+    } finally {
+      setIsLoading(false)
     }
-    
-    setIsLoading(false)
   }
 
   return (
@@ -174,27 +186,11 @@ export default function SignUpPage() {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <div className="relative">
-                          <Input
-                            type={showPassword ? "text" : "password"}
-                            placeholder="Create a strong password (e.g., MySecure123!)"
-                            {...field}
-                            className="h-11 pr-10"
-                          />
-                          <Button
-                            type="button"
-                            variant="neutral"
-                            size="sm"
-                            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                            onClick={() => setShowPassword(!showPassword)}
-                          >
-                            {showPassword ? (
-                              <EyeOff className="h-4 w-4 text-muted-foreground" />
-                            ) : (
-                              <Eye className="h-4 w-4 text-muted-foreground" />
-                            )}
-                          </Button>
-                        </div>
+                        <PasswordInput
+                          placeholder="Create a strong password (e.g., MySecure123!)"
+                          className="h-11"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -213,27 +209,11 @@ export default function SignUpPage() {
                     <FormItem>
                       <FormLabel>Confirm Password</FormLabel>
                       <FormControl>
-                        <div className="relative">
-                          <Input
-                            type={showConfirmPassword ? "text" : "password"}
-                            placeholder="Confirm your password (e.g., MySecure123!)"
-                            {...field}
-                            className="h-11 pr-10"
-                          />
-                          <Button
-                            type="button"
-                            variant="neutral"
-                            size="sm"
-                            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                          >
-                            {showConfirmPassword ? (
-                              <EyeOff className="h-4 w-4 text-muted-foreground" />
-                            ) : (
-                              <Eye className="h-4 w-4 text-muted-foreground" />
-                            )}
-                          </Button>
-                        </div>
+                        <PasswordInput
+                          placeholder="Confirm your password (e.g., MySecure123!)"
+                          className="h-11"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

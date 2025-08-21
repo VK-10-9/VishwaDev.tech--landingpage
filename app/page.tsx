@@ -1,11 +1,16 @@
-import { ArrowRight, Globe, Star, Users, Zap } from "lucide-react"
+// Next.js imports
+import Link from "next/link"
+
+// UI Components
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Gallery6 } from "@/components/ui/gallery6"
 import Footer4Col from "@/components/ui/footer-column"
-import Link from "next/link"
 
-// Import refactored components and data
+// Icons
+import { ArrowRight, Globe, Star, Users, Zap } from "lucide-react"
+
+// Custom components and data
 import { StatsSection } from "@/src/components/sections/StatsSection"
 import { FeaturedProjectsSection } from "@/src/components/sections/FeaturedProjectsSection"
 import { featuredProjects, galleryProjects } from "@/src/constants/projects"

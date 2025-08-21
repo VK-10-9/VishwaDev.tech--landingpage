@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Project } from "@/src/constants/projects"
+import { Project } from "@/src/types/project"
 
 interface FeaturedProjectsSectionProps {
   projects: Project[];
@@ -69,7 +69,7 @@ export function FeaturedProjectsSection({
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">{project.description}</p>
                 {project.stack.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
-                    {project.stack.slice(0, 4).map((tech) => (
+                    {project.stack.slice(0, 4).map((tech: string) => (
                       <span
                         key={tech}
                         className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md whitespace-nowrap"

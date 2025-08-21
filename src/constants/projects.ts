@@ -1,25 +1,11 @@
-export interface Project {
-  id: number | string;
-  title: string;
-  tagline?: string;
-  summary?: string;
-  description: string;
-  stack: string[];
-  contributors: string[];
-  githubUrl: string;
-  liveUrl: string;
-  image: string;
-  url?: string;
-  category?: string;
-}
+import { Project, GalleryProject, ProjectContributor } from "@/src/types/project"
 
-export interface GalleryProject {
-  id: string;
-  title: string;
-  summary: string;
-  url: string;
-  image: string;
-}
+// Helper function to create contributor objects
+const createContributor = (developerId: number, name: string, role: ProjectContributor["role"] = "Contributor"): ProjectContributor => ({
+  developerId,
+  name,
+  role
+})
 
 export const featuredProjects: Project[] = [
   {
@@ -28,11 +14,34 @@ export const featuredProjects: Project[] = [
     tagline: "Real-time collaboration platform for developers",
     description:
       "A comprehensive platform that enables seamless collaboration between developers with live code sharing, integrated chat, and project management tools.",
+    category: "Web Development",
     stack: ["Next.js", "TypeScript", "Socket.io", "PostgreSQL"],
-    contributors: ["Arjun M", "Priya S"],
+    difficulty: "advanced",
+    status: "active",
+    contributors: [
+      createContributor(4, "Arjun M", "Lead Developer"),
+      createContributor(2, "Priya S", "Contributor")
+    ],
+    teamSize: 2,
+    links: [
+      { label: "GitHub", url: "https://github.com/example/devflow", type: "github" },
+      { label: "Live Demo", url: "https://devflow.demo.com", type: "live" }
+    ],
     githubUrl: "https://github.com/example/devflow",
     liveUrl: "https://devflow.demo.com",
     image: "/placeholder.svg?height=200&width=400",
+    createdDate: "2024-01-15",
+    lastUpdated: "2024-08-15",
+    duration: "6 months",
+    features: ["Real-time collaboration", "Live code sharing", "Integrated chat", "Project management"],
+    tags: ["collaboration", "real-time", "developers", "productivity"],
+    featured: true,
+    trending: true,
+    metrics: {
+      stars: 247,
+      forks: 48,
+      views: 1250
+    }
   },
   {
     id: 2,
@@ -40,11 +49,34 @@ export const featuredProjects: Project[] = [
     tagline: "AI-powered carbon footprint tracker",
     description:
       "Smart application that helps individuals and organizations track, analyze, and reduce their carbon footprint using machine learning algorithms.",
+    category: "AI/ML",
     stack: ["React", "Python", "TensorFlow", "MongoDB"],
-    contributors: ["Rahul K", "Sneha P", "Amit J"],
+    difficulty: "intermediate",
+    status: "completed",
+    contributors: [
+      createContributor(5, "Rahul K", "Lead Developer"),
+      createContributor(6, "Sneha P", "Contributor"),
+      createContributor(8, "Amit J", "Contributor")
+    ],
+    teamSize: 3,
+    links: [
+      { label: "GitHub", url: "https://github.com/example/ecotrack", type: "github" },
+      { label: "Live Demo", url: "https://ecotrack.demo.com", type: "live" }
+    ],
     githubUrl: "https://github.com/example/ecotrack",
     liveUrl: "https://ecotrack.demo.com",
     image: "/placeholder.svg?height=200&width=400",
+    createdDate: "2024-02-10",
+    lastUpdated: "2024-07-20",
+    duration: "4 months",
+    features: ["Carbon footprint tracking", "AI-powered insights", "Reduction recommendations", "Progress monitoring"],
+    tags: ["ai", "environment", "sustainability", "analytics"],
+    featured: true,
+    metrics: {
+      stars: 189,
+      forks: 32,
+      views: 892
+    }
   },
   {
     id: 3,
@@ -52,11 +84,34 @@ export const featuredProjects: Project[] = [
     tagline: "Intelligent code review and mentoring assistant",
     description:
       "An AI-powered tool that provides instant code reviews, suggests improvements, and offers personalized learning paths for developers.",
+    category: "AI/ML",
     stack: ["Vue.js", "Node.js", "OpenAI API", "Redis"],
-    contributors: ["Maya L", "Kiran R"],
+    difficulty: "advanced",
+    status: "in-progress",
+    contributors: [
+      createContributor(7, "Maya L", "Lead Developer"),
+      createContributor(1, "Kiran R", "Contributor")
+    ],
+    teamSize: 2,
+    links: [
+      { label: "GitHub", url: "https://github.com/example/codementor-ai", type: "github" },
+      { label: "Live Demo", url: "https://codementor-ai.demo.com", type: "demo" }
+    ],
     githubUrl: "https://github.com/example/codementor-ai",
     liveUrl: "https://codementor-ai.demo.com",
     image: "/placeholder.svg?height=200&width=400",
+    createdDate: "2024-03-05",
+    lastUpdated: "2024-08-18",
+    duration: "5 months",
+    features: ["AI code reviews", "Improvement suggestions", "Learning paths", "Code quality metrics"],
+    tags: ["ai", "code-review", "mentoring", "learning"],
+    featured: true,
+    trending: true,
+    metrics: {
+      stars: 312,
+      forks: 67,
+      views: 1580
+    }
   },
 ];
 

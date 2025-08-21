@@ -1,16 +1,22 @@
 "use client"
 
+// React and Next.js imports
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+
+// UI Components
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Eye, EyeOff, Code } from "lucide-react"
+import { PasswordInput } from "@/components/ui/password-input"
 import { Separator } from "@/components/ui/separator"
+
+// Icons
+import { Code } from "lucide-react"
 
 interface SignInFormData {
   email: string
@@ -18,7 +24,6 @@ interface SignInFormData {
 }
 
 export default function SignInPage() {
-  const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   
@@ -31,18 +36,26 @@ export default function SignInPage() {
 
   const onSubmit = async (data: SignInFormData) => {
     setIsLoading(true)
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    console.log("Sign in data:", data)
-    
-    // Simulate successful authentication
-    // In a real app, you would validate credentials here
-    if (data.email && data.password) {
-      // Redirect to dashboard on successful signin
-      router.push("/dashboard")
+    try {
+      // TODO: Replace with actual authentication API call
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Simulate successful authentication
+      // In a real app, you would validate credentials here
+      if (data.email && data.password) {
+        // Set auth token in localStorage
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('authToken', 'mock-token')
+        }
+        // Redirect to dashboard on successful signin
+        router.push("/dashboard")
+      }
+    } catch (error) {
+      console.error("Authentication failed:", error)
+      // TODO: Show error message to user
+    } finally {
+      setIsLoading(false)
     }
-    
-    setIsLoading(false)
   }
 
   return (
@@ -112,27 +125,11 @@ export default function SignInPage() {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <div className="relative">
-                          <Input
-                            type={showPassword ? "text" : "password"}
-                            placeholder="Enter your password (e.g., MySecure123!)"
-                            {...field}
-                            className="h-11 pr-10"
-                          />
-                          <Button
-                            type="button"
-                            variant="neutral"
-                            size="sm"
-                            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                            onClick={() => setShowPassword(!showPassword)}
-                          >
-                            {showPassword ? (
-                              <EyeOff className="h-4 w-4 text-muted-foreground" />
-                            ) : (
-                              <Eye className="h-4 w-4 text-muted-foreground" />
-                            )}
-                          </Button>
-                        </div>
+                        <PasswordInput
+                          placeholder="Enter your password (e.g., MySecure123!)"
+                          className="h-11"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

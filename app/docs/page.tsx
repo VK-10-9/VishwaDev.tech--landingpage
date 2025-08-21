@@ -112,8 +112,7 @@ export default function DocumentationPage() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Searching for:", searchQuery);
-    // Implement search functionality
+    // TODO: Implement search functionality
   };
 
   return (

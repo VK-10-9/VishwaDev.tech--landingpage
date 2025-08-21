@@ -77,14 +77,21 @@ export default function NewProjectPage() {
 
   const onSubmit = async (data: ProjectFormData) => {
     setIsLoading(true)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const projectData = { ...data, technologies }
-    console.log("Project data:", projectData)
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    setIsLoading(false)
-    
-    // Redirect to dashboard or show success message
+    try {
+      // TODO: Replace with actual API call and use projectData
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Redirect to dashboard or show success message
+      // TODO: Add success notification
+    } catch (error) {
+      console.error("Failed to submit project:", error)
+      // TODO: Show error message to user
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const addTechnology = (tech: string) => {

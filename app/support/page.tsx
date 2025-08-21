@@ -75,8 +75,7 @@ export default function SupportPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Support ticket submitted:", formData);
+    // TODO: Replace with actual API call to submit support ticket
     alert("Support ticket submitted successfully! We'll get back to you within 24 hours.");
     setFormData({
       name: "",
