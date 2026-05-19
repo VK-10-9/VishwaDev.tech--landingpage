@@ -55,8 +55,13 @@ export const teams: Team[] = [
       "SASA is a developer collective focused on building structured, scalable software systems with an emphasis on clean architecture and design excellence.",
     color: "#6366f1",
     emoji: "🏛️",
-    members: [],
-    projects: [],
+    members: [
+      { developerId: 1, name: "Vishwanath K.", username: "VK", role: "Principal Architect" },
+      { developerId: 3, name: "Raheel H.", username: "Zeus", role: "System Engineer" }
+    ],
+    projects: [
+      { name: "SASA Engineers", url: "https://sasa.engineer/", description: "Cinematic industrial structural portfolio and Design Lab platform" }
+    ],
     founded: "2024",
     active: true,
   },
@@ -77,7 +82,10 @@ export const teams: Team[] = [
       { developerId: 15, name: "Joel", username: "joel", role: "Full Stack Developer" },
       { developerId: 1, name: "Vishwanath K.", username: "VK", role: "Lead Mentor" }
     ],
-    projects: [],
+    projects: [
+      { name: "Aura", url: "https://aura.vishwadev.tech/", description: "Interactive audio-visual synthesizer platform" },
+      { name: "Pulse", url: "https://pulse.vishwadev.tech/", description: "Real-time design token collaborative playground" }
+    ],
     founded: "2025",
     active: true,
   },
