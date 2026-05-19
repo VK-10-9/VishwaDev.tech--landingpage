@@ -381,7 +381,20 @@ export const developers: Developer[] = [
     yearsExperience: 1,
     location: "Hubballi, Karnataka",
     featured: false,
-    projects: [],
+    projects: [
+      {
+        name: "Kruskal",
+        description: "Interactive algorithm visualization and graph theory tool.",
+        tech: ["JavaScript", "HTML", "CSS"],
+        link: "https://kruskal.vishwadev.tech/"
+      },
+      {
+        name: "Samip",
+        description: "A modern application tailored for smart digital connectivity.",
+        tech: ["React", "TypeScript", "Tailwind CSS"],
+        link: "https://samip.vishwadev.tech/"
+      }
+    ],
     achievements: ["Frontend Development Enthusiast"],
     social: {
       github: "https://github.com/vineet",
