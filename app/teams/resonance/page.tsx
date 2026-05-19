@@ -6,36 +6,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 
-interface TeamPageProps {
-  params: Promise<{ id: string }>;
-}
+export const metadata: Metadata = {
+  title: "Resonance Team | VishwaDev",
+  description: "Ideas that echo. The official Resonance developer squad.",
+};
 
-export async function generateStaticParams() {
-  return teams.map((team) => ({
-    id: team.id,
-  }));
-}
-
-export async function generateMetadata({ params }: TeamPageProps): Promise<Metadata> {
-  const { id } = await params;
-  const team = teams.find((t) => t.id === id);
-  
-  if (!team) {
-    return {
-      title: "Team Not Found | VishwaDev",
-      description: "The requested team details could not be found.",
-    };
-  }
-
-  return {
-    title: `${team.name} Team | VishwaDev`,
-    description: team.tagline,
-  };
-}
-
-export default async function TeamDetailPage({ params }: TeamPageProps) {
-  const { id } = await params;
-  const team = teams.find((t) => t.id === id);
+export default function ResonanceTeamPage() {
+  const team = teams.find((t) => t.id === "resonance");
 
   if (!team) {
     notFound();
