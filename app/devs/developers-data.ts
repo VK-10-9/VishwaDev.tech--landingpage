@@ -106,13 +106,8 @@ export const developers: Developer[] = [
       }
     ],
     achievements: [
-      "State Convener @ Think India North Karnataka (50+ institutions)",
-      "UIDAI Data Hackathon 2026 Winner (SAMVIDHAN Aadhaar Platform)",
-      "Smart India Hackathon 2025 Finalist (Delhi AQI Dashboard & ASHA Sync Pro)",
-      "ONEST Hackathon 3rd Place Winner (Zero-Barrier Jobs)",
-      "CEO @ SASA Engineers & Co-Founder @ Event Union",
-      "KLEIT IEEE Student Branch Secretary & CodeNex Lead",
-      "1st Prize - SASA Structural Analytics, 3rd Prize - LAHU Blood Donation"
+      "1st Prize - SASA Structural Analytics, 3rd Prize - LAHU Blood Donation",
+      "ONEST Hackathon 3rd Place Winner (Zero-Barrier Jobs)"
     ],
     social: {
       github: "https://github.com/VK-10-9",
