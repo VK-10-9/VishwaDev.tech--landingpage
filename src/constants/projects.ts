@@ -26,7 +26,7 @@ export const featuredProjects: Project[] = [
     ],
     githubUrl: "https://github.com/VK-10-9",
     liveUrl: "https://aarogyam.vishwadev.tech/",
-    image: "/placeholder.svg?height=200&width=400&text=Aarogyam",
+    image: "/placeholder.svg",
     createdDate: "2024-01-01",
     lastUpdated: "2024-05-01",
     duration: "4 months",
@@ -54,7 +54,7 @@ export const featuredProjects: Project[] = [
     ],
     githubUrl: "https://github.com/VK-10-9",
     liveUrl: "https://clausewala.in/",
-    image: "/placeholder.svg?height=200&width=400&text=Clausewala",
+    image: "/placeholder.svg",
     createdDate: "2024-02-01",
     lastUpdated: "2024-05-01",
     duration: "3 months",
@@ -82,7 +82,7 @@ export const featuredProjects: Project[] = [
     ],
     githubUrl: "https://github.com/VK-10-9",
     liveUrl: "https://samip.vishwadev.tech/",
-    image: "/placeholder.svg?height=200&width=400&text=Samip",
+    image: "/placeholder.svg",
     createdDate: "2024-03-01",
     lastUpdated: "2024-05-10",
     duration: "2 months",
@@ -110,7 +110,7 @@ export const featuredProjects: Project[] = [
     ],
     githubUrl: "https://github.com/VK-10-9",
     liveUrl: "https://kruskal.vishwadev.tech/",
-    image: "/placeholder.svg?height=200&width=400&text=Kruskal",
+    image: "/placeholder.svg",
     createdDate: "2023-10-01",
     lastUpdated: "2023-11-01",
     duration: "1 month",
@@ -138,7 +138,7 @@ export const featuredProjects: Project[] = [
     ],
     githubUrl: "https://github.com/VK-10-9",
     liveUrl: "https://sasa.engineer/",
-    image: "/placeholder.svg?height=200&width=400&text=SASA+Engineers",
+    image: "/placeholder.svg",
     createdDate: "2024-04-01",
     lastUpdated: "2024-05-15",
     duration: "3 months",
@@ -156,35 +156,35 @@ export const galleryProjects: GalleryProject[] = [
     title: "Aarogyam",
     summary: "A comprehensive health and wellness platform. Made by Vishwanath K - Vk.",
     url: "https://aarogyam.vishwadev.tech/",
-    image: "/placeholder.svg?height=300&width=450&text=Aarogyam",
+    image: "/placeholder.svg",
   },
   {
     id: "project-clausewala",
     title: "Clausewala",
     summary: "A smart legal tech solution for dynamic generation. Made by Vishwanath K - Vk.",
     url: "https://clausewala.in/",
-    image: "/placeholder.svg?height=300&width=450&text=Clausewala",
+    image: "/placeholder.svg",
   },
   {
     id: "project-samip",
     title: "Samip",
     summary: "A modern application tailored for smart digital connectivity. Made by Vishwanath K - Vk.",
     url: "https://samip.vishwadev.tech/",
-    image: "/placeholder.svg?height=300&width=450&text=Samip",
+    image: "/placeholder.svg",
   },
   {
     id: "project-kruskal",
     title: "Kruskal",
     summary: "Interactive algorithm visualization and graph theory tool. Made by Vishwanath K - Vk.",
     url: "https://kruskal.vishwadev.tech/",
-    image: "/placeholder.svg?height=300&width=450&text=Kruskal",
+    image: "/placeholder.svg",
   },
   {
     id: "project-sasa",
     title: "SASA Engineers",
     summary: "Self-contained structural engineering platform and Design Lab. Made by Vishwanath K - Vk.",
     url: "https://sasa.engineer/",
-    image: "/placeholder.svg?height=300&width=450&text=SASA+Engineers",
+    image: "/placeholder.svg",
   },
   {
     id: "project-1",
@@ -192,7 +192,7 @@ export const galleryProjects: GalleryProject[] = [
     summary:
       "Revolutionary IoT platform connecting campus infrastructure with real-time monitoring, energy optimization, and predictive maintenance for educational institutions.",
     url: "/projects/smartcampus-iot",
-    image: "/placeholder.svg?height=300&width=450&text=IoT+Campus+Dashboard",
+    image: "/placeholder.svg",
   },
   {
     id: "project-2",
@@ -200,7 +200,7 @@ export const galleryProjects: GalleryProject[] = [
     summary:
       "Adaptive learning platform using neural networks to personalize educational content, track learning patterns, and optimize study schedules for maximum retention.",
     url: "/projects/neurolearn-ai",
-    image: "/placeholder.svg?height=300&width=450&text=AI+Learning+Platform",
+    image: "/placeholder.svg",
   },
   {
     id: "project-3",
@@ -208,7 +208,7 @@ export const galleryProjects: GalleryProject[] = [
     summary:
       "Secure, transparent voting system built on blockchain technology ensuring tamper-proof elections with real-time results and complete audit trails.",
     url: "/projects/blockchain-voting",
-    image: "/placeholder.svg?height=300&width=450&text=Blockchain+Voting+System",
+    image: "/placeholder.svg",
   },
   {
     id: "project-4",
@@ -216,7 +216,7 @@ export const galleryProjects: GalleryProject[] = [
     summary:
       "Environmental monitoring solution using satellite data and machine learning to track deforestation, pollution levels, and climate change indicators.",
     url: "/projects/greentech-monitor",
-    image: "/placeholder.svg?height=300&width=450&text=Environmental+Monitoring",
+    image: "/placeholder.svg",
   },
   {
     id: "project-5",
@@ -224,7 +224,7 @@ export const galleryProjects: GalleryProject[] = [
     summary:
       "Comprehensive health monitoring ecosystem integrating wearable devices, AI diagnostics, and telemedicine for preventive healthcare management.",
     url: "/projects/healthsync-wearables",
-    image: "/placeholder.svg?height=300&width=450&text=Health+Monitoring+App",
+    image: "/placeholder.svg",
   },
   {
     id: "project-6",
@@ -232,6 +232,6 @@ export const galleryProjects: GalleryProject[] = [
     summary:
       "Next-generation cybersecurity framework leveraging quantum encryption algorithms to protect sensitive data against future quantum computing threats.",
     url: "/projects/quantumcrypt-security",
-    image: "/placeholder.svg?height=300&width=450&text=Quantum+Security+System",
+    image: "/placeholder.svg",
   },
 ];

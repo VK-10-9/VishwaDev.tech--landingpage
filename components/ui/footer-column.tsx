@@ -33,7 +33,7 @@ const data = {
     name: "VishwaDev",
     description:
       "A tight-knit collective of 15 elite developers building handcrafted software, solving complex problems, and creating the future of tech together.",
-    logo: "/placeholder.svg?height=32&width=32",
+    logo: "/placeholder.svg",
   },
 }
 

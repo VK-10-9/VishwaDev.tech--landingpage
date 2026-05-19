@@ -29,7 +29,7 @@ const Gallery6 = ({
       title: "Build Modern UIs",
       summary: "Create stunning user interfaces with our comprehensive design system.",
       url: "#",
-      image: "/placeholder.svg?height=300&width=450",
+      image: "/placeholder.svg",
     },
     {
       id: "item-2",
@@ -37,7 +37,7 @@ const Gallery6 = ({
       summary:
         "Powerful image recognition and processing capabilities that allow AI systems to analyze, understand, and interpret visual information from the world.",
       url: "#",
-      image: "/placeholder.svg?height=300&width=450",
+      image: "/placeholder.svg",
     },
     {
       id: "item-3",
@@ -45,7 +45,7 @@ const Gallery6 = ({
       summary:
         "Self-improving algorithms that learn from data patterns to automate complex tasks and make intelligent decisions with minimal human intervention.",
       url: "#",
-      image: "/placeholder.svg?height=300&width=450",
+      image: "/placeholder.svg",
     },
     {
       id: "item-4",
@@ -53,7 +53,7 @@ const Gallery6 = ({
       summary:
         "Advanced forecasting capabilities that analyze historical data to predict future trends and outcomes, helping businesses make data-driven decisions.",
       url: "#",
-      image: "/placeholder.svg?height=300&width=450",
+      image: "/placeholder.svg",
     },
     {
       id: "item-5",
@@ -61,7 +61,7 @@ const Gallery6 = ({
       summary:
         "Sophisticated AI models inspired by human brain structure, capable of solving complex problems through deep learning and pattern recognition.",
       url: "#",
-      image: "/placeholder.svg?height=300&width=450",
+      image: "/placeholder.svg",
     },
   ],
 }: Gallery6Props) => {
