@@ -7,7 +7,7 @@ export const developers: Developer[] = [
     username: "VK",
     role: "Community Architect",
     bio: "Leading the development of innovative web solutions and mentoring the next generation of developers at VishwaDev.",
-    avatar: "devs\vishwanath.jpeg",
+    avatar: "/devs/vishwanath.jpeg",
     skills: ["React", "Next.js", "Node.js", "TypeScript", "Python", "MongoDB", "AWS", "Docker"],
     yearsExperience: 4,
     location: "Hubballi, Karnataka",
