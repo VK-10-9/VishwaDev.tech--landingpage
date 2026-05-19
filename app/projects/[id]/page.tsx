@@ -9,12 +9,13 @@ import { Metadata } from 'next';
 import { Calendar, Github, ExternalLink, Users, Star, GitFork, Eye } from 'lucide-react';
 
 interface ProjectPageProps {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
-  const project = projects.find((p) => p.id.toString() === params.id);
+  const { id } = await params;
+  const project = projects.find((p) => p.id.toString() === id);
   
   if (!project) {
     return {
@@ -33,7 +34,8 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const project = projects.find((p) => p.id.toString() === params.id);
+  const { id } = await params;
+  const project = projects.find((p) => p.id.toString() === id);
 
   if (!project) {
     notFound();
