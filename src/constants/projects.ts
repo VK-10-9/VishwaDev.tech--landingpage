@@ -18,7 +18,7 @@ export const featuredProjects: Project[] = [
     difficulty: "advanced",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer")
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer")
     ],
     teamSize: 1,
     links: [
@@ -46,7 +46,7 @@ export const featuredProjects: Project[] = [
     difficulty: "intermediate",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer")
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer")
     ],
     teamSize: 1,
     links: [
@@ -74,7 +74,7 @@ export const featuredProjects: Project[] = [
     difficulty: "intermediate",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer")
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer")
     ],
     teamSize: 1,
     links: [
@@ -102,7 +102,7 @@ export const featuredProjects: Project[] = [
     difficulty: "beginner",
     status: "completed",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer")
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer")
     ],
     teamSize: 1,
     links: [
@@ -130,7 +130,7 @@ export const featuredProjects: Project[] = [
     difficulty: "advanced",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer")
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer")
     ],
     teamSize: 1,
     links: [
@@ -154,35 +154,35 @@ export const galleryProjects: GalleryProject[] = [
   {
     id: "project-aarogyam",
     title: "Aarogyam",
-    summary: "A comprehensive health and wellness platform. Made by Vishwanath K - Vk.",
+    summary: "A comprehensive health and wellness platform. Made by Vishwanath Koliwad - VK.",
     url: "https://aarogyam.vishwadev.tech/",
     image: "/placeholder.svg",
   },
   {
     id: "project-clausewala",
     title: "Clausewala",
-    summary: "A smart legal tech solution for dynamic generation. Made by Vishwanath K - Vk.",
+    summary: "A smart legal tech solution for dynamic generation. Made by Vishwanath Koliwad - VK.",
     url: "https://clausewala.in/",
     image: "/placeholder.svg",
   },
   {
     id: "project-samip",
     title: "Samip",
-    summary: "A modern application tailored for smart digital connectivity. Made by Vishwanath K - Vk.",
+    summary: "A modern application tailored for smart digital connectivity. Made by Vishwanath Koliwad - VK.",
     url: "https://samip.vishwadev.tech/",
     image: "/placeholder.svg",
   },
   {
     id: "project-kruskal",
     title: "Kruskal",
-    summary: "Interactive algorithm visualization and graph theory tool. Made by Vishwanath K - Vk.",
+    summary: "Interactive algorithm visualization and graph theory tool. Made by Vishwanath Koliwad - VK.",
     url: "https://kruskal.vishwadev.tech/",
     image: "/placeholder.svg",
   },
   {
     id: "project-sasa",
     title: "SASA Engineers",
-    summary: "Self-contained structural engineering platform and Design Lab. Made by Vishwanath K - Vk.",
+    summary: "Self-contained structural engineering platform and Design Lab. Made by Vishwanath Koliwad - VK.",
     url: "https://sasa.engineer/",
     image: "/placeholder.svg",
   },

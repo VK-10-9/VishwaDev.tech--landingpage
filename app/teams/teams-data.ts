@@ -34,7 +34,7 @@ export const teams: Team[] = [
     color: "#f59e0b",
     emoji: "⚡",
     members: [
-      { developerId: 1, name: "Vishwanath K.", username: "VK", role: "Lead Developer" },
+      { developerId: 1, name: "Vishwanath Koliwad", username: "VK", role: "Lead Developer" },
       { developerId: 4, name: "Bhumika Dalabhanjan", username: "Bhumify", role: "Frontend Developer" },
       { developerId: 3, name: "Raheel H.", username: "Zeus", role: "Backend Developer" },
       { developerId: 2, name: "Disha Raikar", username: "disha", role: "Full Stack Developer" },
@@ -56,7 +56,7 @@ export const teams: Team[] = [
     color: "#b91c1c",
     emoji: "🏛️",
     members: [
-      { developerId: 1, name: "Vishwanath K.", username: "VK", role: "Principal Architect" },
+      { developerId: 1, name: "Vishwanath Koliwad", username: "VK", role: "Principal Architect" },
       { developerId: 13, name: "Nihal", username: "nihal", role: "UI/UX Developer" },
       { developerId: 11, name: "Viraj", username: "viraj", role: "Full Stack Developer" },
       { developerId: 10, name: "Vineet", username: "vineet", role: "Frontend Developer" }
@@ -79,7 +79,7 @@ export const teams: Team[] = [
       { developerId: 12, name: "Vikas", username: "vikas", role: "Backend Developer" },
       { developerId: 14, name: "Amogh", username: "amogh", role: "Full Stack Developer" },
       { developerId: 15, name: "Joel", username: "joel", role: "Full Stack Developer" },
-      { developerId: 1, name: "Vishwanath K.", username: "VK", role: "Lead Mentor" }
+      { developerId: 1, name: "Vishwanath Koliwad", username: "VK", role: "Lead Mentor" }
     ],
     projects: [
       { name: "Aura", url: "https://aura.vishwadev.tech/", description: "Interactive audio-visual synthesizer platform" },

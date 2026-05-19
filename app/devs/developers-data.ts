@@ -3,7 +3,7 @@ import { Developer } from "@/src/types/developer";
 export const developers: Developer[] = [
   {
     id: 1,
-    name: "Vishwanath K.",
+    name: "Vishwanath Koliwad",
     username: "VK",
     role: "Tech Entrepreneur & Developer",
     bio: "CSE Engineer, Blockchain Developer, and Tech Founder. Building innovative software, AI systems, and communities with purpose. State Convener at Think India.",

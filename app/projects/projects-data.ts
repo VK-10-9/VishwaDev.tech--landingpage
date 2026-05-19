@@ -18,7 +18,7 @@ export const projects: Project[] = [
     difficulty: "advanced",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer")
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer")
     ],
     teamSize: 1,
     links: [
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     difficulty: "intermediate",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer")
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer")
     ],
     teamSize: 1,
     links: [
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     difficulty: "intermediate",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer")
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer")
     ],
     teamSize: 1,
     links: [
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     difficulty: "beginner",
     status: "completed",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer")
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer")
     ],
     teamSize: 1,
     links: [
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     difficulty: "intermediate",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer"),
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer"),
       createContributor(2, "Disha Raikar", "Contributor")
     ],
     teamSize: 2,
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     difficulty: "intermediate",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer"),
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer"),
       createContributor(4, "Bhumika Dalabhanjan", "Contributor"),
       createContributor(3, "Raheel H.", "Contributor"),
       createContributor(2, "Disha Raikar", "Contributor")
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     difficulty: "intermediate",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer"),
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer"),
       createContributor(4, "Bhumika Dalabhanjan", "Contributor"),
       createContributor(3, "Raheel H.", "Contributor"),
       createContributor(2, "Disha Raikar", "Contributor")
@@ -222,7 +222,7 @@ export const projects: Project[] = [
     difficulty: "advanced",
     status: "active",
     contributors: [
-      createContributor(1, "Vishwanath K.", "Lead Developer"),
+      createContributor(1, "Vishwanath Koliwad", "Lead Developer"),
       createContributor(4, "Bhumika Dalabhanjan", "Contributor"),
       createContributor(3, "Raheel H.", "Contributor"),
       createContributor(2, "Disha Raikar", "Contributor")

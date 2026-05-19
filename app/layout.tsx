@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "The premier platform for student developers to showcase groundbreaking projects, build meaningful connections, and launch their tech careers with personalized branding.",
   generator: 'vishwadev.tech',
   authors: [{ name: "Disha Raikar", url: "https://disha.vishwadev.tech" },
-            { name: "Vishwanath K.", url: "https://vk.vishwadev.tech" } ],
+            { name: "Vishwanath Koliwad", url: "https://vk.vishwadev.tech" } ],
 }
 
 export default function RootLayout({
