@@ -119,6 +119,34 @@ export const featuredProjects: Project[] = [
     featured: true,
     trending: false,
     metrics: { stars: 150, forks: 20, views: 800 }
+  },
+  {
+    id: 5,
+    title: "SASA Engineers",
+    tagline: "Structural Intelligence Workspace",
+    description: "Self-contained structural engineering workspace and design lab with premium cinematic HUD aesthetics.",
+    category: "Web Development",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Three.js"],
+    difficulty: "advanced",
+    status: "active",
+    contributors: [
+      createContributor(1, "Vishwanath K.", "Lead Developer")
+    ],
+    teamSize: 1,
+    links: [
+      { label: "Live Demo", url: "https://sasa.engineer/", type: "live" }
+    ],
+    githubUrl: "https://github.com/VK-10-9",
+    liveUrl: "https://sasa.engineer/",
+    image: "/placeholder.svg?height=200&width=400&text=SASA+Engineers",
+    createdDate: "2024-04-01",
+    lastUpdated: "2024-05-15",
+    duration: "3 months",
+    features: ["Cinematic HUD UI", "Three.js CAD viewer", "Structural calculation sheets"],
+    tags: ["engineering", "cad", "hud", "workspace"],
+    featured: true,
+    trending: true,
+    metrics: { stars: 145, forks: 15, views: 600 }
   }
 ];
 
@@ -150,6 +178,13 @@ export const galleryProjects: GalleryProject[] = [
     summary: "Interactive algorithm visualization and graph theory tool. Made by Vishwanath K - Vk.",
     url: "https://kruskal.vishwadev.tech/",
     image: "/placeholder.svg?height=300&width=450&text=Kruskal",
+  },
+  {
+    id: "project-sasa",
+    title: "SASA Engineers",
+    summary: "Self-contained structural engineering platform and Design Lab. Made by Vishwanath K - Vk.",
+    url: "https://sasa.engineer/",
+    image: "/placeholder.svg?height=300&width=450&text=SASA+Engineers",
   },
   {
     id: "project-1",

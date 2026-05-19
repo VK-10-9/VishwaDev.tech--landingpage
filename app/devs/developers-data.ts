@@ -7,7 +7,7 @@ export const developers: Developer[] = [
     username: "VK",
     role: "Community Architect",
     bio: "Leading the development of innovative web solutions and mentoring the next generation of developers at VishwaDev.",
-    avatar: "/placeholder-user.jpg",
+    avatar: "devs\vishwanath.jpeg",
     skills: ["React", "Next.js", "Node.js", "TypeScript", "Python", "MongoDB", "AWS", "Docker"],
     yearsExperience: 4,
     location: "Hubballi, Karnataka",
@@ -78,7 +78,7 @@ export const developers: Developer[] = [
     username: "disha",
     role: "Full Stack Developer",
     bio: "Passionate about building scalable web applications with modern technologies.",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/devs/disha.jpeg",
     skills: ["React", "Node.js", "TypeScript", "MongoDB", "AWS", "Docker"],
     yearsExperience: 2,
     location: "Dharwad, Karnataka",
@@ -131,7 +131,7 @@ export const developers: Developer[] = [
     username: "Zeus",
     role: "Backend Developer",
     bio: "Specialized in building robust server-side applications and APIs.",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/devs/raheel.jpeg",
     skills: ["Python", "Django", "PostgreSQL", "Redis", "Docker", "Kubernetes"],
     yearsExperience: 3,
     location: "Hubballi, Karnataka",
@@ -178,7 +178,7 @@ export const developers: Developer[] = [
     username: "bhumi",
     role: "Frontend Developer",
     bio: "Creating beautiful and intuitive user interfaces with React and modern CSS.",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/devs/bhumika.jpg",
     skills: ["React", "CSS3", "JavaScript", "Tailwind CSS", "Figma", "Animation"],
     yearsExperience: 2,
     location: "Belgaum, Karnataka",
@@ -225,7 +225,7 @@ export const developers: Developer[] = [
     username: "Rahul",
     role: "Mobile Developer",
     bio: "Building cross-platform mobile applications with React Native and Flutter.",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/devs/rahul.jpg",
     skills: ["React Native", "Flutter", "Dart", "Firebase", "iOS", "Android"],
     yearsExperience: 2,
     location: "Hubli, Karnataka",
@@ -250,40 +250,11 @@ export const developers: Developer[] = [
   },
   {
     id: 6,
-    name: "Shakuntala Saunshi",
-    username: "Shaku",
-    role: "UI/UX Developer",
-    bio: "Designing user-centered digital experiences with modern design principles.",
-    avatar: "/placeholder-user.jpg",
-    skills: ["Figma", "Adobe XD", "React", "CSS3", "User Research", "Prototyping"],
-    yearsExperience: 2,
-    location: "Dharwad, Karnataka",
-    email: "shakuntalasaunshi@gmail.com",
-    phone: "8618759619",
-    featured: false,
-    projects: [
-      {
-        name: "Design System",
-        description: "Comprehensive design system for web applications",
-        tech: ["Figma", "React", "CSS3"],
-        link: "https://github.com/shakuntalauiux/design-system"
-      }
-    ],
-    achievements: ["Best Design Award 2024", "UX Research Certificate"],
-    social: {
-      github: "https://github.com/shakuntalauiux",
-      linkedin: "https://www.linkedin.com/in/shakuntala-saunshi-0b4a642a8",
-      twitter: "https://x.com/S__Shakuntala",
-      email: "mailto:shakuntalasaunshi@gmail.com"
-    }
-  },
-  {
-    id: 7,
     name: "Yashas Patil",
     username: "Yashas",
     role: "Full Stack Developer",
     bio: "Building modern web applications with a focus on performance and user experience.",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/devs/yashas.jpeg",
     skills: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "AWS"],
     yearsExperience: 2,
     location: "Hubballi, Karnataka",
@@ -313,12 +284,12 @@ export const developers: Developer[] = [
     }
   },
   {
-    id: 8,
+    id: 7,
     name: "Lohith Nandyal",
     username: "Lohith",
     role: "Backend Developer",
     bio: "Developing robust and scalable backend solutions for web applications.",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/devs/lohith.jpg",
     skills: ["Java", "Spring Boot", "MySQL", "Docker", "Microservices", "REST API"],
     yearsExperience: 2,
     location: "Hubballi, Karnataka",
@@ -342,12 +313,12 @@ export const developers: Developer[] = [
     }
   },
   {
-    id: 9,
+    id: 8,
     name: "Shravani Sindagi",
     username: "Shravani",
     role: "Frontend Developer",
     bio: "Engineering student and frontend developer passionate about building clean, interactive, and practical web applications using the MERN stack.",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/devs/shravani.jpeg",
     skills: ["JavaScript", "React", "Next.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "MySQL", "C++", "Java"],
     yearsExperience: 1,
     location: "Hubballi, Karnataka",
@@ -371,12 +342,12 @@ export const developers: Developer[] = [
     }
   },
   {
-    id: 10,
+    id: 9,
     name: "Tejaswini Badiger",
     username: "Tejaswini",
     role: "AIML Student & Design Lead",
     bio: "AIML student at Samsung Innovation Campus and Graphic Design Lead & Media Coordinator at KLE Institute of Technology, combining technical expertise with creative design skills.",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/devs/tejaswini.jpg",
     skills: ["Python", "C", "Web Design", "AIML", "Graphic Design", "Canva", "Media Content Creation"],
     yearsExperience: 1,
     location: "Hubballi, Karnataka",
@@ -397,6 +368,126 @@ export const developers: Developer[] = [
       linkedin: "https://www.linkedin.com/in/tejaswini-badiger",
       twitter: "",
       email: "mailto:tejaswini.badiger@example.com"
+    }
+  },
+  {
+    id: 10,
+    name: "Vineet",
+    username: "vineet",
+    role: "Frontend Developer",
+    bio: "Passionate about creating clean, user-friendly frontend interfaces with React and Tailwind CSS.",
+    avatar: "/devs/vineet.jpeg",
+    skills: ["React", "Next.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
+    yearsExperience: 1,
+    location: "Hubballi, Karnataka",
+    featured: false,
+    projects: [],
+    achievements: ["Frontend Development Enthusiast"],
+    social: {
+      github: "https://github.com/vineet",
+      linkedin: "https://www.linkedin.com/in/vineet",
+      twitter: "",
+      email: "mailto:vineet@example.com"
+    }
+  },
+  {
+    id: 11,
+    name: "Viraj",
+    username: "viraj",
+    role: "Full Stack Developer",
+    bio: "Specializing in developing modern full-stack web applications with interactive experiences.",
+    avatar: "/devs/viraj.jpg",
+    skills: ["React", "Next.js", "Node.js", "Express", "MongoDB", "TypeScript"],
+    yearsExperience: 1,
+    location: "Hubballi, Karnataka",
+    featured: false,
+    projects: [],
+    achievements: ["Full Stack Development Enthusiast"],
+    social: {
+      github: "https://github.com/viraj",
+      linkedin: "https://www.linkedin.com/in/viraj",
+      twitter: "",
+      email: "mailto:viraj@example.com"
+    }
+  },
+  {
+    id: 12,
+    name: "Vikas",
+    username: "vikas",
+    role: "Backend Developer",
+    bio: "Focused on designing secure, scalable backend services, REST APIs, and database solutions.",
+    avatar: "/devs/vikas.jpeg",
+    skills: ["Node.js", "Express", "MongoDB", "SQL", "JavaScript", "Python"],
+    yearsExperience: 1,
+    location: "Hubballi, Karnataka",
+    featured: false,
+    projects: [],
+    achievements: ["Backend Systems Contributor"],
+    social: {
+      github: "https://github.com/vikas",
+      linkedin: "https://www.linkedin.com/in/vikas",
+      twitter: "",
+      email: "mailto:vikas@example.com"
+    }
+  },
+  {
+    id: 13,
+    name: "Nihal",
+    username: "nihal",
+    role: "UI/UX Developer",
+    bio: "Bringing visual designs to life with structured, clean, and interactive user interfaces.",
+    avatar: "/devs/nihal.jpeg",
+    skills: ["Figma", "React", "CSS3", "Tailwind CSS", "JavaScript", "HTML5"],
+    yearsExperience: 1,
+    location: "Hubballi, Karnataka",
+    featured: false,
+    projects: [],
+    achievements: ["UI/UX Design Champion"],
+    social: {
+      github: "https://github.com/nihal",
+      linkedin: "https://www.linkedin.com/in/nihal",
+      twitter: "",
+      email: "mailto:nihal@example.com"
+    }
+  },
+  {
+    id: 14,
+    name: "Amogh",
+    username: "amogh",
+    role: "Full Stack Developer",
+    bio: "Passionate about software architecture, algorithms, and full-stack web applications.",
+    avatar: "/devs/amogh.jpeg",
+    skills: ["React", "TypeScript", "Node.js", "C++", "Python", "Data Structures"],
+    yearsExperience: 1,
+    location: "Hubballi, Karnataka",
+    featured: false,
+    projects: [],
+    achievements: ["Competitive Programmer"],
+    social: {
+      github: "https://github.com/amogh",
+      linkedin: "https://www.linkedin.com/in/amogh",
+      twitter: "",
+      email: "mailto:amogh@example.com"
+    }
+  },
+  {
+    id: 15,
+    name: "Joel",
+    username: "joel",
+    role: "Full Stack Developer",
+    bio: "Full stack developer interested in creating dynamic products and working on collaborative open-source projects.",
+    avatar: "/devs/joel.jpg",
+    skills: ["JavaScript", "React", "Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    yearsExperience: 1,
+    location: "Hubballi, Karnataka",
+    featured: false,
+    projects: [],
+    achievements: ["Open Source Contributor"],
+    social: {
+      github: "https://github.com/joel",
+      linkedin: "https://www.linkedin.com/in/joel",
+      twitter: "",
+      email: "mailto:joel@example.com"
     }
   }
 ];

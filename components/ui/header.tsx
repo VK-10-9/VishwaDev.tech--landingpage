@@ -9,19 +9,17 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { Menu, MoveRight, X, LogOut } from "lucide-react"
+import { Menu, MoveRight, X } from "lucide-react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { useRouter, usePathname } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { navigationItems } from "@/src/constants/navigation"
 import Image from "next/image"
 
 function Header1() {
   const [isOpen, setOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
-  const [isSignedIn, setIsSignedIn] = useState(false)
-  const router = useRouter()
   const pathname = usePathname()
 
   // Helpers for active-route styling
@@ -31,23 +29,9 @@ function Header1() {
     return pathname === href || pathname.startsWith(href)
   }
 
-
   useEffect(() => {
     setIsMounted(true)
-    // Check if user is signed in by checking localStorage or pathname
-    const checkAuthStatus = () => {
-      // Check if we're on a protected route (dashboard, profile, etc.)
-      const protectedRoutes = ['/dashboard', '/profile', '/dashboard/new-project']
-      const isOnProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route))
-      
-      // Check localStorage for auth token (in a real app)
-      const authToken = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null
-      
-      setIsSignedIn(isOnProtectedRoute || !!authToken)
-    }
-    
-    checkAuthStatus()
-  }, [pathname])
+  }, [])
 
   // Close mobile menu with Escape key
   useEffect(() => {
@@ -57,16 +41,6 @@ function Header1() {
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [])
-
-  const handleSignOut = () => {
-    // Clear auth token and redirect to home
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('authToken')
-    }
-    setIsSignedIn(false)
-    router.push('/')
-    setOpen(false)
-  }
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -96,7 +70,6 @@ function Header1() {
       <div className="container relative mx-auto min-h-16 sm:min-h-20 flex gap-4 flex-row items-center justify-between px-4 sm:px-6">
         {/* Logo - Always visible */}
         <Link href="/" className="flex items-center space-x-3 z-50" onClick={() => setOpen(false)}>
-          {/* Option 1: Logo Image (visible on all screens) */}
           <div className="flex items-center space-x-2">
             <Image
               src="/vishwa-logo.jpg"
@@ -194,33 +167,6 @@ function Header1() {
           </NavigationMenu>
         </div>
 
-        {/* Desktop Action Buttons - Hidden on mobile */}
-        <div className="hidden lg:flex items-center gap-4">
-          
-          {isSignedIn ? (
-            // Signed in state
-            <>
-              <Button asChild variant="neutral">
-                <Link href="/dashboard">Dashboard</Link>
-              </Button>
-              <Button asChild variant="neutral">
-                <Link href="/profile">Profile</Link>
-              </Button>
-              <Button
-                variant="neutral"
-                onClick={handleSignOut}
-              >
-                <LogOut className="w-4 h-4 mr-2" />
-                Sign Out
-              </Button>
-            </>
-          ) : (
-            // Not signed in state
-            <>
-            </>
-          )}
-        </div>
-
         {/* Mobile Menu Button */}
         <div className="flex lg:hidden items-center">
           <Button
@@ -314,37 +260,6 @@ function Header1() {
                       </div>
                     ))}
                   </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="p-4 border-t border-border space-y-3">
-                  
-                  {isSignedIn ? (
-                    // Signed in state
-                    <>
-                      <Button asChild variant="neutral" className="w-full justify-start" onClick={() => setOpen(false)}>
-                        <Link href="/dashboard">Dashboard</Link>
-                      </Button>
-                      <Button asChild variant="neutral" className="w-full justify-start" onClick={() => setOpen(false)}>
-                        <Link href="/profile">Profile</Link>
-                      </Button>
-                      <Button
-                        variant="neutral"
-                        onClick={() => {
-                          handleSignOut()
-                          setOpen(false)
-                        }}
-                        className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50"
-                      >
-                        <LogOut className="w-4 h-4 mr-2" />
-                        Sign Out
-                      </Button>
-                    </>
-                  ) : (
-                    // Not signed in state
-                    <>
-                    </>
-                  )}
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@ import Link from "next/link"
 
 // UI Components
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Gallery6 } from "@/components/ui/gallery6"
 import Footer4Col from "@/components/ui/footer-column"
 
@@ -73,48 +73,45 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <Card className="hover:shadow-lg transition-all duration-300 p-1">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                  <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+            <Card className="bg-white border-[3px] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:scale-[1.01] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:border-black rounded-xl p-5 flex flex-col justify-between h-full">
+              <CardHeader className="p-0 pb-4">
+                <div className="w-12 h-12 bg-[#ffde47] border-2 border-black rounded-lg flex items-center justify-center mb-4 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                  <Globe className="w-6 h-6 text-black" />
                 </div>
-                <CardTitle className="text-lg sm:text-xl">Project Showcase</CardTitle>
+                <CardTitle className="text-xl font-bold">Project Showcase</CardTitle>
               </CardHeader>
-              <CardContent className="pt-0">
-                <CardDescription className="text-sm sm:text-base">
-                  Display your projects with beautiful layouts, detailed documentation, and direct links to live demos
-                  and repositories.
-                </CardDescription>
+              <CardContent className="p-0 flex-1">
+                <p className="text-sm sm:text-base text-black/80 leading-relaxed">
+                  Display your projects with beautiful layouts, detailed documentation, and direct links to live demos and repositories.
+                </p>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-all duration-300 p-1">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                  <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+            <Card className="bg-white border-[3px] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:scale-[1.01] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:border-black rounded-xl p-5 flex flex-col justify-between h-full">
+              <CardHeader className="p-0 pb-4">
+                <div className="w-12 h-12 bg-[#a3e635] border-2 border-black rounded-lg flex items-center justify-center mb-4 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                  <Users className="w-6 h-6 text-black" />
                 </div>
-                <CardTitle className="text-lg sm:text-xl">Developer Community</CardTitle>
+                <CardTitle className="text-xl font-bold">Developer Community</CardTitle>
               </CardHeader>
-              <CardContent className="pt-0">
-                <CardDescription className="text-sm sm:text-base">
-                  Connect with like-minded developers, collaborate on projects, and learn from peers across universities
-                  and disciplines.
-                </CardDescription>
+              <CardContent className="p-0 flex-1">
+                <p className="text-sm sm:text-base text-black/80 leading-relaxed">
+                  Connect with like-minded developers, collaborate on projects, and learn from peers across universities and disciplines.
+                </p>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-all duration-300 p-1">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
-                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+            <Card className="bg-white border-[3px] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:scale-[1.01] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:border-black rounded-xl p-5 flex flex-col justify-between h-full">
+              <CardHeader className="p-0 pb-4">
+                <div className="w-12 h-12 bg-[#ec4899] border-2 border-black rounded-lg flex items-center justify-center mb-4 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] text-white">
+                  <Zap className="w-6 h-6 text-white fill-current" />
                 </div>
-                <CardTitle className="text-lg sm:text-xl">Personal Branding</CardTitle>
+                <CardTitle className="text-xl font-bold">Personal Branding</CardTitle>
               </CardHeader>
-              <CardContent className="pt-0">
-                <CardDescription className="text-sm sm:text-base">
-                  Get your own subdomain (name.vishwadev.tech) to create a professional online presence that stands out
-                  to recruiters.
-                </CardDescription>
+              <CardContent className="p-0 flex-1">
+                <p className="text-sm sm:text-base text-black/80 leading-relaxed">
+                  Get your own subdomain (name.vishwadev.tech) to create a professional online presence that stands out to recruiters.
+                </p>
               </CardContent>
             </Card>
           </div>

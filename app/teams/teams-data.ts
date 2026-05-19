@@ -68,7 +68,15 @@ export const teams: Team[] = [
       "Resonance is a creative-technical team exploring the intersection of design and engineering — building products that resonate with users through thoughtful UX and robust code.",
     color: "#ec4899",
     emoji: "🎵",
-    members: [],
+    members: [
+      { developerId: 10, name: "Vineet", username: "vineet", role: "Frontend Developer" },
+      { developerId: 11, name: "Viraj", username: "viraj", role: "Full Stack Developer" },
+      { developerId: 12, name: "Vikas", username: "vikas", role: "Backend Developer" },
+      { developerId: 13, name: "Nihal", username: "nihal", role: "UI/UX Developer" },
+      { developerId: 14, name: "Amogh", username: "amogh", role: "Full Stack Developer" },
+      { developerId: 15, name: "Joel", username: "joel", role: "Full Stack Developer" },
+      { developerId: 1, name: "Vishwanath K.", username: "VK", role: "Lead Mentor" }
+    ],
     projects: [],
     founded: "2025",
     active: true,

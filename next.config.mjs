@@ -8,6 +8,11 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    localPatterns: [
+      {
+        pathname: '/**',
+      },
+    ],
   },
 }
 
