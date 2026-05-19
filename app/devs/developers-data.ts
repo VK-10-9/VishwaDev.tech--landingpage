@@ -175,7 +175,7 @@ export const developers: Developer[] = [
   {
     id: 4,
     name: "Bhumika Dalabhanjan",
-    username: "bhumi",
+    username: "Bhumify",
     role: "Frontend Developer",
     bio: "Creating beautiful and intuitive user interfaces with React and modern CSS.",
     avatar: "/devs/bhumika.jpg",
