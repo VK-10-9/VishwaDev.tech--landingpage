@@ -57,7 +57,9 @@ export const teams: Team[] = [
     emoji: "🏛️",
     members: [
       { developerId: 1, name: "Vishwanath K.", username: "VK", role: "Principal Architect" },
-      { developerId: 3, name: "Raheel H.", username: "Zeus", role: "System Engineer" }
+      { developerId: 13, name: "Nihal", username: "nihal", role: "UI/UX Developer" },
+      { developerId: 11, name: "Viraj", username: "viraj", role: "Full Stack Developer" },
+      { developerId: 10, name: "Vineet", username: "vineet", role: "Frontend Developer" }
     ],
     projects: [
       { name: "SASA Engineers", url: "https://sasa.engineer/", description: "Cinematic industrial structural portfolio and Design Lab platform" }
@@ -74,10 +76,7 @@ export const teams: Team[] = [
     color: "#ec4899",
     emoji: "🎵",
     members: [
-      { developerId: 10, name: "Vineet", username: "vineet", role: "Frontend Developer" },
-      { developerId: 11, name: "Viraj", username: "viraj", role: "Full Stack Developer" },
       { developerId: 12, name: "Vikas", username: "vikas", role: "Backend Developer" },
-      { developerId: 13, name: "Nihal", username: "nihal", role: "UI/UX Developer" },
       { developerId: 14, name: "Amogh", username: "amogh", role: "Full Stack Developer" },
       { developerId: 15, name: "Joel", username: "joel", role: "Full Stack Developer" },
       { developerId: 1, name: "Vishwanath K.", username: "VK", role: "Lead Mentor" }
