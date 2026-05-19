@@ -71,8 +71,15 @@ export default function SasaTeamPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
               
               <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 text-white">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-4xl sm:text-5xl">{team.emoji}</span>
+                <div className="flex items-center gap-4 mb-2">
+                  <div className="relative w-14 h-14 bg-white border-2 border-black rounded-lg p-1 shrink-0 shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)]">
+                    <Image 
+                      src="/teams/sasa_logo.png"
+                      alt="SASA Logo"
+                      fill
+                      className="object-contain p-0.5"
+                    />
+                  </div>
                   <div>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] text-white">
                       {team.name}

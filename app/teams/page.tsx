@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ExternalLink, Users, Folder, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function TeamsPage() {
   return (
@@ -40,7 +41,18 @@ export default function TeamsPage() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <span className="text-4xl">{team.emoji}</span>
+                    {team.id === "sasa" ? (
+                      <div className="relative w-12 h-12 bg-white border-2 border-black rounded-lg p-1 shrink-0 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                        <Image 
+                          src="/teams/sasa_logo.png"
+                          alt="SASA Logo"
+                          fill
+                          className="object-contain p-0.5"
+                        />
+                      </div>
+                    ) : (
+                      <span className="text-4xl">{team.emoji}</span>
+                    )}
                     <div>
                       <div className="flex items-center gap-2">
                         <h2 className="text-2xl font-black text-foreground">{team.name}</h2>
