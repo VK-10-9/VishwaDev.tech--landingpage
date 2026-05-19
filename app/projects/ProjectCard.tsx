@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Project } from '@/src/types/project';
-import { Calendar, Users, Star, GitFork, Eye, ExternalLink, Github, Zap, Clock } from 'lucide-react';
+import { Calendar, Users, ExternalLink, Github, Zap, Clock } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -91,30 +91,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <p className="text-black/80 text-sm leading-relaxed line-clamp-3">
             {project.description}
           </p>
-          
-          {/* Project Metrics */}
-          {project.metrics && (
-            <div className="flex items-center gap-4 text-xs font-bold text-black/60 bg-[#f9fafb] border-2 border-black/10 rounded-md p-2 shadow-[1px_1px_0px_0px_rgba(0,0,0,0.05)]">
-              {project.metrics.stars !== undefined && (
-                <div className="flex items-center gap-1 hover:text-primary transition-colors">
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <span>{project.metrics.stars} stars</span>
-                </div>
-              )}
-              {project.metrics.forks !== undefined && (
-                <div className="flex items-center gap-1 hover:text-primary transition-colors">
-                  <GitFork className="w-3.5 h-3.5" />
-                  <span>{project.metrics.forks} forks</span>
-                </div>
-              )}
-              {project.metrics.views !== undefined && (
-                <div className="flex items-center gap-1 hover:text-primary transition-colors">
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>{project.metrics.views} views</span>
-                </div>
-              )}
-            </div>
-          )}
 
           {/* Contributors & Last Updated */}
           <div className="flex items-center justify-between border-t border-dashed border-black/10 pt-3">
