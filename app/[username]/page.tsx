@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation"
 import { developers } from "@/app/devs/developers-data"
+import { teams } from "@/app/teams/teams-data"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Mail, Phone, MapPin, Calendar, Github, Linkedin, Twitter } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { ArrowLeft, Mail, Github, Linkedin, Twitter, ExternalLink, Award, Cpu, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import type { Metadata } from "next"
@@ -42,358 +44,375 @@ export default async function UserProfilePage({ params }: UserProfilePageProps) 
     notFound()
   }
 
+  // Dynamically resolve squads this developer belongs to
+  const devTeams = teams.filter((team) =>
+    team.members.some((m) => m.username.toLowerCase() === developer.username.toLowerCase())
+  )
+
+  // Robustly handle avatar image paths (clean Windows backslashes)
+  const avatarPath = developer.avatar.replace(/\\/g, "/")
+  const cleanedAvatar = avatarPath.startsWith("/") ? avatarPath : `/${avatarPath}`
+
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20">
-        {/* Back Button */}
-        <div className="mb-8">
-          <Button variant="neutral" asChild>
+      {/* High-Contrast Neon Top Bar */}
+      <div className="h-2 w-full bg-[#ffde47]" />
+
+      <div className="container mx-auto px-4 pt-20 sm:pt-24 lg:pt-28 pb-16">
+        
+        {/* Navigation Header */}
+        <div className="max-w-6xl mx-auto mb-8 flex items-center justify-between">
+          <Button variant="neutral" asChild className="font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#ffde47] hover:scale-105 transition-all text-sm">
             <Link href="/devs">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Developers
+              Back to Roster
             </Link>
           </Button>
+
+          {developer.featured && (
+            <Badge className="bg-[#ffde47] text-black border-2 border-black font-black uppercase text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] py-1 px-3">
+              ⚡ ELITE CONTRIBUTOR
+            </Badge>
+          )}
         </div>
 
-        {/* Profile Header */}
-        <div className="relative mb-12">
-          {/* Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/5 to-background rounded-xl h-64 -z-10"></div>
-          
-          <div className="pt-8 pb-4 text-center">
-            {/* Avatar with gradient border */}
-            <div className="relative w-36 h-36 mx-auto mb-6">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/40 rounded-full blur-sm"></div>
-              <div className="absolute inset-0.5 bg-background rounded-full"></div>
-              <div className="relative w-full h-full p-1.5">
+        {/* Profile Asymmetric Card */}
+        <div className="max-w-6xl mx-auto bg-white border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-xl p-6 sm:p-8 md:p-10 mb-12">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+            
+            {/* Avatar Frame */}
+            <div className="relative shrink-0">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 bg-white border-[3px] border-black rounded-xl overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <Image 
-                  src={developer.avatar} 
+                  src={cleanedAvatar} 
                   alt={developer.name}
-                  width={144}
-                  height={144}
-                  className="w-full h-full rounded-full object-cover ring-2 ring-background"
+                  fill
+                  className="object-cover"
+                  priority
                 />
-                {developer.featured && (
-                  <div className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold px-2 py-0.5 rounded-full animate-pulse">
-                    Featured
-                  </div>
-                )}
               </div>
+              {developer.featured && (
+                <div className="absolute -top-3 -right-3 bg-red-500 text-white text-[9px] font-black uppercase border-2 border-black px-2 py-0.5 rounded shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] animate-bounce">
+                  Featured
+                </div>
+              )}
             </div>
-            
-            <h1 className="text-4xl font-bold mb-2">{developer.name}</h1>
-            <div className="inline-block bg-muted/50 px-3 py-1 rounded-full mb-3 hover:bg-primary/10 transition-colors duration-200">
-              <p className="text-xl text-muted-foreground hover:text-primary transition-colors duration-200">@{developer.username}</p>
+
+            {/* Profile Intro */}
+            <div className="text-center md:text-left flex-grow">
+              <div className="flex flex-col md:flex-row md:items-center gap-3.5 mb-3 flex-wrap">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight">
+                  {developer.name}
+                </h1>
+                
+                {/* Dynamically Resolved Squad Tags */}
+                <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                  {devTeams.map((t) => (
+                    <Link key={t.id} href={`/teams/${t.id}`}>
+                      <Badge 
+                        className="text-xs font-black border-2 border-black shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] uppercase py-1 px-3 text-white cursor-pointer hover:scale-105 transition-transform"
+                        style={{ backgroundColor: t.color }}
+                      >
+                        {t.emoji} {t.name}
+                      </Badge>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Username badge */}
+              <div className="inline-flex items-center gap-2 bg-muted/20 border-2 border-black rounded-lg px-3 py-1 mb-4 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] hover:bg-[#ffde47]/10 transition-colors">
+                <span className="text-sm font-black text-muted-foreground">@{developer.username}</span>
+              </div>
+
+              {/* Role Title */}
+              <p className="text-lg sm:text-xl text-primary font-black uppercase tracking-wider mb-4">
+                👑 {developer.role}
+              </p>
+
+              {/* Bio */}
+              <p className="text-base sm:text-lg text-black/80 font-bold leading-relaxed max-w-3xl">
+                {developer.bio}
+              </p>
             </div>
-            <p className="text-xl text-primary font-semibold mb-4">{developer.role}</p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{developer.bio}</p>
           </div>
         </div>
 
-        {/* Developer Statistics */}
-        <div className="mb-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-card p-4 rounded-lg border border-border hover:border-primary/20 transition-colors duration-300 group flex flex-col items-center justify-center text-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors duration-200">
-                <span className="text-primary text-xl font-bold">{developer.projects.length}</span>
+        {/* Dynamic Metric Grid */}
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12">
+          {[
+            { label: "Projects Shipped", value: developer.projects.length, color: "#ffde47" },
+            { label: "Arsenal Stack", value: developer.skills.length, color: "#a3e635" },
+            { label: "Years Experience", value: `${developer.yearsExperience} Yrs`, color: "#38bdf8" },
+            { label: "Achievements", value: developer.achievements.length, color: "#f472b6" }
+          ].map((stat, idx) => (
+            <div key={idx} className="bg-white border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl p-5 hover:scale-102 transition-transform duration-200">
+              <p className="text-3xl font-black text-foreground mb-1">{stat.value}</p>
+              <div className="flex items-center gap-2 mt-1">
+                <span className="w-2.5 h-2.5 rounded-full inline-block border border-black shadow-[0.5px_0.5px_0px_rgba(0,0,0,1)]" style={{ backgroundColor: stat.color }}></span>
+                <h4 className="text-xs font-black uppercase text-foreground/75 tracking-wide">{stat.label}</h4>
               </div>
-              <h4 className="text-sm font-medium group-hover:text-primary transition-colors duration-200">Projects</h4>
             </div>
-            
-            <div className="bg-card p-4 rounded-lg border border-border hover:border-primary/20 transition-colors duration-300 group flex flex-col items-center justify-center text-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors duration-200">
-                <span className="text-primary text-xl font-bold">{developer.skills.length}</span>
-              </div>
-              <h4 className="text-sm font-medium group-hover:text-primary transition-colors duration-200">Skills</h4>
-            </div>
-            
-            <div className="bg-card p-4 rounded-lg border border-border hover:border-primary/20 transition-colors duration-300 group flex flex-col items-center justify-center text-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors duration-200">
-                <span className="text-primary text-xl font-bold">{developer.yearsExperience}</span>
-              </div>
-              <h4 className="text-sm font-medium group-hover:text-primary transition-colors duration-200">Years Exp.</h4>
-            </div>
-            
-            <div className="bg-card p-4 rounded-lg border border-border hover:border-primary/20 transition-colors duration-300 group flex flex-col items-center justify-center text-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors duration-200">
-                <span className="text-primary text-xl font-bold">{developer.achievements.length}</span>
-              </div>
-              <h4 className="text-sm font-medium group-hover:text-primary transition-colors duration-200">Achievements</h4>
-            </div>
-          </div>
+          ))}
         </div>
-        
-        {/* Profile Details Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {/* Left Column - Contact & Info */}
-          <div className="space-y-6">
-            <div className="bg-card p-6 rounded-lg border">
-              <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-muted-foreground" />
-                  <a href={developer.social.email} className="text-foreground hover:text-primary">
-                    {developer.email}
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-muted-foreground" />
-                  <span>{developer.phone}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-muted-foreground" />
-                  <span>{developer.location}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Calendar className="w-5 h-5 text-muted-foreground" />
-                  <span>{developer.yearsExperience} years experience</span>
-                </div>
-              </div>
-            </div>
 
-            <div className="bg-card p-6 rounded-lg border">
-              <h3 className="text-xl font-semibold mb-4">Social Links</h3>
-              <div className="space-y-3">
-                <a 
-                  href={developer.social.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                  <span>GitHub</span>
-                </a>
-                <a 
-                  href={developer.social.linkedin} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                  <span>LinkedIn</span>
-                </a>
-                <a 
-                  href={developer.social.twitter} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
-                >
-                  <Twitter className="w-5 h-5" />
-                  <span>Twitter</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Center Column - Skills */}
-          <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/20 transition-colors duration-300 group">
-            <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-200">Skills & Technologies</h3>
+        {/* 3-Column Profile details Grid */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+          
+          {/* Column 1: Profile Terminal & Contacts (4 Columns) */}
+          <div className="lg:col-span-4 space-y-6">
             
-            {/* Skill Categories */}
-            <div className="mb-4">
-              <div className="flex flex-wrap gap-2 mb-2">
-                <span className="px-2 py-0.5 bg-primary/20 text-primary rounded text-xs font-semibold">Frontend</span>
-                <span className="px-2 py-0.5 bg-muted text-muted-foreground rounded text-xs font-semibold">Backend</span>
-                <span className="px-2 py-0.5 bg-muted text-muted-foreground rounded text-xs font-semibold">DevOps</span>
-                <span className="px-2 py-0.5 bg-muted text-muted-foreground rounded text-xs font-semibold">Other</span>
-              </div>
-              <div className="h-1 w-full bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-primary rounded-full w-1/4"></div>
-              </div>
-            </div>
-            
-            <div className="flex flex-wrap gap-2">
-              {developer.skills.map((skill, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium hover:bg-primary hover:text-primary-foreground cursor-pointer transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-sm"
-                >
-                  {skill}
+            {/* Terminal mock */}
+            <div className="bg-[#1e1e24] text-amber-300 border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl p-6 font-mono text-xs">
+              <div className="flex justify-between items-center border-b border-amber-400/20 pb-3 mb-4">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
+                  <span className="text-amber-300 font-bold ml-2">dev-environment.sh</span>
                 </span>
-              ))}
+                <Cpu className="w-4 h-4 text-amber-300 animate-pulse" />
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <p className="font-bold text-amber-400">$ whoami</p>
+                  <p className="text-amber-100/90 mt-1 pl-2">
+                    Name: {developer.name}<br />
+                    Loc: {developer.location}
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-amber-400">$ sys --status</p>
+                  <p className="text-amber-100/90 mt-1 pl-2">
+                    Years Exp: {developer.yearsExperience} yrs<br />
+                    Featured: {developer.featured ? "TRUE" : "FALSE"}
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-amber-400">$ cat contacts.json</p>
+                  <p className="text-amber-100/90 mt-1 pl-2">
+                    Mail: {developer.email}<br />
+                    Tel: {developer.phone}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Panel */}
+            <div className="bg-white border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl p-6">
+              <h3 className="font-black text-sm uppercase tracking-widest text-foreground mb-4">
+                🌐 Connected networks
+              </h3>
+              
+              <div className="space-y-3">
+                <Button variant="neutral" className="w-full font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#ffde47] hover:scale-102 transition-all justify-start text-xs" asChild>
+                  <a href={developer.social.github} target="_blank" rel="noopener noreferrer">
+                    <Github className="w-4 h-4 mr-2.5 shrink-0" />
+                    Connect via GitHub
+                  </a>
+                </Button>
+                
+                <Button variant="neutral" className="w-full font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#38bdf8]/20 hover:scale-102 transition-all justify-start text-xs" asChild>
+                  <a href={developer.social.linkedin} target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="w-4 h-4 mr-2.5 text-blue-600 shrink-0" />
+                    Connect via LinkedIn
+                  </a>
+                </Button>
+                
+                <Button variant="neutral" className="w-full font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#f472b6]/20 hover:scale-102 transition-all justify-start text-xs" asChild>
+                  <a href={developer.social.twitter} target="_blank" rel="noopener noreferrer">
+                    <Twitter className="w-4 h-4 mr-2.5 text-pink-500 shrink-0" />
+                    Connect via Twitter
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 2: Technology Arsenal (Skills) (4 Columns) */}
+          <div className="lg:col-span-4 bg-white border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl p-6 sm:p-8">
+            <div className="flex items-center gap-2 mb-6">
+              <Cpu className="w-5 h-5 text-black" />
+              <h3 className="font-black text-sm text-foreground uppercase tracking-widest">
+                Technical Arsenal ({developer.skills.length})
+              </h3>
+            </div>
+
+            <div className="flex flex-wrap gap-2.5">
+              {developer.skills.map((skill, index) => {
+                const badgeColors = ["#ffde47", "#a3e635", "#38bdf8", "#f472b6", "#a78bfa"]
+                const pickedColor = badgeColors[index % badgeColors.length]
+                return (
+                  <span 
+                    key={index}
+                    className="px-3.5 py-2 bg-white border-2 border-black font-black text-xs sm:text-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform rounded-lg cursor-pointer"
+                    style={{ borderLeftColor: pickedColor, borderLeftWidth: "4px" }}
+                  >
+                    {skill}
+                  </span>
+                )
+              })}
             </div>
             
-            {/* Skill Level Indicators */}
-            <div className="mt-6 space-y-3">
-              <div>
-                <div className="flex justify-between text-sm mb-1">
-                  <span className="font-medium">Frontend Development</span>
-                  <span className="text-primary">Advanced</span>
-                </div>
-                <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                  <div className="h-full bg-primary rounded-full w-4/5"></div>
-                </div>
-              </div>
+            {/* Systems Engineering DNA */}
+            <div className="mt-8 border-t-2 border-dashed border-black/10 pt-6">
+              <h4 className="font-black text-xs uppercase tracking-widest text-foreground mb-4">
+                Architecture Competence
+              </h4>
               
-              <div>
-                <div className="flex justify-between text-sm mb-1">
-                  <span className="font-medium">Backend Development</span>
-                  <span className="text-primary">Intermediate</span>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between text-xs font-black uppercase mb-1">
+                    <span>Frontend Engineering</span>
+                    <span className="text-primary">Advanced</span>
+                  </div>
+                  <div className="h-3 w-full bg-muted border border-black rounded shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                    <div className="h-full bg-[#ffde47] rounded-r border-r border-black" style={{ width: "90%" }}></div>
+                  </div>
                 </div>
-                <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                  <div className="h-full bg-primary rounded-full w-3/5"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div className="flex justify-between text-sm mb-1">
-                  <span className="font-medium">DevOps</span>
-                  <span className="text-primary">Beginner</span>
-                </div>
-                <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                  <div className="h-full bg-primary rounded-full w-2/5"></div>
+                <div>
+                  <div className="flex justify-between text-xs font-black uppercase mb-1">
+                    <span>Backend Systems</span>
+                    <span className="text-primary">Robust</span>
+                  </div>
+                  <div className="h-3 w-full bg-muted border border-black rounded shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                    <div className="h-full bg-[#a3e635] rounded-r border-r border-black" style={{ width: "80%" }}></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Achievements Timeline */}
-          <div className="bg-card p-6 rounded-lg border border-border hover:border-primary/20 transition-colors duration-300 group">
-            <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-200">Achievements Timeline</h3>
-            
-            <div className="relative pl-8 border-l-2 border-primary/30 space-y-6">
-              {developer.achievements.map((achievement, index) => (
-                <div key={index} className="relative">
-                  {/* Timeline dot */}
-                  <div className="absolute -left-[25px] w-4 h-4 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                    <div className="w-2 h-2 bg-primary-foreground rounded-full"></div>
-                  </div>
-                  
-                  {/* Achievement card */}
-                  <div className="bg-muted/40 p-3 rounded-lg hover:bg-primary/5 transition-colors duration-200 transform hover:-translate-y-0.5 hover:shadow-sm">
-                    <div className="flex justify-between items-start mb-1">
-                      <span className="text-sm font-medium">{achievement}</span>
-                      <span className="text-xs text-muted-foreground bg-background px-2 py-0.5 rounded-full">
-                        {2023 - index} {/* Placeholder year */}
-                      </span>
+          {/* Column 3: Achievements Logs Terminal (4 Columns) */}
+          <div className="lg:col-span-4 bg-white border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl p-6 sm:p-8">
+            <div className="flex items-center gap-2 mb-6">
+              <Award className="w-5 h-5 text-black" />
+              <h3 className="font-black text-sm text-foreground uppercase tracking-widest">
+                Milestones & logs ({developer.achievements.length})
+              </h3>
+            </div>
+
+            <div className="relative pl-6 border-l-2 border-dashed border-black/30 space-y-6 font-mono text-xs">
+              {developer.achievements.map((achievement, index) => {
+                const year = 2025 - index
+                return (
+                  <div key={index} className="relative">
+                    {/* Retro timeline dot */}
+                    <div className="absolute -left-[30px] top-1 w-3.5 h-3.5 bg-black rounded-full flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 bg-[#a3e635] rounded-full"></div>
                     </div>
                     
-                    {/* Progress indicator */}
-                    <div className="mt-2 flex items-center gap-1">
-                      <div className="h-1 flex-grow bg-muted rounded-full overflow-hidden">
-                        <div className="h-full bg-primary rounded-full" style={{ width: `${100 - (index * 10)}%` }}></div>
+                    <div className="bg-[#fafafa] border-2 border-black rounded-lg p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      <div className="flex justify-between items-center mb-1 pb-1 border-b border-dashed border-black/10">
+                        <span className="text-[10px] font-black uppercase text-muted-foreground">LOG_0{index + 1}</span>
+                        <span className="text-[9px] font-black text-black bg-[#ffde47] border border-black px-1.5 py-0.5 rounded shadow-[0.5px_0.5px_0px_rgba(0,0,0,1)]">
+                          {year}
+                        </span>
                       </div>
-                      <span className="text-xs text-primary font-medium">{100 - (index * 10)}%</span>
+                      <p className="font-bold text-black/80">{achievement}</p>
                     </div>
                   </div>
-                </div>
-              ))}
-              
-              {/* Future achievement placeholder */}
-              <div className="relative opacity-50">
-                <div className="absolute -left-[25px] w-4 h-4 bg-muted rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-background rounded-full"></div>
-                </div>
-                <div className="bg-muted/30 p-3 rounded-lg border border-dashed border-muted-foreground/30">
-                  <span className="text-sm text-muted-foreground">Next milestone...</span>
-                </div>
-              </div>
+                )
+              })}
             </div>
           </div>
+
         </div>
 
-        {/* Projects Section */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-8">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {developer.projects.map((project, index) => (
-              <div 
-                key={index} 
-                className="group bg-card p-6 rounded-lg border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
-              >
-                {/* Subtle gradient overlay that appears on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">{project.name}</h3>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.tech.slice(0, 3).map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="px-2.5 py-1 bg-muted/70 text-muted-foreground rounded-full text-xs font-medium hover:bg-primary/10 hover:text-primary transition-colors duration-200"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.tech.length > 3 && (
-                      <span className="px-2.5 py-1 bg-muted/50 text-muted-foreground rounded-full text-xs font-medium hover:bg-primary/10 hover:text-primary transition-colors duration-200">
-                        +{project.tech.length - 3} more
-                      </span>
-                    )}
+        {/* Flagship Projects Section */}
+        {developer.projects.length > 0 && (
+          <div className="max-w-6xl mx-auto mb-12">
+            <h2 className="text-3xl sm:text-4xl font-black text-center mb-8 uppercase tracking-tight">
+              📂 Shipped blueprints
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {developer.projects.map((project, index) => (
+                <div 
+                  key={index} 
+                  className="group bg-white border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:scale-[1.01] transition-all duration-200 rounded-xl p-6 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex justify-between items-start mb-3">
+                      <span className="text-[10px] font-black uppercase text-muted-foreground">Blueprint #{index + 1}</span>
+                      <ShieldCheck className="w-5 h-5 text-[#a3e635]" />
+                    </div>
+                    
+                    <h3 className="text-xl font-black text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {project.name}
+                    </h3>
+                    <p className="text-sm font-semibold text-black/75 leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {project.tech.map((t, tIdx) => (
+                        <span 
+                          key={tIdx}
+                          className="px-2.5 py-1 bg-muted border border-black font-black text-[10px] rounded-md shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between border-t border-dashed border-black/10 pt-4 mt-auto">
                     <Button 
                       asChild 
-                      size="sm" 
-                      className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300"
+                      className="font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#ffde47] hover:scale-102 transition-all text-xs"
+                      size="sm"
                     >
                       <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
-                        View Project
-                        <ArrowLeft className="w-3.5 h-3.5 rotate-180 group-hover:translate-x-0.5 transition-transform duration-200" />
+                        Launch Portal
+                        <ExternalLink className="w-3.5 h-3.5 ml-1" />
                       </a>
                     </Button>
-                    
-                    {/* Project number badge */}
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center bg-muted/50 text-muted-foreground text-sm font-medium group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-200">
-                      {index + 1}
-                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
-        {/* CTA Section */}
-        <div className="text-center">
-          <div className="relative overflow-hidden bg-card p-8 rounded-lg border border-border hover:border-primary/20 transition-colors duration-300 max-w-2xl mx-auto">
-            {/* Background gradient effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+        {/* CTA Terminal */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-xl p-8 text-center relative overflow-hidden">
             
-            {/* Decorative elements */}
-            <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+            {/* Decorative background grid */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
             
-            <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-2">Connect with {developer.name}</h3>
-              <div className="w-16 h-1 bg-primary mx-auto mb-4 rounded-full"></div>
+            <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-2">
+              🚀 Initiate structural collaboration
+            </h3>
+            <p className="text-sm sm:text-base font-bold text-muted-foreground max-w-lg mx-auto mb-6">
+              Need clean architecture, robust microservices, or bleeding-edge frontend designs? Connect directly with {developer.name}.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button asChild className="w-full sm:w-auto font-bold border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-[#a3e635] hover:scale-102 transition-all py-5 text-sm">
+                <a href={`mailto:${developer.email}`}>
+                  <Mail className="w-4 h-4 mr-2" />
+                  Request consultation
+                </a>
+              </Button>
               
-              <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                Interested in collaborating or learning more? Reach out and let&apos;s build something amazing together!
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                <Button asChild className="bg-primary hover:bg-primary/90 transition-colors duration-200 shadow-sm hover:shadow-md">
-                  <a href={developer.social.email} className="flex items-center">
-                    <Mail className="w-4 h-4 mr-2" />
-                    Send Email
-                  </a>
-                </Button>
-                <Button variant="neutral" asChild className="border-primary/20 hover:bg-primary/10 hover:text-primary transition-colors duration-200 shadow-sm hover:shadow-md">
-                  <a href={developer.social.github} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    <Github className="w-4 h-4 mr-2" />
-                    View GitHub
-                  </a>
-                </Button>
-                <Button variant="neutral" asChild className="border-primary/20 hover:bg-primary/10 hover:text-primary transition-colors duration-200 shadow-sm hover:shadow-md">
-                  <a href={developer.social.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    <Linkedin className="w-4 h-4 mr-2" />
-                    LinkedIn
-                  </a>
-                </Button>
-              </div>
-              
-              {/* Availability indicator */}
-              <div className="inline-flex items-center gap-2 bg-muted/50 px-3 py-1.5 rounded-full">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium">Available for new opportunities</span>
-              </div>
+              <Button variant="neutral" asChild className="w-full sm:w-auto font-bold border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-[#ffde47] hover:scale-102 transition-all py-5 text-sm">
+                <a href={developer.social.github} target="_blank" rel="noopener noreferrer">
+                  <Github className="w-4 h-4 mr-2" />
+                  View GitHub
+                </a>
+              </Button>
+            </div>
+            
+            <div className="mt-6 flex items-center justify-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500 border border-black shadow-[0.5px_0.5px_0px_rgba(0,0,0,1)] animate-pulse"></span>
+              <span className="text-xs font-black text-black/80 uppercase">Available for select projects</span>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   )
