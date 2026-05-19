@@ -9,59 +9,22 @@ export const developers: Developer[] = [
     bio: "CSE Engineer, Blockchain Developer, and Tech Founder. Building innovative software, AI systems, and communities with purpose. State Convener at Think India.",
     avatar: "/devs/vishwanath.jpeg",
     skills: [
-      "C++",
-      "Python",
-      "JavaScript",
-      "TypeScript",
       "React.js",
       "Next.js 14",
-      "HTML5",
-      "CSS3",
-      "TailwindCSS",
-      "Responsive Design",
-      "Framer Motion",
-      "UI/UX Design",
+      "TypeScript",
       "Node.js",
-      "Flask",
+      "Python",
       "FastAPI",
-      "RESTful APIs",
-      "System Architecture",
-      "Authentication",
-      "MySQL",
       "MongoDB",
-      "Database Design",
-      "Query Optimization",
       "AI Integration",
-      "Machine Learning Fundamentals",
-      "OpenAI API",
-      "Local AI Systems",
-      "Privacy-First AI",
-      "Intelligent Automation",
       "Smart Contracts",
-      "DeFi",
-      "Blockchain Architecture",
-      "Cryptocurrency",
-      "Decentralized Systems",
-      "Git",
-      "GitHub",
-      "Vercel",
-      "Figma",
+      "System Architecture",
       "Docker",
-      "Linux",
-      "VS Code",
-      "Postman",
+      "Figma",
+      "Git",
       "Team Leadership",
-      "Community Building",
-      "Mentoring",
-      "Workshop Organization",
       "Public Speaking",
-      "Problem Solving",
-      "Cross-Cultural Collaboration",
-      "Technology for Social Impact",
-      "Youth Leadership",
-      "Sustainable Systems",
-      "Community-First Tech",
-      "Global Collaboration"
+      "Social Impact"
     ],
     yearsExperience: 4,
     location: "Delhi – Hubballi, Karnataka, India",
@@ -70,10 +33,40 @@ export const developers: Developer[] = [
     featured: true,
     projects: [
       {
+        name: "Haazri",
+        description: "Smart attendance management system built by Team Vidyut",
+        tech: ["Next.js", "React", "Node.js", "Tailwind CSS"],
+        link: "https://haazri.vishwadev.tech/"
+      },
+      {
+        name: "Krishinetra",
+        description: "Smart agricultural monitoring platform built by Team Vidyut",
+        tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+        link: "https://krishinetra.vishwadev.tech/"
+      },
+      {
+        name: "Vidyut",
+        description: "The flagship platform of Team Vidyut",
+        tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+        link: "https://vidyut.vishwadev.tech/"
+      },
+      {
         name: "SAMVIDHAN — Aadhaar Intelligence Platform",
         description: "Enterprise-grade Aadhaar intelligence and fraud detection platform with 6 AI frameworks serving 1.4B+ citizens.",
         tech: ["FastAPI", "Python", "differential privacy", "federated analytics", "geospatial tracking"],
         link: "https://vk.vishwadev.tech/projects/4"
+      },
+      {
+        name: "ClauseWala",
+        description: "AI-powered contract drafting platform with interactive clause-by-clause risk assessment for Indian startups.",
+        tech: ["Next.js", "React", "Together API", "Legal AI"],
+        link: "https://clausewala.in/"
+      },
+      {
+        name: "SASA — Smart Architecture & Structural Analytics",
+        description: "AI-powered web application for structural load calculation and material design recommendations.",
+        tech: ["Next.js", "TailwindCSS", "Flask", "AI Analysis"],
+        link: "https://sasa.engineer"
       },
       {
         name: "Delhi-NCR Air Quality Monitoring Dashboard",
@@ -94,12 +87,6 @@ export const developers: Developer[] = [
         link: "https://vk.vishwadev.tech/projects/4"
       },
       {
-        name: "SASA — Smart Architecture & Structural Analytics",
-        description: "AI-powered web application for structural load calculation and material design recommendations.",
-        tech: ["Next.js", "TailwindCSS", "Flask", "AI Analysis"],
-        link: "https://sasa.engineer"
-      },
-      {
         name: "LAHU — Digital Blood Donation",
         description: "Full-stack real-time matching platform between blood donors, hospitals, and blood banks.",
         tech: ["Next.js", "FastAPI", "TypeScript", "Realtime alerts"],
@@ -116,30 +103,6 @@ export const developers: Developer[] = [
         description: "Bilingual health information system with medicine search, price comparisons, and AI medical summaries.",
         tech: ["Next.js", "Together.ai", "OpenFDA API", "Tailwind CSS"],
         link: "https://aarogyam.vishwadev.tech/"
-      },
-      {
-        name: "ClauseWala",
-        description: "AI-powered contract drafting platform with interactive clause-by-clause risk assessment for Indian startups.",
-        tech: ["Next.js", "React", "Together API", "Legal AI"],
-        link: "https://clausewala.in/"
-      },
-      {
-        name: "Transaction Tracker — AI Finance Manager",
-        description: "Smart financial expense tracker with AI-generated voice playback analysis and summaries.",
-        tech: ["React", "Flask", "Together API", "Text-to-Speech"],
-        link: "https://vk.vishwadev.tech/projects"
-      },
-      {
-        name: "FitAdapt — Personal Workout Coach",
-        description: "Intelligent workout generation dashboard that personalizes fitness plans using performance analytics.",
-        tech: ["Next.js", "Supabase", "Tailwind CSS"],
-        link: "https://vk.vishwadev.tech/projects"
-      },
-      {
-        name: "Hubballi-Dharwad Cultural Guide",
-        description: "Bilingual platform (English/Kannada) with interactive maps for Twin Cities' heritage site explorations.",
-        tech: ["Next.js", "Kannada Support", "Interactive Maps"],
-        link: "https://vk.vishwadev.tech/projects"
       }
     ],
     achievements: [
