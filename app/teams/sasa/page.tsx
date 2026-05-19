@@ -21,7 +21,7 @@ export default function SasaTeamPage() {
 
   // Cool fun stats for SASA
   const funStats = [
-    { label: "Core Architects", value: "2", icon: Users, desc: "Principal system designers" },
+    { label: "Core Architects", value: "4", icon: Users, desc: "Principal system designers" },
     { label: "System Audits", value: "45+", icon: Folder, desc: "Architectural reviews executed" },
     { label: "Microservices", value: "12", icon: Code2, desc: "Decoupled system topologies" },
     { label: "Matchas Shipped", value: "1.2K+", icon: Coffee, desc: "Fueling structural logic" }
@@ -35,8 +35,8 @@ export default function SasaTeamPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Structural Indigo Accent Top Bar */}
-      <div className="h-2 w-full bg-[#6366f1]" />
+      {/* Structural Crimson Accent Top Bar */}
+      <div className="h-2 w-full bg-[#b91c1c]" />
 
       <div className="container mx-auto px-4 pt-20 sm:pt-24 lg:pt-28 pb-16">
         
@@ -49,7 +49,7 @@ export default function SasaTeamPage() {
             </Link>
           </Button>
           
-          <Badge className="bg-[#6366f1] hover:bg-[#6366f1] text-white border-2 border-black font-black uppercase text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] py-1 px-3">
+          <Badge className="bg-[#b91c1c] hover:bg-[#b91c1c] text-white border-2 border-black font-black uppercase text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] py-1 px-3">
             🏛️ SQUAD STATUS: ONLINE & DEPLOYED
           </Badge>
         </div>
@@ -58,7 +58,7 @@ export default function SasaTeamPage() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           
           {/* Cover Art Frame (Left 7 Columns) */}
-          <div className="lg:col-span-7 bg-white border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(99,102,241,1)] rounded-xl overflow-hidden group">
+          <div className="lg:col-span-7 bg-white border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(185,28,28,1)] rounded-xl overflow-hidden group">
             <div className="relative h-72 sm:h-96 w-full bg-muted">
               <Image 
                 src="/teams/sasa_team_cover.png"
@@ -95,7 +95,7 @@ export default function SasaTeamPage() {
           <div className="lg:col-span-5 bg-white border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Zap className="w-5 h-5 text-[#6366f1]" />
+                <Zap className="w-5 h-5 text-[#b91c1c]" />
                 <h3 className="font-black text-xs text-foreground uppercase tracking-widest">
                   System Architecture & Mandate
                 </h3>
@@ -118,7 +118,7 @@ export default function SasaTeamPage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-xs font-black uppercase text-muted-foreground">Current Protocol</span>
-                  <span className="text-xs font-black text-[#6366f1] animate-pulse">
+                  <span className="text-xs font-black text-[#b91c1c] animate-pulse">
                     🏛️ SECURE KERNEL STABLE
                   </span>
                 </div>
@@ -127,7 +127,7 @@ export default function SasaTeamPage() {
 
             {/* Quick action button to contact */}
             <div className="mt-8">
-              <Button variant="default" size="lg" className="w-full font-bold border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-[#6366f1] hover:text-white hover:scale-[1.01] transition-all text-sm py-4" asChild>
+              <Button variant="default" size="lg" className="w-full font-bold border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-[#b91c1c] hover:text-white hover:scale-[1.01] transition-all text-sm py-4" asChild>
                 <a href="mailto:info@vishwadev.tech?subject=Inquiry%20for%20Team%20SASA">
                   Consult SASA Architects
                 </a>
@@ -141,8 +141,8 @@ export default function SasaTeamPage() {
           {funStats.map((stat, idx) => (
             <div key={idx} className="bg-white border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl p-5 hover:scale-102 transition-transform duration-200">
               <div className="flex justify-between items-start mb-3">
-                <div className="p-2 bg-[#6366f1]/10 border border-black rounded-lg">
-                  <stat.icon className="w-5 h-5 text-[#6366f1]" />
+                <div className="p-2 bg-[#b91c1c]/10 border border-black rounded-lg">
+                  <stat.icon className="w-5 h-5 text-[#b91c1c]" />
                 </div>
                 <span className="text-xs font-black uppercase tracking-wider text-muted-foreground">Active</span>
               </div>
@@ -170,7 +170,7 @@ export default function SasaTeamPage() {
                   <Link
                     key={member.username}
                     href={`/${member.username.toLowerCase()}`}
-                    className="group flex flex-col justify-between bg-[#fafafa] hover:bg-white border-2 border-black hover:border-black rounded-lg p-4 transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(99,102,241,1)] hover:scale-102"
+                    className="group flex flex-col justify-between bg-[#fafafa] hover:bg-white border-2 border-black hover:border-black rounded-lg p-4 transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(185,28,28,1)] hover:scale-102"
                   >
                     <div className="flex items-center gap-3.5 mb-3">
                       <div
@@ -199,22 +199,22 @@ export default function SasaTeamPage() {
             </div>
 
             {/* Terminal Panel (Cool Value-list) */}
-            <div className="bg-[#1e1e24] text-indigo-300 border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl p-6 font-mono text-xs">
-              <div className="flex justify-between items-center border-b border-indigo-400/20 pb-3 mb-4">
+            <div className="bg-[#1e1e24] text-red-300 border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl p-6 font-mono text-xs">
+              <div className="flex justify-between items-center border-b border-red-500/20 pb-3 mb-4">
                 <span className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
-                  <span className="text-indigo-300 font-bold ml-2">sasa-kernel-protocol.config</span>
+                  <span className="text-red-300 font-bold ml-2">sasa-kernel-protocol.config</span>
                 </span>
-                <Cpu className="w-4 h-4 text-indigo-300 animate-pulse" />
+                <Cpu className="w-4 h-4 text-red-300 animate-pulse" />
               </div>
               
               <div className="space-y-4">
                 {coreValues.map((val, idx) => (
-                  <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
-                    <p className="font-bold text-[#6366f1]">$ {val.title}</p>
-                    <p className="text-indigo-200/80 mt-1 leading-relaxed">{val.desc}</p>
+                  <div key={idx} className="border-l-2 border-red-500/30 pl-3">
+                    <p className="font-bold text-[#b91c1c]">$ {val.title}</p>
+                    <p className="text-red-200/80 mt-1 leading-relaxed">{val.desc}</p>
                   </div>
                 ))}
               </div>
@@ -239,7 +239,7 @@ export default function SasaTeamPage() {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-col justify-between p-4 bg-[#fafafa] hover:bg-white border-2 border-black rounded-lg transition-all group shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(99,102,241,1)] hover:scale-102"
+                    className="flex flex-col justify-between p-4 bg-[#fafafa] hover:bg-white border-2 border-black rounded-lg transition-all group shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(185,28,28,1)] hover:scale-102"
                   >
                     <div className="flex justify-between items-start mb-2">
                       <div>
@@ -267,11 +267,11 @@ export default function SasaTeamPage() {
             {/* Achievement Widget */}
             <div className="bg-white border-[3px] border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl p-6">
               <div className="flex items-center gap-2 mb-3">
-                <Award className="w-5 h-5 text-[#6366f1]" />
+                <Award className="w-5 h-5 text-[#b91c1c]" />
                 <h4 className="font-black text-xs uppercase tracking-widest text-foreground">SQUAD PROTOCOL LEVEL</h4>
               </div>
               <div className="bg-[#fafafa] border-2 border-black rounded-lg p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                <p className="text-sm font-black text-[#6366f1] mb-1">🏅 L3 DECENTRALIZATION SHIELD</p>
+                <p className="text-sm font-black text-[#b91c1c] mb-1">🏅 L3 DECENTRALIZATION SHIELD</p>
                 <p className="text-xs text-black/70 font-semibold leading-relaxed">
                   Successfully deployed completely isolated workspace environments programmatically separating microservices without shared infrastructure lock-ins.
                 </p>

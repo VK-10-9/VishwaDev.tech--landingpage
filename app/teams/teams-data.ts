@@ -53,7 +53,7 @@ export const teams: Team[] = [
     tagline: "Structural Intelligence, by design",
     description:
       "SASA is a developer collective focused on building structured, scalable software systems with an emphasis on clean architecture and design excellence.",
-    color: "#6366f1",
+    color: "#b91c1c",
     emoji: "🏛️",
     members: [
       { developerId: 1, name: "Vishwanath K.", username: "VK", role: "Principal Architect" },
