@@ -5,8 +5,8 @@ export const developers: Developer[] = [
     id: 1,
     name: "Vishwanath K.",
     username: "VK",
-    role: "Community Architect",
-    bio: "Leading the development of innovative web solutions and mentoring the next generation of developers at VishwaDev.",
+    role: "Tech Entrepreneur & Developer",
+    bio: "CSE Engineer, Blockchain Developer, and Tech Founder. Building innovative software, AI systems, and communities with purpose. State Convener at Think India.",
     avatar: "/devs/vishwanath.jpeg",
     skills: [
       "C++",
@@ -64,61 +64,93 @@ export const developers: Developer[] = [
       "Global Collaboration"
     ],
     yearsExperience: 4,
-    location: "Hubballi, Karnataka",
+    location: "Delhi – Hubballi, Karnataka, India",
     email: "vishwanathkoliwad@gmail.com",
     phone: "7011329518",
     featured: true,
     projects: [
       {
-        name: "Haazri",
-        description: "Smart attendance management system built by Team Vidyut",
-        tech: ["Next.js", "React", "Node.js", "Tailwind CSS"],
-        link: "https://haazri.vishwadev.tech/"
+        name: "SAMVIDHAN — Aadhaar Intelligence Platform",
+        description: "Enterprise-grade Aadhaar intelligence and fraud detection platform with 6 AI frameworks serving 1.4B+ citizens.",
+        tech: ["FastAPI", "Python", "differential privacy", "federated analytics", "geospatial tracking"],
+        link: "https://vk.vishwadev.tech/projects/4"
       },
       {
-        name: "Krishinetra",
-        description: "Smart agricultural monitoring platform built by Team Vidyut",
-        tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-        link: "https://krishinetra.vishwadev.tech/"
+        name: "Delhi-NCR Air Quality Monitoring Dashboard",
+        description: "Real-time AQI monitoring and ML-powered 24-hour predictive pollution forecasting dashboard.",
+        tech: ["React", "Python", "ML Forecasting", "Leaflet"],
+        link: "https://vk.vishwadev.tech/projects/5"
       },
       {
-        name: "Vidyut",
-        description: "The flagship platform of Team Vidyut",
-        tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-        link: "https://vidyut.vishwadev.tech/"
+        name: "ASHA Sync Pro — Healthcare PWA",
+        description: "Offline-first progressive web app with IndexedDB and Hindi voice input via Web Speech API.",
+        tech: ["Next.js", "PWA", "IndexedDB", "Web Speech API"],
+        link: "https://vk.vishwadev.tech/projects/6"
+      },
+      {
+        name: "Zero-Barrier Jobs",
+        description: "Voice-first, language-inclusive job application system enabling low-tech workers to apply via missed call, SMS, or WhatsApp.",
+        tech: ["IVR", "BHASHINI", "WhatsApp API", "Node.js"],
+        link: "https://vk.vishwadev.tech/projects/4"
+      },
+      {
+        name: "SASA — Smart Architecture & Structural Analytics",
+        description: "AI-powered web application for structural load calculation and material design recommendations.",
+        tech: ["Next.js", "TailwindCSS", "Flask", "AI Analysis"],
+        link: "https://sasa.engineer"
+      },
+      {
+        name: "LAHU — Digital Blood Donation",
+        description: "Full-stack real-time matching platform between blood donors, hospitals, and blood banks.",
+        tech: ["Next.js", "FastAPI", "TypeScript", "Realtime alerts"],
+        link: "https://vk.vishwadev.tech/projects/6"
+      },
+      {
+        name: "Rover-32 — Surveillance Bot",
+        description: "ESP32-based autonomous surveillance bot featuring obstacle avoidance and real-time video streaming.",
+        tech: ["ESP32", "IoT", "C++", "Robotics"],
+        link: "https://vk.vishwadev.tech/projects"
       },
       {
         name: "Aarogyam",
-        description: "A comprehensive health and wellness platform.",
-        tech: ["Next.js", "React", "Tailwind CSS"],
+        description: "Bilingual health information system with medicine search, price comparisons, and AI medical summaries.",
+        tech: ["Next.js", "Together.ai", "OpenFDA API", "Tailwind CSS"],
         link: "https://aarogyam.vishwadev.tech/"
       },
       {
-        name: "Clausewala",
-        description: "A smart legal tech solution for dynamic clause generation.",
-        tech: ["Next.js", "React", "Node.js"],
+        name: "ClauseWala",
+        description: "AI-powered contract drafting platform with interactive clause-by-clause risk assessment for Indian startups.",
+        tech: ["Next.js", "React", "Together API", "Legal AI"],
         link: "https://clausewala.in/"
       },
       {
-        name: "Samip",
-        description: "A modern application tailored for smart digital connectivity.",
-        tech: ["React", "TypeScript", "Tailwind CSS"],
-        link: "https://samip.vishwadev.tech/"
+        name: "Transaction Tracker — AI Finance Manager",
+        description: "Smart financial expense tracker with AI-generated voice playback analysis and summaries.",
+        tech: ["React", "Flask", "Together API", "Text-to-Speech"],
+        link: "https://vk.vishwadev.tech/projects"
       },
       {
-        name: "Kruskal",
-        description: "Interactive algorithm visualization and graph theory tool.",
-        tech: ["JavaScript", "HTML", "CSS"],
-        link: "https://kruskal.vishwadev.tech/"
+        name: "FitAdapt — Personal Workout Coach",
+        description: "Intelligent workout generation dashboard that personalizes fitness plans using performance analytics.",
+        tech: ["Next.js", "Supabase", "Tailwind CSS"],
+        link: "https://vk.vishwadev.tech/projects"
       },
       {
-        name: "VishwaDev Platform",
-        description: "Complete student developer showcase platform with Next.js and modern tech stack",
-        tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-        link: "https://github.com/VK-10-9/VishwaDev.tech--landingpage"
+        name: "Hubballi-Dharwad Cultural Guide",
+        description: "Bilingual platform (English/Kannada) with interactive maps for Twin Cities' heritage site explorations.",
+        tech: ["Next.js", "Kannada Support", "Interactive Maps"],
+        link: "https://vk.vishwadev.tech/projects"
       }
     ],
-    achievements: ["Tech Lead at VishwaDev", "Open Source Contributor", "Student Innovation Mentor"],
+    achievements: [
+      "State Convener @ Think India North Karnataka (50+ institutions)",
+      "UIDAI Data Hackathon 2026 Winner (SAMVIDHAN Aadhaar Platform)",
+      "Smart India Hackathon 2025 Finalist (Delhi AQI Dashboard & ASHA Sync Pro)",
+      "ONEST Hackathon 3rd Place Winner (Zero-Barrier Jobs)",
+      "CEO @ SASA Engineers & Co-Founder @ Event Union",
+      "KLEIT IEEE Student Branch Secretary & CodeNex Lead",
+      "1st Prize - SASA Structural Analytics, 3rd Prize - LAHU Blood Donation"
+    ],
     social: {
       github: "https://github.com/VK-10-9",
       linkedin: "https://www.linkedin.com/in/vishwanath-koliwad/",
