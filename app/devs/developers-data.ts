@@ -220,13 +220,21 @@ export const developers: Developer[] = [
     id: 4,
     name: "Bhumika Dalabhanjan",
     username: "Bhumify",
-    role: "Frontend Developer",
-    bio: "Creating beautiful and intuitive user interfaces with React and modern CSS.",
+    role: "Frontend Developer & Product Strategist",
+    bio: "Frontend Developer & Product Strategist passionate about React, UI/UX, operations, and cross-functional collaboration to deliver impactful digital experiences.",
     avatar: "/devs/bhumika.jpg",
-    skills: ["React", "CSS3", "JavaScript", "Tailwind CSS", "Figma", "Animation"],
+    skills: [
+      "Frontend Development",
+      "React",
+      "UI/UX",
+      "Backend Basics",
+      "Operations",
+      "Product strategy",
+      "Team Collaboration"
+    ],
     yearsExperience: 2,
     location: "Belgaum, Karnataka",
-    email: "bhumikad1015@gmail.com",
+    email: "bhumikadalabhanjan@gmail.com",
     phone: "6366445777",
     featured: false,
     projects: [
@@ -258,9 +266,9 @@ export const developers: Developer[] = [
     achievements: ["UI/UX Design Champion", "Frontend Innovation Award"],
     social: {
       github: "https://github.com/bhumikadev",
-      linkedin: "http://linkedin.com/in/bhumika-dalabhanjan-047bbb361",
+      linkedin: "https://www.linkedin.com/in/bhumika-dalabhanjan-047bbb361",
       twitter: "https://x.com/RBhumika74756",
-      email: "mailto:bhumikad1015@gmail.com"
+      email: "mailto:bhumikadalabhanjan@gmail.com"
     }
   },
   {

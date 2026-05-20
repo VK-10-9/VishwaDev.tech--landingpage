@@ -35,7 +35,7 @@ export const teams: Team[] = [
     emoji: "⚡",
     members: [
       { developerId: 1, name: "Vishwanath Koliwad", username: "VK", role: "Lead Developer" },
-      { developerId: 4, name: "Bhumika Dalabhanjan", username: "Bhumify", role: "Frontend Developer" },
+      { developerId: 4, name: "Bhumika Dalabhanjan", username: "Bhumify", role: "Frontend Developer & Product Strategist" },
       { developerId: 3, name: "Raheel H.", username: "Zeus", role: "Backend Developer" },
       { developerId: 2, name: "Disha Raikar", username: "disha", role: "Full Stack Developer" },
     ],
